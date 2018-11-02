@@ -1,0 +1,17 @@
+.\obj\system_stm32f4xx.o: ..\Libraries\CMSIS\Device\system_stm32f4xx.c
+.\obj\system_stm32f4xx.o: ..\Libraries\CMSIS\Device\stm32f4xx.h
+.\obj\system_stm32f4xx.o: ..\Libraries\CMSIS\Include\core_cm4.h
+.\obj\system_stm32f4xx.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\system_stm32f4xx.o: ..\Libraries\CMSIS\Include\core_cmInstr.h
+.\obj\system_stm32f4xx.o: ..\Libraries\CMSIS\Include\core_cmFunc.h
+.\obj\system_stm32f4xx.o: ..\Libraries\CMSIS\Include\core_cmSimd.h
+.\obj\system_stm32f4xx.o: ..\Libraries\CMSIS\Device\system_stm32f4xx.h
+.\obj\system_stm32f4xx.o: ..\Program\stm32f4xx_conf.h
+.\obj\system_stm32f4xx.o: ..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_exti.h
+.\obj\system_stm32f4xx.o: ..\Libraries\CMSIS\Device\stm32f4xx.h
+.\obj\system_stm32f4xx.o: ..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_gpio.h
+.\obj\system_stm32f4xx.o: ..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_rcc.h
+.\obj\system_stm32f4xx.o: ..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_spi.h
+.\obj\system_stm32f4xx.o: ..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_syscfg.h
+.\obj\system_stm32f4xx.o: ..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_usart.h
+.\obj\system_stm32f4xx.o: ..\Libraries\STM32F4xx_StdPeriph_Driver\inc\misc.h
