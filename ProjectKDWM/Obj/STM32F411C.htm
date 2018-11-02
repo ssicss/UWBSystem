@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Obj\STM32F411C.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Obj\STM32F411C.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Oct 31 10:29:56 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Nov 02 16:30:57 2018
 <BR><P>
 <H3>Maximum Stack Usage =        128 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -17,7 +17,7 @@ Mutually Recursive functions
  <LI><a href="#[3]">MemManage_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[3]">MemManage_Handler</a><BR>
  <LI><a href="#[1]">NMI_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1]">NMI_Handler</a><BR>
  <LI><a href="#[5]">UsageFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[5]">UsageFault_Handler</a><BR>
- <LI><a href="#[73]">SPI_RW</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[73]">SPI_RW</a><BR>
+ <LI><a href="#[5e]">SPI_RW</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[5e]">SPI_RW</a><BR>
 </UL>
 <P>
 <H3>
@@ -102,25 +102,25 @@ Global Symbols
 <P><STRONG><a name="[45]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f411xe.o(.text)
 </UL>
-<P><STRONG><a name="[90]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
+<P><STRONG><a name="[7a]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
 
 <P><STRONG><a name="[47]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[52]"></a>__main_after_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
+<P><STRONG><a name="[49]"></a>__main_after_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Called By]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[91]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[7b]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[92]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[7c]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[93]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[7d]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[94]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[7e]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[95]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[7f]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_stm32f411xe.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f411xe.o(RESET)
@@ -297,83 +297,13 @@ Global Symbols
 <P><STRONG><a name="[a]"></a>WWDG_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f411xe.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f411xe.o(RESET)
 </UL>
-<P><STRONG><a name="[49]"></a>__aeabi_dmul</STRONG> (Thumb, 228 bytes, Stack size 48 bytes, dmul.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
-</UL>
-<BR>[Calls]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
-</UL>
-<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DEMO_SSTWR_INITIATOR
-</UL>
-
-<P><STRONG><a name="[4b]"></a>__aeabi_i2d</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, dflti.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = __aeabi_i2d &rArr; _double_epilogue &rArr; _double_round
-</UL>
-<BR>[Calls]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
-</UL>
-<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DEMO_SSTWR_INITIATOR
-</UL>
-
-<P><STRONG><a name="[4c]"></a>__aeabi_d2uiz</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, dfixui.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_d2uiz
-</UL>
-<BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
-</UL>
-<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DEMO_SSTWR_INITIATOR
-</UL>
-
-<P><STRONG><a name="[4e]"></a>__aeabi_d2f</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, d2f.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_d2f
-</UL>
-<BR>[Calls]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_round
-</UL>
-<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DEMO_SSTWR_INITIATOR
-</UL>
-
-<P><STRONG><a name="[4d]"></a>__aeabi_llsr</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, llushr.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
-<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
-</UL>
-
-<P><STRONG><a name="[96]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
-
-<P><STRONG><a name="[97]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, iusefp.o(.text), UNUSED)
-
-<P><STRONG><a name="[4f]"></a>_float_round</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, fepilogue.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-</UL>
-
-<P><STRONG><a name="[98]"></a>_float_epilogue</STRONG> (Thumb, 92 bytes, Stack size 4 bytes, fepilogue.o(.text), UNUSED)
-
-<P><STRONG><a name="[51]"></a>_double_round</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, depilogue.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _double_round
-</UL>
-<BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
-</UL>
-
-<P><STRONG><a name="[4a]"></a>_double_epilogue</STRONG> (Thumb, 156 bytes, Stack size 32 bytes, depilogue.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = _double_epilogue &rArr; _double_round
-</UL>
-<BR>[Calls]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
-<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
-</UL>
-<BR>[Called By]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
-<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-</UL>
-
 <P><STRONG><a name="[48]"></a>__scatterload</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, init.o(.text))
-<BR><BR>[Calls]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main_after_scatterload
+<BR><BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main_after_scatterload
 </UL>
 <BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[99]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
-
-<P><STRONG><a name="[50]"></a>__aeabi_llsl</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, llshl.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
-</UL>
-
-<P><STRONG><a name="[9a]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
+<P><STRONG><a name="[80]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[4]"></a>BusFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, kdwm1000_it.o(i.BusFault_Handler))
 <BR><BR>[Calls]<UL><LI><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BusFault_Handler
@@ -382,230 +312,181 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f411xe.o(RESET)
 </UL>
-<P><STRONG><a name="[53]"></a>DEMO_SSTWR_INITIATOR</STRONG> (Thumb, 550 bytes, Stack size 16 bytes, kdwm1000.o(i.DEMO_SSTWR_INITIATOR))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = DEMO_SSTWR_INITIATOR &rArr; dwt_starttx &rArr; dwt_entersleepaftertx &rArr; DW1000_writeData32 &rArr; DW1000_writeData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_writetxfctrl
-<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_writetxdata
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_starttx
-<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_setrxtimeout
-<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_setrxaftertxdelay
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_readtxtimestamplo32
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_readrxtimestamplo32
-<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_readrxdata
-<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
-<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
-<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData32
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData32
-<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkPacket
-<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;resp_msg_get_ts
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-</UL>
-<BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Loop
-</UL>
-
-<P><STRONG><a name="[61]"></a>DW1000_Config</STRONG> (Thumb, 244 bytes, Stack size 64 bytes, dw1000.o(i.DW1000_Config))
+<P><STRONG><a name="[4a]"></a>DW1000_Config</STRONG> (Thumb, 244 bytes, Stack size 64 bytes, dw1000.o(i.DW1000_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = DW1000_Config &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
-<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
-<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Init
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Cmd
+<BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Init
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Cmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_DW1000_Config
+<BR>[Called By]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_DW1000_Config
 </UL>
 
-<P><STRONG><a name="[67]"></a>DW1000_GetDeviceID</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, dw1000.o(i.DW1000_GetDeviceID))
+<P><STRONG><a name="[50]"></a>DW1000_GetDeviceID</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, dw1000.o(i.DW1000_GetDeviceID))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = DW1000_GetDeviceID &rArr; DW1000_readData32 &rArr; DW1000_readData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData32
+<BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData32
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
 </UL>
 
-<P><STRONG><a name="[68]"></a>DW1000_ReadOPT</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, dw1000.o(i.DW1000_ReadOPT))
+<P><STRONG><a name="[52]"></a>DW1000_ReadOPT</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, dw1000.o(i.DW1000_ReadOPT))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = DW1000_ReadOPT &rArr; DW1000_writeData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData
-<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData
+<BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
 </UL>
 
-<P><STRONG><a name="[6b]"></a>DW1000_Reset</STRONG> (Thumb, 82 bytes, Stack size 32 bytes, dw1000.o(i.DW1000_Reset))
+<P><STRONG><a name="[55]"></a>DW1000_Reset</STRONG> (Thumb, 82 bytes, Stack size 32 bytes, dw1000.o(i.DW1000_Reset))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = DW1000_Reset &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Init
+<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Init
 </UL>
 
-<P><STRONG><a name="[6c]"></a>DW1000_SetAntennaDelayRX</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, dw1000.o(i.DW1000_SetAntennaDelayRX))
+<P><STRONG><a name="[57]"></a>DW1000_SetAntennaDelayRX</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, dw1000.o(i.DW1000_SetAntennaDelayRX))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = DW1000_SetAntennaDelayRX &rArr; DW1000_writeData16 &rArr; DW1000_writeData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData16
+<BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData16
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Init
+<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Init
 </UL>
 
-<P><STRONG><a name="[6e]"></a>DW1000_SetAntennaDelayTX</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, dw1000.o(i.DW1000_SetAntennaDelayTX))
+<P><STRONG><a name="[59]"></a>DW1000_SetAntennaDelayTX</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, dw1000.o(i.DW1000_SetAntennaDelayTX))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = DW1000_SetAntennaDelayTX &rArr; DW1000_writeData16 &rArr; DW1000_writeData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData16
+<BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData16
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Init
+<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Init
 </UL>
 
-<P><STRONG><a name="[6f]"></a>DW1000_SetClock</STRONG> (Thumb, 176 bytes, Stack size 16 bytes, dw1000.o(i.DW1000_SetClock))
+<P><STRONG><a name="[5a]"></a>DW1000_SetClock</STRONG> (Thumb, 176 bytes, Stack size 16 bytes, dw1000.o(i.DW1000_SetClock))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = DW1000_SetClock &rArr; DW1000_writeData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData
-<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData
+<BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
 </UL>
 
-<P><STRONG><a name="[70]"></a>DW1000_SetCrystalTrim</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, dw1000.o(i.DW1000_SetCrystalTrim))
+<P><STRONG><a name="[5b]"></a>DW1000_SetCrystalTrim</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, dw1000.o(i.DW1000_SetCrystalTrim))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = DW1000_SetCrystalTrim &rArr; DW1000_writeData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData
-<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData
+<BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
 </UL>
 
-<P><STRONG><a name="[71]"></a>DW1000_SetSpeed</STRONG> (Thumb, 80 bytes, Stack size 32 bytes, dw1000.o(i.DW1000_SetSpeed))
+<P><STRONG><a name="[5c]"></a>DW1000_SetSpeed</STRONG> (Thumb, 80 bytes, Stack size 32 bytes, dw1000.o(i.DW1000_SetSpeed))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = DW1000_SetSpeed &rArr; SPI_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Init
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_I2S_DeInit
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Cmd
+<BR>[Calls]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Init
+<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_I2S_DeInit
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Cmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
 </UL>
 
-<P><STRONG><a name="[6a]"></a>DW1000_readData</STRONG> (Thumb, 140 bytes, Stack size 40 bytes, dw1000.o(i.DW1000_readData))
+<P><STRONG><a name="[54]"></a>DW1000_readData</STRONG> (Thumb, 140 bytes, Stack size 40 bytes, dw1000.o(i.DW1000_readData))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = DW1000_readData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RW
+<BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RW
 </UL>
-<BR>[Called By]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_setrxtimeout
-<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_readrxdata
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData32
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData16
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetCrystalTrim
-<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetClock
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_ReadOPT
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
+<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData32
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetCrystalTrim
+<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetClock
+<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_ReadOPT
 </UL>
 
-<P><STRONG><a name="[74]"></a>DW1000_readData16</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, dw1000.o(i.DW1000_readData16))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = DW1000_readData16 &rArr; DW1000_readData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData
-</UL>
-<BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_starttx
-</UL>
-
-<P><STRONG><a name="[5a]"></a>DW1000_readData32</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, dw1000.o(i.DW1000_readData32))
+<P><STRONG><a name="[51]"></a>DW1000_readData32</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, dw1000.o(i.DW1000_readData32))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = DW1000_readData32 &rArr; DW1000_readData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData
+<BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData
 </UL>
-<BR>[Called By]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_setrxaftertxdelay
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_readtxtimestamplo32
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_readrxtimestamplo32
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
-<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DEMO_SSTWR_INITIATOR
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_entersleepaftertx
-<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_GetDeviceID
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
+<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_GetDeviceID
 </UL>
 
-<P><STRONG><a name="[69]"></a>DW1000_writeData</STRONG> (Thumb, 142 bytes, Stack size 40 bytes, dw1000.o(i.DW1000_writeData))
+<P><STRONG><a name="[53]"></a>DW1000_writeData</STRONG> (Thumb, 142 bytes, Stack size 40 bytes, dw1000.o(i.DW1000_writeData))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = DW1000_writeData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RW
+<BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RW
 </UL>
-<BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_writetxdata
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_starttx
-<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_setrxtimeout
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_configure
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData32
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dwt_configlde
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData16
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetCrystalTrim
-<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetClock
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_ReadOPT
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_configure
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dwt_configlde
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData32
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData16
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetCrystalTrim
+<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetClock
+<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_ReadOPT
 </UL>
 
-<P><STRONG><a name="[6d]"></a>DW1000_writeData16</STRONG> (Thumb, 14 bytes, Stack size 16 bytes, dw1000.o(i.DW1000_writeData16))
+<P><STRONG><a name="[58]"></a>DW1000_writeData16</STRONG> (Thumb, 14 bytes, Stack size 16 bytes, dw1000.o(i.DW1000_writeData16))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = DW1000_writeData16 &rArr; DW1000_writeData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData
+<BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData
 </UL>
-<BR>[Called By]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_setrxtimeout
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_configure
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetAntennaDelayTX
-<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetAntennaDelayRX
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dwt_configlde
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_configure
+<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetAntennaDelayTX
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetAntennaDelayRX
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dwt_configlde
 </UL>
 
-<P><STRONG><a name="[56]"></a>DW1000_writeData32</STRONG> (Thumb, 14 bytes, Stack size 16 bytes, dw1000.o(i.DW1000_writeData32))
+<P><STRONG><a name="[5f]"></a>DW1000_writeData32</STRONG> (Thumb, 14 bytes, Stack size 16 bytes, dw1000.o(i.DW1000_writeData32))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = DW1000_writeData32 &rArr; DW1000_writeData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData
+<BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData
 </UL>
-<BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_writetxfctrl
-<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_setrxaftertxdelay
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_configure
-<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DEMO_SSTWR_INITIATOR
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_entersleepaftertx
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_configure
 </UL>
 
 <P><STRONG><a name="[7]"></a>DebugMon_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, kdwm1000_it.o(i.DebugMon_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f411xe.o(RESET)
 </UL>
-<P><STRONG><a name="[64]"></a>GPIO_Init</STRONG> (Thumb, 162 bytes, Stack size 20 bytes, stm32f4xx_gpio.o(i.GPIO_Init))
+<P><STRONG><a name="[4d]"></a>GPIO_Init</STRONG> (Thumb, 162 bytes, Stack size 20 bytes, stm32f4xx_gpio.o(i.GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_Config
-<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_Config
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_GPIO_Config
-<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_Reset
+<BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_Config
+<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_Config
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_GPIO_Config
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_Reset
 </UL>
 
-<P><STRONG><a name="[63]"></a>GPIO_PinAFConfig</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, stm32f4xx_gpio.o(i.GPIO_PinAFConfig))
+<P><STRONG><a name="[4c]"></a>GPIO_PinAFConfig</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, stm32f4xx_gpio.o(i.GPIO_PinAFConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = GPIO_PinAFConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_Config
-<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_Config
+<BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_Config
+<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_Config
 </UL>
 
-<P><STRONG><a name="[5d]"></a>HAL_Delay</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, stm32f4_delay.o(i.HAL_Delay))
+<P><STRONG><a name="[56]"></a>HAL_Delay</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, stm32f4_delay.o(i.HAL_Delay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HAL_Delay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_DW1000_Config
-<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_Reset
-<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DEMO_SSTWR_INITIATOR
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_DW1000_Config
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_Reset
 </UL>
 
-<P><STRONG><a name="[88]"></a>HAL_IncTick</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4_delay.o(i.HAL_IncTick))
+<P><STRONG><a name="[72]"></a>HAL_IncTick</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4_delay.o(i.HAL_IncTick))
 <BR><BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
 
-<P><STRONG><a name="[75]"></a>HAL_InitTick</STRONG> (Thumb, 84 bytes, Stack size 24 bytes, stm32f4_delay.o(i.HAL_InitTick))
+<P><STRONG><a name="[60]"></a>HAL_InitTick</STRONG> (Thumb, 84 bytes, Stack size 24 bytes, stm32f4_delay.o(i.HAL_InitTick))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = HAL_InitTick &rArr; NVIC_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_PriorityGroupConfig
-<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
+<BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_PriorityGroupConfig
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -617,55 +498,50 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f411xe.o(RESET)
 </UL>
-<P><STRONG><a name="[78]"></a>KDWM_DW1000_Config</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, kdwm1000_bsp.o(i.KDWM_DW1000_Config))
+<P><STRONG><a name="[63]"></a>KDWM_DW1000_Config</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, kdwm1000_bsp.o(i.KDWM_DW1000_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = KDWM_DW1000_Config &rArr; DW1000_Config &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_Config
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<BR>[Calls]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_Config
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Init
+<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Init
 </UL>
 
-<P><STRONG><a name="[79]"></a>KDWM_GPIO_Config</STRONG> (Thumb, 200 bytes, Stack size 48 bytes, kdwm1000_bsp.o(i.KDWM_GPIO_Config))
+<P><STRONG><a name="[64]"></a>KDWM_GPIO_Config</STRONG> (Thumb, 200 bytes, Stack size 48 bytes, kdwm1000_bsp.o(i.KDWM_GPIO_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = KDWM_GPIO_Config &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
+<BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Init
+<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Init
 </UL>
 
-<P><STRONG><a name="[7b]"></a>KDWM_Init</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, kdwm1000.o(i.KDWM_Init))
+<P><STRONG><a name="[66]"></a>KDWM_Init</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, kdwm1000.o(i.KDWM_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = KDWM_Init &rArr; dwt_configure &rArr; _dwt_configlde &rArr; DW1000_writeData16 &rArr; DW1000_writeData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_configure
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_UART_Config
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_GPIO_Config
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_DW1000_Config
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetAntennaDelayTX
-<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetAntennaDelayRX
-<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_Reset
+<BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_initialise
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_configure
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_UART_Config
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_GPIO_Config
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_DW1000_Config
+<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetAntennaDelayTX
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetAntennaDelayRX
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_Reset
 </UL>
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[7f]"></a>KDWM_Loop</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, kdwm1000.o(i.KDWM_Loop))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = KDWM_Loop &rArr; DEMO_SSTWR_INITIATOR &rArr; dwt_starttx &rArr; dwt_entersleepaftertx &rArr; DW1000_writeData32 &rArr; DW1000_writeData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DEMO_SSTWR_INITIATOR
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
-</UL>
-<BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<P><STRONG><a name="[79]"></a>KDWM_Loop</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, kdwm1000.o(i.KDWM_Loop))
+<BR><BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[7c]"></a>KDWM_UART_Config</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, kdwm1000_bsp.o(i.KDWM_UART_Config))
+<P><STRONG><a name="[67]"></a>KDWM_UART_Config</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, kdwm1000_bsp.o(i.KDWM_UART_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = KDWM_UART_Config &rArr; Serial_Config &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_Config
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_Config
+<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Init
+<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Init
 </UL>
 
 <P><STRONG><a name="[3]"></a>MemManage_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, kdwm1000_it.o(i.MemManage_Handler))
@@ -682,99 +558,99 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f411xe.o(RESET)
 </UL>
-<P><STRONG><a name="[77]"></a>NVIC_Init</STRONG> (Thumb, 96 bytes, Stack size 12 bytes, misc.o(i.NVIC_Init))
+<P><STRONG><a name="[62]"></a>NVIC_Init</STRONG> (Thumb, 96 bytes, Stack size 12 bytes, misc.o(i.NVIC_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = NVIC_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
+<BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 
-<P><STRONG><a name="[76]"></a>NVIC_PriorityGroupConfig</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, misc.o(i.NVIC_PriorityGroupConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
+<P><STRONG><a name="[61]"></a>NVIC_PriorityGroupConfig</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, misc.o(i.NVIC_PriorityGroupConfig))
+<BR><BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 
 <P><STRONG><a name="[8]"></a>PendSV_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, kdwm1000_it.o(i.PendSV_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f411xe.o(RESET)
 </UL>
-<P><STRONG><a name="[7a]"></a>RCC_AHB1PeriphClockCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_GPIO_Config
+<P><STRONG><a name="[65]"></a>RCC_AHB1PeriphClockCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd))
+<BR><BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_GPIO_Config
 </UL>
 
-<P><STRONG><a name="[62]"></a>RCC_APB1PeriphClockCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_APB1PeriphClockCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_Config
+<P><STRONG><a name="[4b]"></a>RCC_APB1PeriphClockCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_APB1PeriphClockCmd))
+<BR><BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_Config
 </UL>
 
-<P><STRONG><a name="[82]"></a>RCC_APB1PeriphResetCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_APB1PeriphResetCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_I2S_DeInit
+<P><STRONG><a name="[6c]"></a>RCC_APB1PeriphResetCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_APB1PeriphResetCmd))
+<BR><BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_I2S_DeInit
 </UL>
 
-<P><STRONG><a name="[84]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_APB2PeriphClockCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_Config
+<P><STRONG><a name="[6e]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_APB2PeriphClockCmd))
+<BR><BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_Config
 </UL>
 
-<P><STRONG><a name="[83]"></a>RCC_APB2PeriphResetCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_APB2PeriphResetCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_I2S_DeInit
+<P><STRONG><a name="[6d]"></a>RCC_APB2PeriphResetCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_APB2PeriphResetCmd))
+<BR><BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_I2S_DeInit
 </UL>
 
-<P><STRONG><a name="[8b]"></a>RCC_GetClocksFreq</STRONG> (Thumb, 132 bytes, Stack size 16 bytes, stm32f4xx_rcc.o(i.RCC_GetClocksFreq))
+<P><STRONG><a name="[75]"></a>RCC_GetClocksFreq</STRONG> (Thumb, 132 bytes, Stack size 16 bytes, stm32f4xx_rcc.o(i.RCC_GetClocksFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = RCC_GetClocksFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
+<BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
 </UL>
 
-<P><STRONG><a name="[66]"></a>SPI_Cmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_spi.o(i.SPI_Cmd))
-<BR><BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_Config
-<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetSpeed
+<P><STRONG><a name="[4f]"></a>SPI_Cmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_spi.o(i.SPI_Cmd))
+<BR><BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_Config
+<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetSpeed
 </UL>
 
-<P><STRONG><a name="[72]"></a>SPI_I2S_DeInit</STRONG> (Thumb, 108 bytes, Stack size 8 bytes, stm32f4xx_spi.o(i.SPI_I2S_DeInit))
+<P><STRONG><a name="[5d]"></a>SPI_I2S_DeInit</STRONG> (Thumb, 108 bytes, Stack size 8 bytes, stm32f4xx_spi.o(i.SPI_I2S_DeInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SPI_I2S_DeInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphResetCmd
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphResetCmd
+<BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphResetCmd
+<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphResetCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetSpeed
+<BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetSpeed
 </UL>
 
-<P><STRONG><a name="[65]"></a>SPI_Init</STRONG> (Thumb, 56 bytes, Stack size 12 bytes, stm32f4xx_spi.o(i.SPI_Init))
+<P><STRONG><a name="[4e]"></a>SPI_Init</STRONG> (Thumb, 56 bytes, Stack size 12 bytes, stm32f4xx_spi.o(i.SPI_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = SPI_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_Config
-<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetSpeed
+<BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_Config
+<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetSpeed
 </UL>
 
-<P><STRONG><a name="[73]"></a>SPI_RW</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4_spi.o(i.SPI_RW))
-<BR><BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RW
+<P><STRONG><a name="[5e]"></a>SPI_RW</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4_spi.o(i.SPI_RW))
+<BR><BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RW
 </UL>
-<BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RW
-<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData
-<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData
+<BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_RW
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData
 </UL>
 
 <P><STRONG><a name="[6]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, kdwm1000_it.o(i.SVC_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f411xe.o(RESET)
 </UL>
-<P><STRONG><a name="[81]"></a>Serial_Config</STRONG> (Thumb, 140 bytes, Stack size 40 bytes, serial.o(i.Serial_Config))
+<P><STRONG><a name="[6a]"></a>Serial_Config</STRONG> (Thumb, 140 bytes, Stack size 40 bytes, serial.o(i.Serial_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = Serial_Config &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
-<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ClearFlag
+<BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
+<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
+<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ClearFlag
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_UART_Config
+<BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_UART_Config
 </UL>
 
 <P><STRONG><a name="[9]"></a>SysTick_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, kdwm1000_it.o(i.SysTick_Handler))
-<BR><BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IncTick
+<BR><BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IncTick
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f411xe.o(RESET)
 </UL>
 <P><STRONG><a name="[44]"></a>SystemInit</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, system_stm32f4xx.o(i.SystemInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SystemInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClock
+<BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClock
 </UL>
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -783,32 +659,32 @@ Global Symbols
 <P><STRONG><a name="[2b]"></a>USART1_IRQHandler</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, kdwm1000_it.o(i.USART1_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = USART1_IRQHandler &rArr; USART_GetITStatus
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetITStatus
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ClearFlag
+<BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetITStatus
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ClearFlag
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f411xe.o(RESET)
 </UL>
-<P><STRONG><a name="[87]"></a>USART_ClearFlag</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_ClearFlag))
+<P><STRONG><a name="[71]"></a>USART_ClearFlag</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_ClearFlag))
 <BR><BR>[Called By]<UL><LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_Config
+<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_Config
 </UL>
 
-<P><STRONG><a name="[86]"></a>USART_Cmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_Cmd))
-<BR><BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_Config
+<P><STRONG><a name="[70]"></a>USART_Cmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_Cmd))
+<BR><BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_Config
 </UL>
 
-<P><STRONG><a name="[8a]"></a>USART_GetITStatus</STRONG> (Thumb, 62 bytes, Stack size 12 bytes, stm32f4xx_usart.o(i.USART_GetITStatus))
+<P><STRONG><a name="[74]"></a>USART_GetITStatus</STRONG> (Thumb, 62 bytes, Stack size 12 bytes, stm32f4xx_usart.o(i.USART_GetITStatus))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = USART_GetITStatus
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[85]"></a>USART_Init</STRONG> (Thumb, 164 bytes, Stack size 32 bytes, stm32f4xx_usart.o(i.USART_Init))
+<P><STRONG><a name="[6f]"></a>USART_Init</STRONG> (Thumb, 164 bytes, Stack size 32 bytes, stm32f4xx_usart.o(i.USART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = USART_Init &rArr; RCC_GetClocksFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_GetClocksFreq
+<BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_GetClocksFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_Config
+<BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_Config
 </UL>
 
 <P><STRONG><a name="[5]"></a>UsageFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, kdwm1000_it.o(i.UsageFault_Handler))
@@ -818,143 +694,58 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f411xe.o(RESET)
 </UL>
-<P><STRONG><a name="[8c]"></a>__0printf$bare</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, printfb.o(i.__0printf$bare), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<P><STRONG><a name="[76]"></a>__0printf$bare</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, printfb.o(i.__0printf$bare), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[9b]"></a>__1printf$bare</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, printfb.o(i.__0printf$bare), UNUSED)
+<P><STRONG><a name="[81]"></a>__1printf$bare</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, printfb.o(i.__0printf$bare), UNUSED)
 
-<P><STRONG><a name="[80]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, printfb.o(i.__0printf$bare))
-<BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_UART_Config
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Loop
+<P><STRONG><a name="[6b]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, printfb.o(i.__0printf$bare))
+<BR><BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_UART_Config
 </UL>
 
-<P><STRONG><a name="[9c]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[82]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[9d]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[83]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[9e]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[84]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[8e]"></a>_dwt_configlde</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, deca_device.o(i._dwt_configlde))
+<P><STRONG><a name="[78]"></a>_dwt_configlde</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, deca_device.o(i._dwt_configlde))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = _dwt_configlde &rArr; DW1000_writeData16 &rArr; DW1000_writeData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData16
-<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData
+<BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData16
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_configure
-</UL>
-
-<P><STRONG><a name="[5c]"></a>checkPacket</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, kdwm1000.o(i.checkPacket))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = checkPacket
-</UL>
-<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DEMO_SSTWR_INITIATOR
+<BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_configure
 </UL>
 
-<P><STRONG><a name="[7e]"></a>dwt_configure</STRONG> (Thumb, 482 bytes, Stack size 40 bytes, deca_device.o(i.dwt_configure))
+<P><STRONG><a name="[69]"></a>dwt_configure</STRONG> (Thumb, 482 bytes, Stack size 40 bytes, deca_device.o(i.dwt_configure))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = dwt_configure &rArr; _dwt_configlde &rArr; DW1000_writeData16 &rArr; DW1000_writeData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData32
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dwt_configlde
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData16
-<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData
+<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dwt_configlde
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData32
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData16
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Init
-</UL>
-
-<P><STRONG><a name="[8f]"></a>dwt_entersleepaftertx</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, deca_device.o(i.dwt_entersleepaftertx))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = dwt_entersleepaftertx &rArr; DW1000_writeData32 &rArr; DW1000_writeData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData32
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData32
-</UL>
-<BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_starttx
+<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Init
 </UL>
 
-<P><STRONG><a name="[7d]"></a>dwt_initialise</STRONG> (Thumb, 324 bytes, Stack size 24 bytes, deca_device.o(i.dwt_initialise))
+<P><STRONG><a name="[68]"></a>dwt_initialise</STRONG> (Thumb, 324 bytes, Stack size 24 bytes, deca_device.o(i.dwt_initialise))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = dwt_initialise &rArr; DW1000_writeData32 &rArr; DW1000_writeData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData32
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData32
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData16
-<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData
-<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData
-<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetSpeed
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetCrystalTrim
-<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetClock
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_ReadOPT
-<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_GetDeviceID
+<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData32
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData16
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData
+<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData32
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData
+<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetSpeed
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetCrystalTrim
+<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_SetClock
+<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_ReadOPT
+<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_GetDeviceID
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Init
-</UL>
-
-<P><STRONG><a name="[5b]"></a>dwt_readrxdata</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, deca_device.o(i.dwt_readrxdata))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = dwt_readrxdata &rArr; DW1000_readData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData
-</UL>
-<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DEMO_SSTWR_INITIATOR
-</UL>
-
-<P><STRONG><a name="[5f]"></a>dwt_readrxtimestamplo32</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, deca_device.o(i.dwt_readrxtimestamplo32))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = dwt_readrxtimestamplo32 &rArr; DW1000_readData32 &rArr; DW1000_readData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData32
-</UL>
-<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DEMO_SSTWR_INITIATOR
-</UL>
-
-<P><STRONG><a name="[5e]"></a>dwt_readtxtimestamplo32</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, deca_device.o(i.dwt_readtxtimestamplo32))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = dwt_readtxtimestamplo32 &rArr; DW1000_readData32 &rArr; DW1000_readData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData32
-</UL>
-<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DEMO_SSTWR_INITIATOR
-</UL>
-
-<P><STRONG><a name="[54]"></a>dwt_setrxaftertxdelay</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, deca_device.o(i.dwt_setrxaftertxdelay))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = dwt_setrxaftertxdelay &rArr; DW1000_writeData32 &rArr; DW1000_writeData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData32
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData32
-</UL>
-<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DEMO_SSTWR_INITIATOR
-</UL>
-
-<P><STRONG><a name="[55]"></a>dwt_setrxtimeout</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, deca_device.o(i.dwt_setrxtimeout))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = dwt_setrxtimeout &rArr; DW1000_writeData16 &rArr; DW1000_writeData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData16
-<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData
-<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData
-</UL>
-<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DEMO_SSTWR_INITIATOR
-</UL>
-
-<P><STRONG><a name="[59]"></a>dwt_starttx</STRONG> (Thumb, 142 bytes, Stack size 24 bytes, deca_device.o(i.dwt_starttx))
-<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = dwt_starttx &rArr; dwt_entersleepaftertx &rArr; DW1000_writeData32 &rArr; DW1000_writeData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwt_entersleepaftertx
-<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_readData16
-</UL>
-<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DEMO_SSTWR_INITIATOR
-</UL>
-
-<P><STRONG><a name="[57]"></a>dwt_writetxdata</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, deca_device.o(i.dwt_writetxdata))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = dwt_writetxdata &rArr; DW1000_writeData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData
-</UL>
-<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DEMO_SSTWR_INITIATOR
-</UL>
-
-<P><STRONG><a name="[58]"></a>dwt_writetxfctrl</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, deca_device.o(i.dwt_writetxfctrl))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = dwt_writetxfctrl &rArr; DW1000_writeData32 &rArr; DW1000_writeData
-</UL>
-<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DW1000_writeData32
-</UL>
-<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DEMO_SSTWR_INITIATOR
+<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Init
 </UL>
 
 <P><STRONG><a name="[46]"></a>fputc</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, serial.o(i.fputc))
@@ -964,27 +755,21 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = main &rArr; KDWM_Init &rArr; dwt_configure &rArr; _dwt_configlde &rArr; DW1000_writeData16 &rArr; DW1000_writeData
 </UL>
 <BR>[Calls]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Loop
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Init
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Loop
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KDWM_Init
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL><P>
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[89]"></a>SetSysClock</STRONG> (Thumb, 98 bytes, Stack size 0 bytes, system_stm32f4xx.o(i.SetSysClock))
+<P><STRONG><a name="[73]"></a>SetSysClock</STRONG> (Thumb, 98 bytes, Stack size 0 bytes, system_stm32f4xx.o(i.SetSysClock))
 <BR><BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 </UL>
 
-<P><STRONG><a name="[60]"></a>resp_msg_get_ts</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, kdwm1000.o(i.resp_msg_get_ts))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = resp_msg_get_ts
-</UL>
-<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DEMO_SSTWR_INITIATOR
-</UL>
-
-<P><STRONG><a name="[8d]"></a>_printf_core</STRONG> (Thumb, 34 bytes, Stack size 24 bytes, printfb.o(i._printf_core), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0printf$bare
+<P><STRONG><a name="[77]"></a>_printf_core</STRONG> (Thumb, 34 bytes, Stack size 24 bytes, printfb.o(i._printf_core), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0printf$bare
 </UL>
 <P>
 <H3>
