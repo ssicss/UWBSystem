@@ -221,6 +221,9 @@ void dwt_setrxaftertxdelay(uint32_t rxDelayTime);
 void dwt_rxreset(void);
 void dwt_readrxdata(uint8_t *buffer, uint16_t length, uint16_t rxBufferOffset);
 
+
+void dwt_rxdisable(void);
+
 typedef int decaIrqStatus_t ; // Type for remembering IRQ status
 
 #endif /* _DECA_DEVICE_API_H_ */

@@ -7,7 +7,7 @@
 .\obj\serial.o: ..\Libraries\CMSIS\Include\core_cmFunc.h
 .\obj\serial.o: ..\Libraries\CMSIS\Include\core_cmSimd.h
 .\obj\serial.o: ..\Libraries\CMSIS\Device\system_stm32f4xx.h
-.\obj\serial.o: ..\Program\stm32f4xx_conf.h
+.\obj\serial.o: ..\Program\lowlayer\stm32f4xx_conf.h
 .\obj\serial.o: ..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_exti.h
 .\obj\serial.o: ..\Libraries\CMSIS\Device\stm32f4xx.h
 .\obj\serial.o: ..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_gpio.h

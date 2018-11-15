@@ -1,4 +1,4 @@
-.\obj\kdwm1000_bsp.o: ..\Program\kdwm1000_bsp.c
+.\obj\kdwm1000_bsp.o: ..\Program\lowlayer\kdwm1000_bsp.c
 .\obj\kdwm1000_bsp.o: ..\Program\drivers\stm32f4_system.h
 .\obj\kdwm1000_bsp.o: ..\Libraries\CMSIS\Device\stm32f4xx.h
 .\obj\kdwm1000_bsp.o: ..\Libraries\CMSIS\Include\core_cm4.h
@@ -7,7 +7,7 @@
 .\obj\kdwm1000_bsp.o: ..\Libraries\CMSIS\Include\core_cmFunc.h
 .\obj\kdwm1000_bsp.o: ..\Libraries\CMSIS\Include\core_cmSimd.h
 .\obj\kdwm1000_bsp.o: ..\Libraries\CMSIS\Device\system_stm32f4xx.h
-.\obj\kdwm1000_bsp.o: ..\Program\stm32f4xx_conf.h
+.\obj\kdwm1000_bsp.o: ..\Program\lowlayer\stm32f4xx_conf.h
 .\obj\kdwm1000_bsp.o: ..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_exti.h
 .\obj\kdwm1000_bsp.o: ..\Libraries\CMSIS\Device\stm32f4xx.h
 .\obj\kdwm1000_bsp.o: ..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_gpio.h
@@ -28,4 +28,4 @@
 .\obj\kdwm1000_bsp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\kdwm1000_bsp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\obj\kdwm1000_bsp.o: ..\Program\decadriver\deca_params.h
-.\obj\kdwm1000_bsp.o: ..\Program\kdwm1000_bsp.h
+.\obj\kdwm1000_bsp.o: ..\Program\lowlayer\kdwm1000_bsp.h

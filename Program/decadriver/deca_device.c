@@ -1000,6 +1000,18 @@ int dwt_rxenable( int delayed )
   return DWT_SUCCESS;
 } // end dwt_rxenable()
 
+
+void dwt_rxdisable(void)
+{
+	
+	uint16_t temp;
+
+	temp = 0;
+
+	DW1000_writeData16(DW1000_SYS_CTRL, 0, temp);
+
+}
+
 /*! ------------------------------------------------------------------------------------------------------------------
  * @fn dwt_setrxtimeout()
  *

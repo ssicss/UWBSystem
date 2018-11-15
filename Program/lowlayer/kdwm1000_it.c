@@ -3,6 +3,12 @@
 #include "drivers\stm32f4_system.h"
 
 #include "kdwm1000_bsp.h"
+
+#include <stdio.h>
+#include "stdplus.h"
+#include "uSVShell.h"
+#include "stm32f4_usart.h"
+
 /*====================================================================================================*/
 /*====================================================================================================*/
 void NMI_Handler( void ) { while(1); }
@@ -49,11 +55,36 @@ void SysTick_Handler( void ) { HAL_IncTick(); }
 //void I2C2_ER_IRQHandler( void )
 //void SPI1_IRQHandler( void )
 //void SPI2_IRQHandler( void )
+
+bool _is_uart_handle = false;
+
 void USART1_IRQHandler( void )
 {
+	unsigned short uart_dr = 0;
+	unsigned char uart_dt_8bit = 0;
+	
   if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET) {
-    UART1_irqEven();
+
+  	
+		
+	uart_dr = (uint16_t)(USART1->DR & (uint16_t)0x01FF);
+	uart_dt_8bit = (unsigned char)uart_dr;
+
+  	UART_SendByte(USART1, &uart_dt_8bit);
+  	if((uart_dr == '\n') || (uart_dr == '\r')){
+		_is_uart_handle = true;
+	}
+	else if(uart_dr == 0x03){
+		//ctrl+c
+		QueuePush(gUartQueue, uart_dr);
+		_is_uart_handle = true;
+	}
+	else{
+		QueuePush(gUartQueue, uart_dr);
+	}
+		
   }
+
   USART_ClearFlag(USART1, USART_IT_RXNE);
 }
 //void USART2_IRQHandler( void )
