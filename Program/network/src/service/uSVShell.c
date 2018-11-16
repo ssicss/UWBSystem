@@ -72,6 +72,7 @@ static void _uSVShellCmdLs(void){
 	struct MANAGER_DEV_INFO *dev;
 	char str_role[5];
 	char str_root[5];
+	char str_ip[16];
 
 	printf("\n\r       <ip>            <sn>       <role>     <nrole>     <priority>   \n\r");
 
@@ -96,9 +97,12 @@ static void _uSVShellCmdLs(void){
 			strcat(str_root, "STA");
 		}
 		
-		printf("(%d) %-15s  %08x        %s        %s            %d\n\r", 
+		inet_ntoa(str_ip, dev->ip);
+		
+		
+		printf("(%d) %-15s  %08x        %-s        %-s            %-d\n\r", 
 					i, 
-					inet_ntoa(dev->ip),
+					str_ip,
 					dev->sn,
 					str_role,
 					str_root,

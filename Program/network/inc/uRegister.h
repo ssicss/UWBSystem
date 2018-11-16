@@ -8,7 +8,7 @@
 #include "uSVManager.h"
 
 
-#define SAVE_RANDOM_ADDR_MAX (1024)
+#define SAVE_RANDOM_ADDR_MAX (100)
 
 //分配地址池
 #define ADDR_POOL_LEN (100)
@@ -32,6 +32,7 @@ extern struct DevAddrPool gAddrPool[ADDR_POOL_LEN];
 
 RES_Typedef uPTRegisterCycle(void);
 RES_Typedef uPTRegisterRespons(void);
+RES_Typedef uPTSigninRespons(void);
 
 
 #endif

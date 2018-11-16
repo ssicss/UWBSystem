@@ -29,6 +29,7 @@ int main( void )
 	
 	for(;;)
 	{
+
 		res = uSVIdle();
 		if(res){
 			printf("exit code:%d\n\r", res);

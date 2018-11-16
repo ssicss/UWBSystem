@@ -35,7 +35,14 @@ RES_Typedef uSVIdle(void)
 		uSVShellPrase();
 	}
 	else if(dev->nrole == DEV_NROLE_STA){
-		uPTRegisterRespons();
+		if(dev->ip){
+			uPTSigninRespons();
+
+			
+		}else{
+			uPTRegisterRespons();
+		}
+	
 
 	}else{
 		return RES_SVNANAGER_SERVER_CANCEL;

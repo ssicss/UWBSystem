@@ -3,7 +3,9 @@
 
 #include "uCommon.h"
 
-char *inet_ntoa(const unsigned int addr);
+void inet_ntoa(char *str_addr, const unsigned int addr);
+
+
 
 
 #endif

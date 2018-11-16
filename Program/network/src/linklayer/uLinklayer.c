@@ -106,6 +106,9 @@ __inline void uLLDelayMs(const unsigned int t)
 {
 	delay_ms(t);
 }
+
+
+unsigned char frame_buf[128];
 RES_Typedef uLLFrameSend(const struct FRAME_DAT *frame)
 {
 	unsigned char *buf_t = NULL;
@@ -113,10 +116,11 @@ RES_Typedef uLLFrameSend(const struct FRAME_DAT *frame)
 	unsigned int status = 0;
 	unsigned int t = 0;
 
-	buf_t = (unsigned char *)malloc(frame->len + 8);
-	memset(buf_t,0,frame->len + 8);
+
 	
-	if(uLLFramePacket(frame, buf_t) != RES_OK)
+	memset(frame_buf,0,sizeof(frame_buf));
+	
+	if(uLLFramePacket(frame, frame_buf) != RES_OK)
 		return RES_PRAMAS_INVALD;
 
 	len = frame->len + 8;
@@ -129,7 +133,7 @@ RES_Typedef uLLFrameSend(const struct FRAME_DAT *frame)
 											SYS_STATUS_TXFRB);
 
 	//发送
-	dwt_writetxdata(len+2, buf_t, 0);
+	dwt_writetxdata(len+2, frame_buf, 0);
 	dwt_writetxfctrl(len+2, 0);
 
 	

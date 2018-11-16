@@ -20,8 +20,8 @@ static RES_Typedef _uPTPacketSend(const MTYPE_Typedef mtype,
 	fra_wrp.subtype = subtype;
 	fra_wrp.addr = addr;
 	fra_wrp.hd = hd;
-
-	
+	fra_wrp.len = 0;
+	fra_wrp.data = NULL;
 	
 	if(fra_wrp.hd){
 		fra_wrp.data = data;
@@ -69,29 +69,24 @@ static RES_Typedef _uPTWaitDeviceRegister(unsigned int *addr_buf,
 	unsigned int i=0;
 	unsigned int j=0;
 	unsigned int t=0;
-
-	unsigned int out = 0;
 	
 	memset(&fra_wt, 0, sizeof(struct FRAME_DAT));
 	memset(addr_buf, 0, sizeof(addr_buf));
 	printf("scan devices");
 	//登记随机因子
+
 	do{
 		t++;
+		
 		res = uLLFrameRecv(&fra_wt, WAITDEV_REGISTER_TIMEOUT);
+		
 		if(res == RES_OK){
-			printf("^");
+			//printf("^");
 			__uPTSaveRandomAddr(&fra_wt, addr_buf, i++);
 		}
-		else{
-			if(out > 10){
-				out = 0;
-				printf(".");
-			}
-				
-			out++;	
-		}
+
 	}while((i<SAVE_RANDOM_ADDR_MAX)&&(t<WAITDEV_REGISTER_RETRY));
+
 
 	//分配地址
 	for(j=0; j<i; j++)
@@ -121,14 +116,14 @@ static RES_Typedef _uPTWaitDeviceRegister(unsigned int *addr_buf,
 	return RES_OK;
 }
 
-static RES_Typedef _uPTWaitApRegisterRequest(void)
+static RES_Typedef _uPTWaitApRequest(SUBTYPE_Typedef request)
 {
 	RES_Typedef res;
 	
 	res = uLLFrameRecv(&fra_wt, WAITDEV_REGISTER_TIMEOUT);
 	if(res == RES_OK){
 		if((fra_wt.mtype == MTYPE_NT)&&
-				(fra_wt.subtype == SUBTYPE_REGISTER_REQUEST))
+				(fra_wt.subtype == request))
 		{
 			return RES_OK;
 		}else{
@@ -145,19 +140,102 @@ static RES_Typedef _uPTWaitApRegisterRequest(void)
 //等待接收超时退出，用来延时，但是延时时不能收到其它UWB数据，会造成提前退出
 static void _uPTWait(const unsigned int t)
 {
-	uLLFrameRecv(&fra_wt, WAITDEV_REGISTER_TIMEOUT/50*t);
+	unsigned int i=0;
+
+	for(i=0; i<t; i++)
+	{
+		uLLFrameRecv(&fra_wt, WAITDEV_REGISTER_TIMEOUT/50);
+	}
+	
+	
 }
 
+static RES_Typedef _uPTAllocRespons(int random)
+{
+	RES_Typedef res;
+	struct MANAGER_DEV_INFO *dev=NULL;
+	unsigned int t = 0;
+
+	
+	do{
+		t++;
+		res = uLLFrameRecv(&fra_wt, WAITDEV_REGISTER_TIMEOUT);
+	}
+	while((t<100)&&(res!=RES_OK));
+	if(t>=100){
+		return RES_TIMEOUT;
+	}
+
+	//分配请求包
+	if((fra_wt.mtype == MTYPE_NT)&&(fra_wt.subtype == SUBTYPE_ADDR_ALLOC_REQUEST)){
+		dev = (struct MANAGER_DEV_INFO *)listnode_head(guSVManagerDevice);
+		if(!dev)
+			return RES_SYS_NOINIT;
+
+		if( fra_wt.addr == random)
+		{
+			dev->ip = *(unsigned int *)fra_wt.data;
+			_PCK(_uPTPacketSend(MTYPE_NT, SUBTYPE_ADDR_ALLOC_RESPONS, 0, false, 0, NULL));
+			printf("ip:%x\n\r", dev->ip);
+		}
+		
+		return RES_OK;
+	}else{
+		return RES_PACKET_ERROR;
+	}
+
+
+}
+static RES_Typedef _uPTSigninRespons(const unsigned int addr)
+{
+	
+	RES_Typedef res;
+	struct MANAGER_DEV_INFO *dev=NULL;
+	unsigned int t = 0;
+
+
+	do{
+		t++;
+		res = uLLFrameRecv(&fra_wt, WAITDEV_REGISTER_TIMEOUT);
+	}
+	while((t<100)&&(res!=RES_OK));
+	if(t>=100){
+		return RES_TIMEOUT;
+	}
+
+	if((fra_wt.mtype == MTYPE_NT)&&(fra_wt.subtype == SUBTYPE_SIGNIN_RESPONS)){
+
+		dev = (struct MANAGER_DEV_INFO *)malloc(sizeof(struct MANAGER_DEV_INFO));
+		dev->ip = addr;
+		dev->role = DEV_ROLE_LABEL;
+		dev->nrole = DEV_NROLE_STA;
+		dev->sn = 0;
+		dev->priority = 0;
+		listnode_add(guSVManagerDevice, dev);
+
+		return RES_OK;
+	}
+
+	return RES_PACKET_ERROR;
+
+}
 
 
 
 RES_Typedef uPTRegisterCycle(void)
 {
+
 	unsigned int device_random_addr[SAVE_RANDOM_ADDR_MAX];
 	unsigned int device_alloc_addr[SAVE_RANDOM_ADDR_MAX];
 	struct list *catch_dev = NULL;
+	struct listnode *catch_node = NULL;
+
 	unsigned int i=0;
-	struct listnode *node = NULL;
+	RES_Typedef res;
+	unsigned int t=0;
+	
+	char str_ip[16];
+	unsigned int addr=0;
 	
 	catch_dev = list_new();
 	if(!catch_dev)
@@ -170,12 +248,29 @@ RES_Typedef uPTRegisterCycle(void)
 	_PCK(_uPTWaitDeviceRegister(device_random_addr, device_alloc_addr, catch_dev));
 
 	//签到
-	node = catch_dev->head;
+	catch_node = catch_dev->head;
 	for(i=0; i<catch_dev->count; i++)
 	{
+		printf("sig-%d\n\r", i);
+		inet_ntoa(str_ip, *((unsigned int *)catch_node->data) );
+		addr = *((unsigned int *)catch_node->data);
+
+		do{
+			_PCK(_uPTPacketSend(MTYPE_NT, SUBTYPE_SIGNIN_REQUEST, addr , false, 0, 0));
+			res = _uPTSigninRespons(addr); 
+			t++;
+		}while((res != RES_OK)&&(t<5));
+
 		
-		printf("catch device[%s]\n\r", inet_ntoa( *((unsigned int *)node->data) ));
-		node = node->next;
+		
+		if(t>=5)
+		{
+			printf("Device[%s] signin lost\n\r", str_ip);
+		}else{
+			printf("Device[%s] signin\n\r", str_ip);
+		}
+	
+		catch_node = catch_node->next;
 	}
 
 	list_free(catch_dev);
@@ -184,13 +279,16 @@ RES_Typedef uPTRegisterCycle(void)
 }
 
 
+
+
 RES_Typedef uPTRegisterRespons(void)
 {
 	int random = 0;
 	float random_max = 0.0f;
-	struct MANAGER_DEV_INFO *dev=NULL;
+
 	
-	if(_uPTWaitApRegisterRequest() == RES_OK){
+	if(_uPTWaitApRequest(SUBTYPE_REGISTER_REQUEST) == RES_OK){
+		//GPIO_SetBits(GPIOB, GPIO_Pin_2);
 
 		//产生随机数
 		random_max = WAITDEV_REGISTER_RETRY;
@@ -198,23 +296,30 @@ RES_Typedef uPTRegisterRespons(void)
 		random = (int)(random_max*rand()/(RAND_MAX+1.0));
 		//printf("recv .., random - %d\n\r", random);
 
+		_uPTWait(random);
+		_PCK(_uPTPacketSend(MTYPE_NT, SUBTYPE_REGISTER_RESPONS, 0, true, 4, (unsigned char *)&random));
+		_PCK(_uPTAllocRespons(random));
 
-		dev = (struct MANAGER_DEV_INFO *)listnode_head(guSVManagerDevice);
-		if(!dev)
-			return RES_SYS_NOINIT;
-		
-		if(!dev->ip)
-		{
-			//_uPTWait(random);
-			//printf("");
-		  _PCK(_uPTPacketSend(MTYPE_NT, SUBTYPE_REGISTER_RESPONS, 0, true, 4, (unsigned char *)&random));
-
-		}
+		//GPIO_ResetBits(GPIOB, GPIO_Pin_2);
 	
 	}
 
 	return RES_OK;
 }
 
+
+RES_Typedef uPTSigninRespons(void)
+{
+	if(_uPTWaitApRequest(SUBTYPE_SIGNIN_REQUEST) == RES_OK){
+		_PCK(_uPTPacketSend(MTYPE_NT, SUBTYPE_SIGNIN_RESPONS, 0, false, 0, NULL));
+	
+		printf("-signin request--\n\r");
+
+	}else{
+		printf("x");
+	}
+
+	return RES_OK;
+}
 
 

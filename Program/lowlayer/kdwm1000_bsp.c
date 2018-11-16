@@ -53,6 +53,14 @@ void KDWM_GPIO_Config( void )
   GPIO_InitStruct.GPIO_Pin   = KEY_PIN;
   GPIO_Init(KEY_GPIO_PORT, &GPIO_InitStruct);
 
+
+  GPIO_InitStruct.GPIO_Mode  = GPIO_Mode_OUT;
+  GPIO_InitStruct.GPIO_OType = GPIO_OType_PP;
+  GPIO_InitStruct.GPIO_Speed = GPIO_Speed_100MHz;
+
+  GPIO_InitStruct.GPIO_Pin   = GPIO_Pin_2;
+  GPIO_Init(GPIOB, &GPIO_InitStruct);
+
   LED_R_Set();
   LED_G_Set();
   LED_B_Set();
