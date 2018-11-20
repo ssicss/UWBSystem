@@ -147,7 +147,7 @@ RES_Typedef uLLFrameSend(const struct FRAME_DAT *frame)
 	} while((!(status & (SYS_STATUS_TXFRS)))&&(t<100));
 	if(t>=100)
 	{
-		printf("send timeout\r\n");
+		SEGGER_RTT_printf(0, "send timeout\r\n");
 		return RES_RETRY_FAILED;
 	}
 

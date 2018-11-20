@@ -32,3 +32,5 @@
 .\obj\conversion.o: ..\Libraries\CMSIS\Include\core_cm4.h
 .\obj\conversion.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\obj\conversion.o: ..\Program\decadriver\deca_params.h
+.\obj\conversion.o: ..\Program\segger\RTT\SEGGER_RTT.h
+.\obj\conversion.o: ..\Program\segger\RTT\SEGGER_RTT_Conf.h

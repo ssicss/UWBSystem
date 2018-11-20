@@ -32,6 +32,8 @@
 .\obj\ulinklayer.o: ..\Libraries\CMSIS\Include\core_cm4.h
 .\obj\ulinklayer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\obj\ulinklayer.o: ..\Program\decadriver\deca_params.h
+.\obj\ulinklayer.o: ..\Program\segger\RTT\SEGGER_RTT.h
+.\obj\ulinklayer.o: ..\Program\segger\RTT\SEGGER_RTT_Conf.h
 .\obj\ulinklayer.o: ..\Program\network\inc\uRegister.h
 .\obj\ulinklayer.o: ..\Program\network\inc\uLinklayer.h
 .\obj\ulinklayer.o: ..\Program\network\inc\conversion.h

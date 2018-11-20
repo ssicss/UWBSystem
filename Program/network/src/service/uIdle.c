@@ -29,16 +29,17 @@ RES_Typedef uSVIdle(void)
 			}
 		}
 
-
-
+		//发送包
+		if(guSVManagerCtl.flag & (2<<0)){
+			//uLLFrameSend(&guSVManagerCtl.readly_to_send);
+		}
+		
 		//解析SHELL
 		uSVShellPrase();
 	}
 	else if(dev->nrole == DEV_NROLE_STA){
 		if(dev->ip){
-			uPTSigninRespons();
-
-			
+			uPTSigninRespons();			
 		}else{
 			uPTRegisterRespons();
 		}
@@ -47,7 +48,6 @@ RES_Typedef uSVIdle(void)
 	}else{
 		return RES_SVNANAGER_SERVER_CANCEL;
 	}
-
 
 
 

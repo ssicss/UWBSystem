@@ -33,4 +33,6 @@
 .\obj\kdwm1000_it.o: ..\Libraries\CMSIS\Include\core_cm4.h
 .\obj\kdwm1000_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\obj\kdwm1000_it.o: ..\Program\decadriver\deca_params.h
+.\obj\kdwm1000_it.o: ..\Program\segger\RTT\SEGGER_RTT.h
+.\obj\kdwm1000_it.o: ..\Program\segger\RTT\SEGGER_RTT_Conf.h
 .\obj\kdwm1000_it.o: ..\Program\drivers\stm32f4_usart.h

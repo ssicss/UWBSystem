@@ -4,9 +4,6 @@
 
 
 void RangingInit(void);
-void RangingLoop(void);
-
-
 
 
 #endif

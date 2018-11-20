@@ -30,6 +30,8 @@ struct USVMANAGER_CONTROL{
 
 	unsigned int scan_count;
 	unsigned int scan_count_cur;
+
+//	struct FRAME_DAT readly_to_send;
 };
 
 extern struct USVMANAGER_CONTROL guSVManagerCtl;

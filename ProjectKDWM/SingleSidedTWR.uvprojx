@@ -337,7 +337,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER, STM32F411xE, ARM_MATH_CM4, __FPU_PRESENT = 1,_DEV_NROLE_AP</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Libraries\CMSIS\Device;..\Libraries\CMSIS\DSP_Lib;..\Libraries\CMSIS\Include;..\Libraries\STM32F4xx_StdPeriph_Driver\inc;..\Libraries\STM32F4xx_StdPeriph_Driver\src;..\Program;..\;..\Program\decadriver;..\Program\lowlayer;..\Program\network\inc;..\Program\drivers</IncludePath>
+              <IncludePath>..\Libraries\CMSIS\Device;..\Libraries\CMSIS\DSP_Lib;..\Libraries\CMSIS\Include;..\Libraries\STM32F4xx_StdPeriph_Driver\inc;..\Libraries\STM32F4xx_StdPeriph_Driver\src;..\Program;..\;..\Program\decadriver;..\Program\lowlayer;..\Program\network\inc;..\Program\drivers;..\Program\segger\RTT</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -575,6 +575,26 @@
               <FileName>kdwm1000_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Program\lowlayer\kdwm1000_it.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Segger</GroupName>
+          <Files>
+            <File>
+              <FileName>SEGGER_RTT.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\segger\RTT\SEGGER_RTT.c</FilePath>
+            </File>
+            <File>
+              <FileName>SEGGER_RTT_printf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\segger\RTT\SEGGER_RTT_printf.c</FilePath>
+            </File>
+            <File>
+              <FileName>SEGGER_RTT_Syscalls_KEIL.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\segger\Syscalls\SEGGER_RTT_Syscalls_KEIL.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -911,7 +931,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER, STM32F411xE, ARM_MATH_CM4, __FPU_PRESENT = 1</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Libraries\CMSIS\Device;..\Libraries\CMSIS\DSP_Lib;..\Libraries\CMSIS\Include;..\Libraries\STM32F4xx_StdPeriph_Driver\inc;..\Libraries\STM32F4xx_StdPeriph_Driver\src;..\Program;..\;..\Program\decadriver;..\Program\lowlayer;..\Program\network\inc;..\Program\drivers</IncludePath>
+              <IncludePath>..\Libraries\CMSIS\Device;..\Libraries\CMSIS\DSP_Lib;..\Libraries\CMSIS\Include;..\Libraries\STM32F4xx_StdPeriph_Driver\inc;..\Libraries\STM32F4xx_StdPeriph_Driver\src;..\Program;..\;..\Program\decadriver;..\Program\lowlayer;..\Program\network\inc;..\Program\drivers;..\Program\segger\RTT</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -1149,6 +1169,26 @@
               <FileName>kdwm1000_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Program\lowlayer\kdwm1000_it.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Segger</GroupName>
+          <Files>
+            <File>
+              <FileName>SEGGER_RTT.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\segger\RTT\SEGGER_RTT.c</FilePath>
+            </File>
+            <File>
+              <FileName>SEGGER_RTT_printf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\segger\RTT\SEGGER_RTT_printf.c</FilePath>
+            </File>
+            <File>
+              <FileName>SEGGER_RTT_Syscalls_KEIL.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\segger\Syscalls\SEGGER_RTT_Syscalls_KEIL.c</FilePath>
             </File>
           </Files>
         </Group>

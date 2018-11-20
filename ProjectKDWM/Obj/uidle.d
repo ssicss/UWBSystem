@@ -32,6 +32,8 @@
 .\obj\uidle.o: ..\Libraries\CMSIS\Include\core_cm4.h
 .\obj\uidle.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\obj\uidle.o: ..\Program\decadriver\deca_params.h
+.\obj\uidle.o: ..\Program\segger\RTT\SEGGER_RTT.h
+.\obj\uidle.o: ..\Program\segger\RTT\SEGGER_RTT_Conf.h
 .\obj\uidle.o: ..\Program\network\inc\uRegister.h
 .\obj\uidle.o: ..\Program\network\inc\uLinklayer.h
 .\obj\uidle.o: ..\Program\network\inc\uRegister.h

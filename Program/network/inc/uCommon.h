@@ -11,6 +11,8 @@
 #include "kdwm1000_bsp.h"
 #include "modules\dw1000.h"
 
+#include "SEGGER_RTT.h"
+#include "SEGGER_RTT_Conf.h"
 
 typedef enum{
 		RES_OK = 0,

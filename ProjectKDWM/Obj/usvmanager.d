@@ -32,6 +32,8 @@
 .\obj\usvmanager.o: ..\Libraries\CMSIS\Include\core_cm4.h
 .\obj\usvmanager.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\obj\usvmanager.o: ..\Program\decadriver\deca_params.h
+.\obj\usvmanager.o: ..\Program\segger\RTT\SEGGER_RTT.h
+.\obj\usvmanager.o: ..\Program\segger\RTT\SEGGER_RTT_Conf.h
 .\obj\usvmanager.o: ..\Program\network\inc\uRegister.h
 .\obj\usvmanager.o: ..\Program\network\inc\uLinklayer.h
 .\obj\usvmanager.o: ..\Program\network\inc\uRegister.h

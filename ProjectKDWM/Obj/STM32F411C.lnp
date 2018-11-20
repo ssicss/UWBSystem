@@ -29,6 +29,9 @@
 ".\obj\deca_params.o"
 ".\obj\kdwm1000_bsp.o"
 ".\obj\kdwm1000_it.o"
+".\obj\segger_rtt.o"
+".\obj\segger_rtt_printf.o"
+".\obj\segger_rtt_syscalls_keil.o"
 --library_type=microlib --strict --scatter ".\Obj\STM32F411C.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

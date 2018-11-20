@@ -112,6 +112,33 @@ static void _uSVShellCmdLs(void){
 }
 
 
+static void _uSVShellCmdUpdata(const char *parames)
+{
+	struct listnode *node = NULL;
+	unsigned int i=0;
+	struct MANAGER_DEV_INFO *dev;
+	
+	node = guSVManagerDevice->head;
+	for(i=0; i<guSVManagerDevice->count; i++)
+	{
+		if(i>0){
+			dev = (struct MANAGER_DEV_INFO *)node->data;
+			printf("addr=%x\n\r", dev->ip);
+
+			//guSVManagerCtl.readly_to_send.addr = dev->ip;
+		}
+		node = node->next;
+	}
+
+
+	
+
+
+	//guSVManagerCtl.flag |= (1<<1);
+	
+	
+	
+}
 
 
 RES_Typedef uSVShellPrase(void)
@@ -145,7 +172,9 @@ RES_Typedef uSVShellPrase(void)
 		else if((strncmp(str_cmd, "ls", strlen("ls")) == 0)){
 			_uSVShellCmdLs();
 		}
-
+		else if((strncmp(str_cmd, "updata", strlen("updata")) == 0)){
+			_uSVShellCmdUpdata(&str_cmd[strlen("updata")]);
+		}
 
 		
 		else if(str_cmd[0] == 0x3){

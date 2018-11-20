@@ -33,6 +33,8 @@
 .\obj\main.o: ..\Libraries\CMSIS\Include\core_cm4.h
 .\obj\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\obj\main.o: ..\Program\decadriver\deca_params.h
+.\obj\main.o: ..\Program\segger\RTT\SEGGER_RTT.h
+.\obj\main.o: ..\Program\segger\RTT\SEGGER_RTT_Conf.h
 .\obj\main.o: ..\Program\network\inc\uRegister.h
 .\obj\main.o: ..\Program\network\inc\uLinklayer.h
 .\obj\main.o: ..\Program\network\inc\conversion.h
