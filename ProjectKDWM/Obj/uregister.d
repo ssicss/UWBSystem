@@ -32,10 +32,10 @@
 .\obj\uregister.o: ..\Libraries\CMSIS\Include\core_cm4.h
 .\obj\uregister.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\obj\uregister.o: ..\Program\decadriver\deca_params.h
+.\obj\uregister.o: ..\Program\network\inc\stdplus.h
 .\obj\uregister.o: ..\Program\segger\RTT\SEGGER_RTT.h
 .\obj\uregister.o: ..\Program\segger\RTT\SEGGER_RTT_Conf.h
-.\obj\uregister.o: ..\Program\network\inc\uLinklayer.h
-.\obj\uregister.o: ..\Program\network\inc\uRegister.h
 .\obj\uregister.o: ..\Program\network\inc\conversion.h
-.\obj\uregister.o: ..\Program\network\inc\uSVManager.h
-.\obj\uregister.o: ..\Program\network\inc\stdplus.h
+.\obj\uregister.o: ..\Program\network\inc\uCommon.h
+.\obj\uregister.o: ..\Program\network\inc\uLLDriver.h
+.\obj\uregister.o: ..\Program\network\inc\uLLPacket.h

@@ -1,15 +1,10 @@
 
 
 #include "uSVManager.h"
-#include "stdplus.h"
-
 
 
 struct USVMANAGER_CONTROL guSVManagerCtl;
 struct list *guSVManagerDevice;
-
-
-
 
 RES_Typedef uSVManagerInit(void)
 {

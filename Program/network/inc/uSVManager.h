@@ -2,27 +2,9 @@
 #define __USVMANAGER_H
 
 #include "uCommon.h"
-#include "uRegister.h"
-
-typedef enum{
-	DEV_ROLE_BS = 0,
-	DEV_ROLE_LABEL = 1,
-}DEV_ROLE_Typedef;
-	
-typedef enum{
-	DEV_NROLE_AP = 0,
-	DEV_NROLE_STA = 1,
-}DEV_NROLE_Typedef;
 
 
-	
-struct MANAGER_DEV_INFO{
-	unsigned int ip;
-	unsigned int sn;
-	DEV_ROLE_Typedef role;
-	DEV_NROLE_Typedef nrole;
-	unsigned int priority;
-};
+
 
 
 struct USVMANAGER_CONTROL{
@@ -31,11 +13,8 @@ struct USVMANAGER_CONTROL{
 	unsigned int scan_count;
 	unsigned int scan_count_cur;
 
-//	struct FRAME_DAT readly_to_send;
+	struct FRAME_DAT *readly_to_send;
 };
-
-extern struct USVMANAGER_CONTROL guSVManagerCtl;
-extern struct list *guSVManagerDevice;
 
 
 RES_Typedef uSVManagerInit(void);

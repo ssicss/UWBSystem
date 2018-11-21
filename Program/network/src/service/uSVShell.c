@@ -2,11 +2,13 @@
 
 #include "uSVShell.h"
 
-#include "uSVManager.h"
-#include "stdplus.h"
 
-#include <stdio.h>
 struct QUEUE *gUartQueue = NULL;
+
+extern struct USVMANAGER_CONTROL guSVManagerCtl;
+extern struct QUEUE *gUartQueue;
+extern bool _is_uart_handle;
+extern struct list *guSVManagerDevice;
 
 
 RES_Typedef uSVShellInit(void)
@@ -140,6 +142,26 @@ static void _uSVShellCmdUpdata(const char *parames)
 	
 }
 
+static void _uSVShellCmdPing(const char *parames)
+{
+
+	guSVManagerCtl.readly_to_send = (struct FRAME_DAT *)malloc(sizeof(struct FRAME_DAT));
+	if(!guSVManagerCtl.readly_to_send)
+		return;
+
+	guSVManagerCtl.readly_to_send->addr = inet_aton(parames);
+	guSVManagerCtl.readly_to_send->mtype = MTYPE_NT;
+	guSVManagerCtl.readly_to_send->subtype = SUBTYPE_PING_REQUEST;
+	guSVManagerCtl.readly_to_send->hd = false;
+	guSVManagerCtl.readly_to_send->data = NULL;
+	guSVManagerCtl.readly_to_send->len = 0;
+
+	if(guSVManagerCtl.readly_to_send->addr){
+		guSVManagerCtl.flag |= (1<<2);
+	}else{
+		printf("\n\rundefined host addr");
+	}
+}
 
 RES_Typedef uSVShellPrase(void)
 {
@@ -174,6 +196,9 @@ RES_Typedef uSVShellPrase(void)
 		}
 		else if((strncmp(str_cmd, "updata", strlen("updata")) == 0)){
 			_uSVShellCmdUpdata(&str_cmd[strlen("updata")]);
+		}
+		else if((strncmp(str_cmd, "ping", strlen("ping")) == 0)){
+			_uSVShellCmdPing(&str_cmd[strlen("ping")]);
 		}
 
 		

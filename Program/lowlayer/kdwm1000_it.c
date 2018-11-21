@@ -4,11 +4,14 @@
 
 #include "kdwm1000_bsp.h"
 
-#include <stdio.h>
-#include "stdplus.h"
-#include "uSVShell.h"
+#include "uCommon.h"
+
+
+
 #include "stm32f4_usart.h"
 
+
+extern struct QUEUE *gUartQueue;
 /*====================================================================================================*/
 /*====================================================================================================*/
 void NMI_Handler( void ) { while(1); }
@@ -62,6 +65,7 @@ void USART1_IRQHandler( void )
 {
 	unsigned short uart_dr = 0;
 	unsigned char uart_dt_8bit = 0;
+	size_t data_null = 0;
 	
   if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET) {
 
@@ -71,6 +75,8 @@ void USART1_IRQHandler( void )
 	uart_dt_8bit = (unsigned char)uart_dr;
 
   	UART_SendByte(USART1, &uart_dt_8bit);
+
+
   	if((uart_dr == '\n') || (uart_dr == '\r')){
 		_is_uart_handle = true;
 	}
@@ -78,6 +84,11 @@ void USART1_IRQHandler( void )
 		//ctrl+c
 		QueuePush(gUartQueue, uart_dr);
 		_is_uart_handle = true;
+	}
+	else if(uart_dr == 0x7f){
+		//backspace
+		
+		QueuePopBack(gUartQueue, &data_null);
 	}
 	else{
 		QueuePush(gUartQueue, uart_dr);

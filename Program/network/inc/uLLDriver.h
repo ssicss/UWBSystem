@@ -2,7 +2,6 @@
 #define __ULINKLAYER_H
 
 #include "uCommon.h"
-#include "uRegister.h"
 
 #define FRAME_INDENTIFICATION_BIT0  'W'
 #define FRAME_INDENTIFICATION_BIT1  'K'
@@ -28,6 +27,8 @@ typedef enum{
 	SUBTYPE_ADDR_RELEASE_RESPONS = 10,
 	SUBTYPE_RANGING_REQUEST = 11,
 	SUBTYPE_RANGING_RESPONS = 12,
+	SUBTYPE_PING_REQUEST = 13,
+	SUBTYPE_PING_RESPONS = 14,
 
 	
 	SUBTYPE_POLL = 1,
@@ -35,6 +36,12 @@ typedef enum{
 	SUBTYPE_FINAL =3,
 }SUBTYPE_Typedef;
 
+struct uLLUserInterface{
+	bool (*uLLDeviceInit)(void);
+	bool (*uLLDeviceSend)(const char *, size_t len);
+	size_t (*uLLDeviceRecv)(char *, size_t);
+	void (*uLLDeviceDelayMs)(size_t);
+};
 
 struct FRAME_DAT{
 	MTYPE_Typedef mtype;
@@ -43,18 +50,19 @@ struct FRAME_DAT{
 	unsigned int addr;
 
 	unsigned int len;
-	unsigned char *data;
+	char *data;
 };
 
 
 RES_Typedef uLLInit(void);
 void uLLDistory(void);
 RES_Typedef uLLFrameSend(const struct FRAME_DAT *frame);
-RES_Typedef uLLFrameRecv(struct FRAME_DAT *frame, 
-								unsigned short timeout );
+RES_Typedef uLLFrameRecv(struct FRAME_DAT *frame, unsigned short timeout );
+void uLLDelayMs(size_t t);
 
-__inline void uLLDelayMs(const unsigned int t);
 
+RES_Typedef uLLUserInterfaceRegister(struct uLLUserInterface *interface);
+void uLLUserInterfaceDistory(void);
 
 #endif
 

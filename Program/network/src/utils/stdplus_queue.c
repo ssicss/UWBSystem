@@ -1,7 +1,6 @@
 
 #include "stdplus.h"
 
-#include <stdio.h>
 
 struct QUEUE *QueueCreate(const size_t size)  
 {  
@@ -60,6 +59,26 @@ bool QueuePop(struct QUEUE *q, size_t *item)
 
 	return true;
 }  
+
+bool QueuePopBack(struct QUEUE *q, size_t *item)  
+{  
+	struct QUEUE_INFO_INDENTIFICATION *qi = NULL;
+
+
+	SP_ASSERT(q);
+
+    if(QueueIsEmpty(q)) 
+		return false;
+
+	qi = &q->indentification;
+	*item = q->pbuf[qi->rear];
+	q->pbuf[qi->rear] = 0;
+	qi->rear = (qi->rear)? (qi->rear-1) : qi->size;
+
+	return true;
+}  
+
+
 
 
 bool QueueIsFull(const struct QUEUE *q)  

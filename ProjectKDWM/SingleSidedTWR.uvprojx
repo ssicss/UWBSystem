@@ -397,16 +397,6 @@
           <GroupName>Network</GroupName>
           <Files>
             <File>
-              <FileName>uLinklayer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Program\network\src\linklayer\uLinklayer.c</FilePath>
-            </File>
-            <File>
-              <FileName>uDiscovery.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Program\network\src\protocol\uDiscovery.c</FilePath>
-            </File>
-            <File>
               <FileName>uRegister.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Program\network\src\protocol\uRegister.c</FilePath>
@@ -440,6 +430,21 @@
               <FileName>stdplus_linklist.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Program\network\src\utils\stdplus_linklist.c</FilePath>
+            </File>
+            <File>
+              <FileName>uStateMaintenance.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\network\src\protocol\uStateMaintenance.c</FilePath>
+            </File>
+            <File>
+              <FileName>uLLDriver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\network\src\linklayer\uLLDriver.c</FilePath>
+            </File>
+            <File>
+              <FileName>uLLPacket.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\network\src\linklayer\uLLPacket.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -991,16 +996,6 @@
           <GroupName>Network</GroupName>
           <Files>
             <File>
-              <FileName>uLinklayer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Program\network\src\linklayer\uLinklayer.c</FilePath>
-            </File>
-            <File>
-              <FileName>uDiscovery.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Program\network\src\protocol\uDiscovery.c</FilePath>
-            </File>
-            <File>
               <FileName>uRegister.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Program\network\src\protocol\uRegister.c</FilePath>
@@ -1034,6 +1029,21 @@
               <FileName>stdplus_linklist.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Program\network\src\utils\stdplus_linklist.c</FilePath>
+            </File>
+            <File>
+              <FileName>uStateMaintenance.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\network\src\protocol\uStateMaintenance.c</FilePath>
+            </File>
+            <File>
+              <FileName>uLLDriver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\network\src\linklayer\uLLDriver.c</FilePath>
+            </File>
+            <File>
+              <FileName>uLLPacket.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\network\src\linklayer\uLLPacket.c</FilePath>
             </File>
           </Files>
         </Group>

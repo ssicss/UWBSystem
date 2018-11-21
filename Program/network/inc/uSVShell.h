@@ -3,8 +3,10 @@
 
 #include "uCommon.h"
 
-extern struct QUEUE *gUartQueue;
-extern bool _is_uart_handle;
+#include "uLLDriver.h"
+
+#include "uSVManager.h"
+
 
 RES_Typedef uSVShellInit(void);
 RES_Typedef uSVShellPrase(void);

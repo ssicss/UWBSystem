@@ -42,6 +42,7 @@ struct QUEUE
 struct QUEUE *QueueCreate(const size_t size);
 bool QueuePush(struct QUEUE *q, const size_t it);
 bool QueuePop(struct QUEUE *q, size_t *item);
+bool QueuePopBack(struct QUEUE *q, size_t *item);
 bool QueueIsFull(const struct QUEUE *q);
 bool QueueIsEmpty(const struct QUEUE *q);
 #endif

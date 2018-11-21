@@ -32,12 +32,10 @@
 .\obj\usvshell.o: ..\Libraries\CMSIS\Include\core_cm4.h
 .\obj\usvshell.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\obj\usvshell.o: ..\Program\decadriver\deca_params.h
+.\obj\usvshell.o: ..\Program\network\inc\stdplus.h
 .\obj\usvshell.o: ..\Program\segger\RTT\SEGGER_RTT.h
 .\obj\usvshell.o: ..\Program\segger\RTT\SEGGER_RTT_Conf.h
-.\obj\usvshell.o: ..\Program\network\inc\uSVManager.h
-.\obj\usvshell.o: ..\Program\network\inc\uRegister.h
-.\obj\usvshell.o: ..\Program\network\inc\uLinklayer.h
-.\obj\usvshell.o: ..\Program\network\inc\uRegister.h
 .\obj\usvshell.o: ..\Program\network\inc\conversion.h
+.\obj\usvshell.o: ..\Program\network\inc\uCommon.h
+.\obj\usvshell.o: ..\Program\network\inc\uLLDriver.h
 .\obj\usvshell.o: ..\Program\network\inc\uSVManager.h
-.\obj\usvshell.o: ..\Program\network\inc\stdplus.h

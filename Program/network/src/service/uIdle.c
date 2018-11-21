@@ -1,12 +1,14 @@
 
 #include "uIdle.h"
 
-#include "uSVManager.h"
 
+extern struct USVMANAGER_CONTROL guSVManagerCtl;
+extern struct list *guSVManagerDevice;
 
 RES_Typedef uSVIdle(void)
 {
 	struct MANAGER_DEV_INFO *dev=NULL;
+	//struct FRAME_DAT *dat;
 
 
 	dev = (struct MANAGER_DEV_INFO *)listnode_head(guSVManagerDevice);
@@ -30,16 +32,28 @@ RES_Typedef uSVIdle(void)
 		}
 
 		//发送包
-		if(guSVManagerCtl.flag & (2<<0)){
+		if(guSVManagerCtl.flag & (1<<1)){
 			//uLLFrameSend(&guSVManagerCtl.readly_to_send);
 		}
+
+		//ping
+		if(guSVManagerCtl.flag & (1<<2)){
+			uPTPing(guSVManagerCtl.readly_to_send);
+
+			guSVManagerCtl.flag &= (~(1<<2));
+			if(guSVManagerCtl.readly_to_send){
+				free(guSVManagerCtl.readly_to_send);
+			}
+		}
+
 		
 		//解析SHELL
 		uSVShellPrase();
 	}
 	else if(dev->nrole == DEV_NROLE_STA){
 		if(dev->ip){
-			uPTSigninRespons();			
+			uPTSigninRespons();	
+			uPTPingRespons();
 		}else{
 			uPTRegisterRespons();
 		}
