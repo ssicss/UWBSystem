@@ -26,12 +26,13 @@ static void _uSVShellLogInsert(char *cmd)
 
 	memset(&cmd_history[0][0], 0, SHELL_CMD_LEN_MAX);
 	memcpy(&cmd_history[0][0], cmd, strlen(cmd));
-
+/*
 	for(i=0; i<SHELL_CMD_COUNT_MAX; i++)
 	{
 		if(cmd_history[i][0])
 			SEGGER_RTT_printf(0, "%s\n\r",  &cmd_history[i][0]);
 	}
+*/	
 }
 
 RES_Typedef uSVShellInit(void)
@@ -145,14 +146,23 @@ static void _uSVShellCmdUpdata(const char *parames)
 	unsigned int i=0;
 	struct MANAGER_DEV_INFO *dev;
 	
+	
 	node = guSVManagerDevice->head;
 	for(i=0; i<guSVManagerDevice->count; i++)
 	{
 		if(i>0){
 			dev = (struct MANAGER_DEV_INFO *)node->data;
 			printf("addr=%x\n\r", dev->ip);
+			guSVManagerCtl.readly_to_send.addr = dev->ip;
+			guSVManagerCtl.readly_to_send.mtype = MTYPE_NT;
+			guSVManagerCtl.readly_to_send.subtype = SUBTYPE_GET_CONFIG_REQUEST;
+			guSVManagerCtl.readly_to_send.hd = false;
+			guSVManagerCtl.readly_to_send.data = NULL;
+			guSVManagerCtl.readly_to_send.len = 0;
+			
+			guSVManagerCtl.flag |= (1<<1);
 
-			//guSVManagerCtl.readly_to_send.addr = dev->ip;
+		
 		}
 		node = node->next;
 	}
@@ -166,22 +176,22 @@ static void _uSVShellCmdUpdata(const char *parames)
 	
 	
 }
+static void _uSVShellCmdFlush(void)
+{
+	guSVManagerCtl.flag |= (1<<3);
+}
 
 static void _uSVShellCmdPing(const char *parames)
 {
 
-	guSVManagerCtl.readly_to_send = (struct FRAME_DAT *)malloc(sizeof(struct FRAME_DAT));
-	if(!guSVManagerCtl.readly_to_send)
-		return;
+	guSVManagerCtl.readly_to_send.addr = inet_aton(parames);
+	guSVManagerCtl.readly_to_send.mtype = MTYPE_NT;
+	guSVManagerCtl.readly_to_send.subtype = SUBTYPE_PING_REQUEST;
+	guSVManagerCtl.readly_to_send.hd = false;
+	guSVManagerCtl.readly_to_send.data = NULL;
+	guSVManagerCtl.readly_to_send.len = 0;
 
-	guSVManagerCtl.readly_to_send->addr = inet_aton(parames);
-	guSVManagerCtl.readly_to_send->mtype = MTYPE_NT;
-	guSVManagerCtl.readly_to_send->subtype = SUBTYPE_PING_REQUEST;
-	guSVManagerCtl.readly_to_send->hd = false;
-	guSVManagerCtl.readly_to_send->data = NULL;
-	guSVManagerCtl.readly_to_send->len = 0;
-
-	if(guSVManagerCtl.readly_to_send->addr){
+	if(guSVManagerCtl.readly_to_send.addr){
 		guSVManagerCtl.flag |= (1<<2);
 	}else{
 		printf("\n\rundefined host addr");
@@ -226,6 +236,9 @@ RES_Typedef uSVShellPrase(void)
 		}
 		else if((strncmp(str_cmd, "ping", strlen("ping")) == 0)){
 			_uSVShellCmdPing(&str_cmd[strlen("ping")]);
+		}
+		else if((strncmp(str_cmd, "flush", strlen("flush")) == 0)){
+			_uSVShellCmdFlush();
 		}
 
 		

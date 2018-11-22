@@ -59,6 +59,13 @@ Section Cross References
     uregister.o(i._uPTWaitDeviceRegister) refers to ullpacket.o(i.uLLFrameWaitEx) for uLLFrameWaitEx
     uregister.o(i._uPTWaitDeviceRegister) refers to stdplus_linklist.o(i.listnode_add) for listnode_add
     uregister.o(i._uPTWaitDeviceRegister) refers to uregister.o(.bss) for .bss
+    uregister.o(i.uPTReSignin) refers to stdplus_linklist.o(i.list_new) for list_new
+    uregister.o(i.uPTReSignin) refers to segger_rtt_printf.o(i.SEGGER_RTT_printf) for SEGGER_RTT_printf
+    uregister.o(i.uPTReSignin) refers to stdplus_linklist.o(i.listnode_add) for listnode_add
+    uregister.o(i.uPTReSignin) refers to stdplus_linklist.o(i.list_delete_node) for list_delete_node
+    uregister.o(i.uPTReSignin) refers to uregister.o(i._uPTDeviceSignin) for _uPTDeviceSignin
+    uregister.o(i.uPTReSignin) refers to stdplus_linklist.o(i.list_free) for list_free
+    uregister.o(i.uPTReSignin) refers to usvmanager.o(.data) for guSVManagerDevice
     uregister.o(i.uPTRegisterCycle) refers to stdplus_linklist.o(i.list_new) for list_new
     uregister.o(i.uPTRegisterCycle) refers to memseta.o(.text) for __aeabi_memclr4
     uregister.o(i.uPTRegisterCycle) refers to ullpacket.o(i.uLLFrameSendEx) for uLLFrameSendEx
@@ -78,8 +85,9 @@ Section Cross References
     uregister.o(i.uPTSigninRespons) refers to ullpacket.o(i.uLLFrameSendEx) for uLLFrameSendEx
     uidle.o(i.uSVIdle) refers to stdplus_linklist.o(i.listnode_head) for listnode_head
     uidle.o(i.uSVIdle) refers to uregister.o(i.uPTRegisterCycle) for uPTRegisterCycle
+    uidle.o(i.uSVIdle) refers to ulldriver.o(i.uLLFrameSend) for uLLFrameSend
     uidle.o(i.uSVIdle) refers to ustatemaintenance.o(i.uPTPing) for uPTPing
-    uidle.o(i.uSVIdle) refers to malloc.o(i.free) for free
+    uidle.o(i.uSVIdle) refers to uregister.o(i.uPTReSignin) for uPTReSignin
     uidle.o(i.uSVIdle) refers to usvshell.o(i.uSVShellPrase) for uSVShellPrase
     uidle.o(i.uSVIdle) refers to ullpacket.o(i.uLLFrameWaitInAddr) for uLLFrameWaitInAddr
     uidle.o(i.uSVIdle) refers to uregister.o(i.uPTSigninRespons) for uPTSigninRespons
@@ -89,6 +97,7 @@ Section Cross References
     uidle.o(i.uSVIdle) refers to usvmanager.o(.bss) for guSVManagerCtl
     usvmanager.o(i.uSVManagerDiscoveryStart) refers to usvmanager.o(.bss) for .bss
     usvmanager.o(i.uSVManagerDiscoveryStop) refers to usvmanager.o(.bss) for .bss
+    usvmanager.o(i.uSVManagerInit) refers to memseta.o(.text) for __aeabi_memclr4
     usvmanager.o(i.uSVManagerInit) refers to stdplus_linklist.o(i.list_new) for list_new
     usvmanager.o(i.uSVManagerInit) refers to malloc.o(i.malloc) for malloc
     usvmanager.o(i.uSVManagerInit) refers to printf8.o(i.__0printf$8) for __2printf
@@ -100,7 +109,6 @@ Section Cross References
     usvshell.o(i._uSVShellCmdLs) refers to conversion.o(i.inet_ntoa) for inet_ntoa
     usvshell.o(i._uSVShellCmdLs) refers to usvshell.o(.conststring) for .conststring
     usvshell.o(i._uSVShellCmdLs) refers to usvmanager.o(.data) for guSVManagerDevice
-    usvshell.o(i._uSVShellCmdPing) refers to malloc.o(i.malloc) for malloc
     usvshell.o(i._uSVShellCmdPing) refers to conversion.o(i.inet_aton) for inet_aton
     usvshell.o(i._uSVShellCmdPing) refers to printf8.o(i.__0printf$8) for __2printf
     usvshell.o(i._uSVShellCmdPing) refers to usvmanager.o(.bss) for guSVManagerCtl
@@ -108,6 +116,9 @@ Section Cross References
     usvshell.o(i._uSVShellCmdScan) refers to printf8.o(i.__0printf$8) for __2printf
     usvshell.o(i._uSVShellCmdScan) refers to atoi.o(.text) for atoi
     usvshell.o(i._uSVShellCmdScan) refers to usvmanager.o(.bss) for guSVManagerCtl
+    usvshell.o(i._uSVShellCmdUpdata) refers to printf8.o(i.__0printf$8) for __2printf
+    usvshell.o(i._uSVShellCmdUpdata) refers to usvmanager.o(.data) for guSVManagerDevice
+    usvshell.o(i._uSVShellCmdUpdata) refers to usvmanager.o(.bss) for guSVManagerCtl
     usvshell.o(i._uSVShellLogInsert) refers to memcpya.o(.text) for __aeabi_memcpy
     usvshell.o(i._uSVShellLogInsert) refers to memseta.o(.text) for __aeabi_memclr
     usvshell.o(i._uSVShellLogInsert) refers to strlen.o(.text) for strlen
@@ -127,12 +138,12 @@ Section Cross References
     usvshell.o(i.uSVShellPrase) refers to strncmp.o(.text) for strncmp
     usvshell.o(i.uSVShellPrase) refers to usvshell.o(i._uSVShellCmdScan) for _uSVShellCmdScan
     usvshell.o(i.uSVShellPrase) refers to usvshell.o(i._uSVShellCmdLs) for _uSVShellCmdLs
+    usvshell.o(i.uSVShellPrase) refers to usvshell.o(i._uSVShellCmdUpdata) for _uSVShellCmdUpdata
     usvshell.o(i.uSVShellPrase) refers to usvshell.o(i._uSVShellCmdPing) for _uSVShellCmdPing
     usvshell.o(i.uSVShellPrase) refers to kdwm1000_it.o(.data) for _is_uart_handle
     usvshell.o(i.uSVShellPrase) refers to usvshell.o(.data) for .data
-    usvshell.o(i.uSVShellPrase) refers to usvshell.o(.conststring) for .conststring
-    usvshell.o(i.uSVShellPrase) refers to usvmanager.o(.data) for guSVManagerDevice
     usvshell.o(i.uSVShellPrase) refers to usvmanager.o(.bss) for guSVManagerCtl
+    usvshell.o(i.uSVShellPrase) refers to usvshell.o(.conststring) for .conststring
     stdplus_queue.o(i.QueueCreate) refers to malloc.o(i.malloc) for malloc
     stdplus_queue.o(i.QueueCreate) refers to memseta.o(.text) for __aeabi_memclr4
     stdplus_queue.o(i.QueuePop) refers to stdplus_queue.o(i.QueueIsEmpty) for QueueIsEmpty
@@ -158,7 +169,7 @@ Section Cross References
     ustatemaintenance.o(i.uPTPing) refers to conversion.o(i.inet_ntoa) for inet_ntoa
     ustatemaintenance.o(i.uPTPing) refers to printf8.o(i.__0printf$8) for __2printf
     ustatemaintenance.o(i.uPTPing) refers to ulldriver.o(i.uLLFrameSend) for uLLFrameSend
-    ustatemaintenance.o(i.uPTPing) refers to ulldriver.o(i.uLLFrameRecv) for uLLFrameRecv
+    ustatemaintenance.o(i.uPTPing) refers to ullpacket.o(i.uLLFrameWaitEx) for uLLFrameWaitEx
     ustatemaintenance.o(i.uPTPingRespons) refers to ullpacket.o(i.uLLFrameSendEx) for uLLFrameSendEx
     ulldriver.o(i.uLLDelayMs) refers to segger_rtt_printf.o(i.SEGGER_RTT_printf) for SEGGER_RTT_printf
     ulldriver.o(i.uLLDelayMs) refers to ulldriver.o(.data) for .data
@@ -375,9 +386,9 @@ Section Cross References
     kdwm1000_it.o(i.USART1_IRQHandler) refers to stdplus_queue.o(i.QueuePopBack) for QueuePopBack
     kdwm1000_it.o(i.USART1_IRQHandler) refers to printf8.o(i.__0printf$8) for __2printf
     kdwm1000_it.o(i.USART1_IRQHandler) refers to stdplus_queue.o(i.QueueGetItemCount) for QueueGetItemCount
-    kdwm1000_it.o(i.USART1_IRQHandler) refers to segger_rtt_printf.o(i.SEGGER_RTT_printf) for SEGGER_RTT_printf
     kdwm1000_it.o(i.USART1_IRQHandler) refers to stdplus_queue.o(i.QueueClear) for QueueClear
     kdwm1000_it.o(i.USART1_IRQHandler) refers to strlen.o(.text) for strlen
+    kdwm1000_it.o(i.USART1_IRQHandler) refers to segger_rtt_printf.o(i.SEGGER_RTT_printf) for SEGGER_RTT_printf
     kdwm1000_it.o(i.USART1_IRQHandler) refers to kdwm1000_it.o(.data) for .data
     kdwm1000_it.o(i.USART1_IRQHandler) refers to usvshell.o(.data) for gUartQueue
     kdwm1000_it.o(i.USART1_IRQHandler) refers to usvshell.o(.bss) for cmd_history
@@ -829,7 +840,6 @@ Removing Unused input sections from the image.
     Removing stdplus_linklist.o(i.list_add_node_prev), (40 bytes).
     Removing stdplus_linklist.o(i.list_delete), (18 bytes).
     Removing stdplus_linklist.o(i.list_delete_all_node), (40 bytes).
-    Removing stdplus_linklist.o(i.list_delete_node), (38 bytes).
     Removing stdplus_linklist.o(i.listnode_add_after), (62 bytes).
     Removing stdplus_linklist.o(i.listnode_add_sort), (88 bytes).
     Removing stdplus_linklist.o(i.listnode_delete), (58 bytes).
@@ -1100,7 +1110,7 @@ Removing Unused input sections from the image.
     Removing dfixul.o(.text), (48 bytes).
     Removing cdrcmple.o(.text), (48 bytes).
 
-301 unused section(s) (total 9713 bytes) removed from the image.
+300 unused section(s) (total 9675 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1110,56 +1120,56 @@ Image Symbol Table
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  iscntrl_o.o ABSOLUTE
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isspace_o.o ABSOLUTE
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  ispunct_o.o ABSOLUTE
     ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isblank_o.o ABSOLUTE
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isprint_o.o ABSOLUTE
     ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isalpha_o.o ABSOLUTE
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  islower_o.o ABSOLUTE
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isupper_o.o ABSOLUTE
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isalnum_o.o ABSOLUTE
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isgraph_o.o ABSOLUTE
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  ctype_c.o ABSOLUTE
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isdigit_o.o ABSOLUTE
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  ctype_o.o ABSOLUTE
     ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isxdigit_o.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  ctype_o.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  ctype_c.o ABSOLUTE
     ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isspace_c.o ABSOLUTE
-    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  iscntrl_o.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isgraph_o.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isalnum_o.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isdigit_o.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  islower_o.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isprint_o.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  ispunct_o.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isspace_o.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isupper_o.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/errno.c                 0x00000000   Number         0  errno.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
     ../clib/microlib/malloc/calloc.c         0x00000000   Number         0  calloc.o ABSOLUTE
-    ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  mallocr.o ABSOLUTE
-    ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  malloc.o ABSOLUTE
     ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  malloca.o ABSOLUTE
     ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  mallocra.o ABSOLUTE
+    ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  mallocr.o ABSOLUTE
+    ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  malloc.o ABSOLUTE
     ../clib/microlib/malloc/mvars.c          0x00000000   Number         0  mvars.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stdio/fflush.c          0x00000000   Number         0  fflush.o ABSOLUTE
@@ -1173,23 +1183,23 @@ Image Symbol Table
     ../clib/microlib/string/strcpy.c         0x00000000   Number         0  strcpy.o ABSOLUTE
     ../clib/microlib/string/strlen.c         0x00000000   Number         0  strlen.o ABSOLUTE
     ../clib/microlib/string/strncmp.c        0x00000000   Number         0  strncmp.o ABSOLUTE
-    ../clib/microlib/stubs.s                 0x00000000   Number         0  useno.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
-    ../clib/scanf.c                          0x00000000   Number         0  _strtoul.o ABSOLUTE
+    ../clib/microlib/stubs.s                 0x00000000   Number         0  useno.o ABSOLUTE
     ../clib/scanf.c                          0x00000000   Number         0  scanf_char.o ABSOLUTE
-    ../clib/scanf.c                          0x00000000   Number         0  _scanf.o ABSOLUTE
-    ../clib/scanf.c                          0x00000000   Number         0  _chval.o ABSOLUTE
-    ../clib/scanf.c                          0x00000000   Number         0  atoi.o ABSOLUTE
-    ../clib/scanf.c                          0x00000000   Number         0  _scanf_int.o ABSOLUTE
-    ../clib/scanf.c                          0x00000000   Number         0  __0sscanf.o ABSOLUTE
-    ../clib/scanf.c                          0x00000000   Number         0  strtol.o ABSOLUTE
     ../clib/scanf.c                          0x00000000   Number         0  _sgetc.o ABSOLUTE
+    ../clib/scanf.c                          0x00000000   Number         0  strtol.o ABSOLUTE
+    ../clib/scanf.c                          0x00000000   Number         0  atoi.o ABSOLUTE
+    ../clib/scanf.c                          0x00000000   Number         0  _strtoul.o ABSOLUTE
+    ../clib/scanf.c                          0x00000000   Number         0  _scanf_int.o ABSOLUTE
+    ../clib/scanf.c                          0x00000000   Number         0  _chval.o ABSOLUTE
+    ../clib/scanf.c                          0x00000000   Number         0  __0sscanf.o ABSOLUTE
+    ../clib/scanf.c                          0x00000000   Number         0  _scanf.o ABSOLUTE
     ../fplib/microlib/f2d.c                  0x00000000   Number         0  f2d.o ABSOLUTE
     ../fplib/microlib/fpadd.c                0x00000000   Number         0  dadd.o ABSOLUTE
     ../fplib/microlib/fpdiv.c                0x00000000   Number         0  ddiv.o ABSOLUTE
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
-    ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixi.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
+    ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixi.o ABSOLUTE
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
     ..\Libraries\CMSIS\Device\startup_stm32f411xe.s 0x00000000   Number         0  startup_stm32f411xe.o ABSOLUTE
     ..\Libraries\CMSIS\Device\system_stm32f4xx.c 0x00000000   Number         0  system_stm32f4xx.o ABSOLUTE
@@ -1367,111 +1377,115 @@ Image Symbol Table
     i.SystemInit                             0x08001a98   Section        0  system_stm32f4xx.o(i.SystemInit)
     i.UART_SendByte                          0x08001af4   Section        0  stm32f4_usart.o(i.UART_SendByte)
     i.USART1_IRQHandler                      0x08001b00   Section        0  kdwm1000_it.o(i.USART1_IRQHandler)
-    i.USART_ClearFlag                        0x08001ce0   Section        0  stm32f4xx_usart.o(i.USART_ClearFlag)
-    i.USART_Cmd                              0x08001ce6   Section        0  stm32f4xx_usart.o(i.USART_Cmd)
-    i.USART_GetITStatus                      0x08001cfa   Section        0  stm32f4xx_usart.o(i.USART_GetITStatus)
-    i.USART_ITConfig                         0x08001d38   Section        0  stm32f4xx_usart.o(i.USART_ITConfig)
-    i.USART_Init                             0x08001d68   Section        0  stm32f4xx_usart.o(i.USART_Init)
-    i.UsageFault_Handler                     0x08001e14   Section        0  kdwm1000_it.o(i.UsageFault_Handler)
-    i._DoInit                                0x08001e18   Section        0  segger_rtt.o(i._DoInit)
-    _DoInit                                  0x08001e19   Thumb Code    76  segger_rtt.o(i._DoInit)
-    i._GetAvailWriteSpace                    0x08001e80   Section        0  segger_rtt.o(i._GetAvailWriteSpace)
-    _GetAvailWriteSpace                      0x08001e81   Thumb Code    22  segger_rtt.o(i._GetAvailWriteSpace)
-    i._PrintInt                              0x08001e96   Section        0  segger_rtt_printf.o(i._PrintInt)
-    _PrintInt                                0x08001e97   Thumb Code   196  segger_rtt_printf.o(i._PrintInt)
-    i._PrintUnsigned                         0x08001f5c   Section        0  segger_rtt_printf.o(i._PrintUnsigned)
-    _PrintUnsigned                           0x08001f5d   Thumb Code   200  segger_rtt_printf.o(i._PrintUnsigned)
-    i._StoreChar                             0x08002028   Section        0  segger_rtt_printf.o(i._StoreChar)
-    _StoreChar                               0x08002029   Thumb Code    62  segger_rtt_printf.o(i._StoreChar)
-    i._WriteBlocking                         0x08002066   Section        0  segger_rtt.o(i._WriteBlocking)
-    _WriteBlocking                           0x08002067   Thumb Code    90  segger_rtt.o(i._WriteBlocking)
-    i._WriteNoCheck                          0x080020c0   Section        0  segger_rtt.o(i._WriteNoCheck)
-    _WriteNoCheck                            0x080020c1   Thumb Code    66  segger_rtt.o(i._WriteNoCheck)
-    i.__0printf$8                            0x08002104   Section        0  printf8.o(i.__0printf$8)
-    i.__0sprintf$8                           0x08002124   Section        0  printf8.o(i.__0sprintf$8)
-    i.__aeabi_errno_addr                     0x0800214c   Section        0  errno.o(i.__aeabi_errno_addr)
-    i.__scatterload_copy                     0x08002154   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x08002162   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x08002164   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i._dwt_configlde                         0x08002172   Section        0  deca_device.o(i._dwt_configlde)
-    i._printf_core                           0x080021a4   Section        0  printf8.o(i._printf_core)
-    _printf_core                             0x080021a5   Thumb Code   996  printf8.o(i._printf_core)
-    i._printf_post_padding                   0x080025b4   Section        0  printf8.o(i._printf_post_padding)
-    _printf_post_padding                     0x080025b5   Thumb Code    36  printf8.o(i._printf_post_padding)
-    i._printf_pre_padding                    0x080025d8   Section        0  printf8.o(i._printf_pre_padding)
-    _printf_pre_padding                      0x080025d9   Thumb Code    46  printf8.o(i._printf_pre_padding)
-    i._sputc                                 0x08002606   Section        0  printf8.o(i._sputc)
-    _sputc                                   0x08002607   Thumb Code    10  printf8.o(i._sputc)
-    i._uPTAllocRespons                       0x08002610   Section        0  uregister.o(i._uPTAllocRespons)
-    _uPTAllocRespons                         0x08002611   Thumb Code   118  uregister.o(i._uPTAllocRespons)
-    i._uPTDeviceSignin                       0x08002698   Section        0  uregister.o(i._uPTDeviceSignin)
-    _uPTDeviceSignin                         0x08002699   Thumb Code   210  uregister.o(i._uPTDeviceSignin)
-    i._uPTWaitDeviceRegister                 0x080027c4   Section        0  uregister.o(i._uPTWaitDeviceRegister)
-    _uPTWaitDeviceRegister                   0x080027c5   Thumb Code   262  uregister.o(i._uPTWaitDeviceRegister)
-    i._uSVShellCmdLs                         0x08002908   Section        0  usvshell.o(i._uSVShellCmdLs)
-    _uSVShellCmdLs                           0x08002909   Thumb Code   130  usvshell.o(i._uSVShellCmdLs)
-    i._uSVShellCmdPing                       0x080029e0   Section        0  usvshell.o(i._uSVShellCmdPing)
-    _uSVShellCmdPing                         0x080029e1   Thumb Code    78  usvshell.o(i._uSVShellCmdPing)
-    i._uSVShellCmdScan                       0x08002a4c   Section        0  usvshell.o(i._uSVShellCmdScan)
-    _uSVShellCmdScan                         0x08002a4d   Thumb Code    70  usvshell.o(i._uSVShellCmdScan)
-    i._uSVShellLogInsert                     0x08002ae0   Section        0  usvshell.o(i._uSVShellLogInsert)
-    _uSVShellLogInsert                       0x08002ae1   Thumb Code   102  usvshell.o(i._uSVShellLogInsert)
-    i.dwt_configure                          0x08002b98   Section        0  deca_device.o(i.dwt_configure)
-    i.dwt_entersleepaftertx                  0x08002da8   Section        0  deca_device.o(i.dwt_entersleepaftertx)
-    i.dwt_forcetrxoff                        0x08002dcc   Section        0  deca_device.o(i.dwt_forcetrxoff)
-    i.dwt_initialise                         0x08002e20   Section        0  deca_device.o(i.dwt_initialise)
-    i.dwt_readrxdata                         0x08002f6c   Section        0  deca_device.o(i.dwt_readrxdata)
-    i.dwt_rxenable                           0x08002f7e   Section        0  deca_device.o(i.dwt_rxenable)
-    i.dwt_rxreset                            0x08002fce   Section        0  deca_device.o(i.dwt_rxreset)
-    i.dwt_setrxtimeout                       0x08002ff8   Section        0  deca_device.o(i.dwt_setrxtimeout)
-    i.dwt_starttx                            0x08003050   Section        0  deca_device.o(i.dwt_starttx)
-    i.dwt_syncrxbufptrs                      0x080030e4   Section        0  deca_device.o(i.dwt_syncrxbufptrs)
-    i.dwt_writetxdata                        0x08003118   Section        0  deca_device.o(i.dwt_writetxdata)
-    i.dwt_writetxfctrl                       0x0800313c   Section        0  deca_device.o(i.dwt_writetxfctrl)
-    i.fputc                                  0x08003158   Section        0  serial.o(i.fputc)
-    i.free                                   0x0800316c   Section        0  malloc.o(i.free)
-    i.inet_aton                              0x080031bc   Section        0  conversion.o(i.inet_aton)
-    i.inet_ntoa                              0x08003204   Section        0  conversion.o(i.inet_ntoa)
-    i.list_free                              0x0800322c   Section        0  stdplus_linklist.o(i.list_free)
-    i.list_new                               0x08003230   Section        0  stdplus_linklist.o(i.list_new)
-    i.listnode_add                           0x08003238   Section        0  stdplus_linklist.o(i.listnode_add)
-    i.listnode_head                          0x0800325e   Section        0  stdplus_linklist.o(i.listnode_head)
-    i.listnode_new                           0x08003268   Section        0  stdplus_linklist.o(i.listnode_new)
-    listnode_new                             0x08003269   Thumb Code     8  stdplus_linklist.o(i.listnode_new)
-    i.main                                   0x08003270   Section        0  main.o(i.main)
-    i.malloc                                 0x08003314   Section        0  malloc.o(i.malloc)
-    i.uLLFrameRecv                           0x08003380   Section        0  ulldriver.o(i.uLLFrameRecv)
-    i.uLLFrameSend                           0x08003458   Section        0  ulldriver.o(i.uLLFrameSend)
-    i.uLLFrameSendEx                         0x08003520   Section        0  ullpacket.o(i.uLLFrameSendEx)
-    i.uLLFrameWaitEx                         0x0800354a   Section        0  ullpacket.o(i.uLLFrameWaitEx)
-    i.uLLFrameWaitInAddr                     0x08003598   Section        0  ullpacket.o(i.uLLFrameWaitInAddr)
-    i.uLLInit                                0x080035d0   Section        0  ulldriver.o(i.uLLInit)
-    i.uLLUserInterfaceRegister               0x08003630   Section        0  ulldriver.o(i.uLLUserInterfaceRegister)
-    i.uPTPing                                0x080036ac   Section        0  ustatemaintenance.o(i.uPTPing)
-    i.uPTPingRespons                         0x080037a0   Section        0  ustatemaintenance.o(i.uPTPingRespons)
-    i.uPTRegisterCycle                       0x080037ba   Section        0  uregister.o(i.uPTRegisterCycle)
-    i.uPTRegisterRespons                     0x08003810   Section        0  uregister.o(i.uPTRegisterRespons)
-    i.uPTSigninRespons                       0x080038b8   Section        0  uregister.o(i.uPTSigninRespons)
-    i.uSVIdle                                0x080038d4   Section        0  uidle.o(i.uSVIdle)
-    i.uSVManagerInit                         0x08003968   Section        0  usvmanager.o(i.uSVManagerInit)
-    i.uSVShellInit                           0x080039c8   Section        0  usvshell.o(i.uSVShellInit)
-    i.uSVShellPrase                          0x08003a1c   Section        0  usvshell.o(i.uSVShellPrase)
-    .constdata                               0x08003bb0   Section        8  deca_params.o(.constdata)
-    .constdata                               0x08003bb8   Section       24  deca_params.o(.constdata)
-    .constdata                               0x08003bd0   Section       30  deca_params.o(.constdata)
-    .constdata                               0x08003bee   Section        2  deca_params.o(.constdata)
-    .constdata                               0x08003bf0   Section        8  deca_params.o(.constdata)
-    .constdata                               0x08003bf8   Section        3  deca_params.o(.constdata)
-    .constdata                               0x08003bfc   Section       12  deca_params.o(.constdata)
-    .constdata                               0x08003c08   Section        4  deca_params.o(.constdata)
-    .constdata                               0x08003c0c   Section       32  deca_params.o(.constdata)
-    .constdata                               0x08003c2c   Section       50  deca_params.o(.constdata)
-    .constdata                               0x08003c5e   Section       16  segger_rtt_printf.o(.constdata)
-    _aV2C                                    0x08003c5e   Data          16  segger_rtt_printf.o(.constdata)
-    .constdata                               0x08003c6e   Section      129  ctype_o.o(.constdata)
-    .constdata                               0x08003cf0   Section        4  ctype_o.o(.constdata)
-    table                                    0x08003cf0   Data           4  ctype_o.o(.constdata)
-    .conststring                             0x08003cf4   Section      614  usvshell.o(.conststring)
+    i.USART_ClearFlag                        0x08001cd0   Section        0  stm32f4xx_usart.o(i.USART_ClearFlag)
+    i.USART_Cmd                              0x08001cd6   Section        0  stm32f4xx_usart.o(i.USART_Cmd)
+    i.USART_GetITStatus                      0x08001cea   Section        0  stm32f4xx_usart.o(i.USART_GetITStatus)
+    i.USART_ITConfig                         0x08001d28   Section        0  stm32f4xx_usart.o(i.USART_ITConfig)
+    i.USART_Init                             0x08001d58   Section        0  stm32f4xx_usart.o(i.USART_Init)
+    i.UsageFault_Handler                     0x08001e04   Section        0  kdwm1000_it.o(i.UsageFault_Handler)
+    i._DoInit                                0x08001e08   Section        0  segger_rtt.o(i._DoInit)
+    _DoInit                                  0x08001e09   Thumb Code    76  segger_rtt.o(i._DoInit)
+    i._GetAvailWriteSpace                    0x08001e70   Section        0  segger_rtt.o(i._GetAvailWriteSpace)
+    _GetAvailWriteSpace                      0x08001e71   Thumb Code    22  segger_rtt.o(i._GetAvailWriteSpace)
+    i._PrintInt                              0x08001e86   Section        0  segger_rtt_printf.o(i._PrintInt)
+    _PrintInt                                0x08001e87   Thumb Code   196  segger_rtt_printf.o(i._PrintInt)
+    i._PrintUnsigned                         0x08001f4c   Section        0  segger_rtt_printf.o(i._PrintUnsigned)
+    _PrintUnsigned                           0x08001f4d   Thumb Code   200  segger_rtt_printf.o(i._PrintUnsigned)
+    i._StoreChar                             0x08002018   Section        0  segger_rtt_printf.o(i._StoreChar)
+    _StoreChar                               0x08002019   Thumb Code    62  segger_rtt_printf.o(i._StoreChar)
+    i._WriteBlocking                         0x08002056   Section        0  segger_rtt.o(i._WriteBlocking)
+    _WriteBlocking                           0x08002057   Thumb Code    90  segger_rtt.o(i._WriteBlocking)
+    i._WriteNoCheck                          0x080020b0   Section        0  segger_rtt.o(i._WriteNoCheck)
+    _WriteNoCheck                            0x080020b1   Thumb Code    66  segger_rtt.o(i._WriteNoCheck)
+    i.__0printf$8                            0x080020f4   Section        0  printf8.o(i.__0printf$8)
+    i.__0sprintf$8                           0x08002114   Section        0  printf8.o(i.__0sprintf$8)
+    i.__aeabi_errno_addr                     0x0800213c   Section        0  errno.o(i.__aeabi_errno_addr)
+    i.__scatterload_copy                     0x08002144   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x08002152   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x08002154   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i._dwt_configlde                         0x08002162   Section        0  deca_device.o(i._dwt_configlde)
+    i._printf_core                           0x08002194   Section        0  printf8.o(i._printf_core)
+    _printf_core                             0x08002195   Thumb Code   996  printf8.o(i._printf_core)
+    i._printf_post_padding                   0x080025a4   Section        0  printf8.o(i._printf_post_padding)
+    _printf_post_padding                     0x080025a5   Thumb Code    36  printf8.o(i._printf_post_padding)
+    i._printf_pre_padding                    0x080025c8   Section        0  printf8.o(i._printf_pre_padding)
+    _printf_pre_padding                      0x080025c9   Thumb Code    46  printf8.o(i._printf_pre_padding)
+    i._sputc                                 0x080025f6   Section        0  printf8.o(i._sputc)
+    _sputc                                   0x080025f7   Thumb Code    10  printf8.o(i._sputc)
+    i._uPTAllocRespons                       0x08002600   Section        0  uregister.o(i._uPTAllocRespons)
+    _uPTAllocRespons                         0x08002601   Thumb Code   118  uregister.o(i._uPTAllocRespons)
+    i._uPTDeviceSignin                       0x08002688   Section        0  uregister.o(i._uPTDeviceSignin)
+    _uPTDeviceSignin                         0x08002689   Thumb Code   210  uregister.o(i._uPTDeviceSignin)
+    i._uPTWaitDeviceRegister                 0x080027b4   Section        0  uregister.o(i._uPTWaitDeviceRegister)
+    _uPTWaitDeviceRegister                   0x080027b5   Thumb Code   262  uregister.o(i._uPTWaitDeviceRegister)
+    i._uSVShellCmdLs                         0x080028f8   Section        0  usvshell.o(i._uSVShellCmdLs)
+    _uSVShellCmdLs                           0x080028f9   Thumb Code   130  usvshell.o(i._uSVShellCmdLs)
+    i._uSVShellCmdPing                       0x080029d0   Section        0  usvshell.o(i._uSVShellCmdPing)
+    _uSVShellCmdPing                         0x080029d1   Thumb Code    46  usvshell.o(i._uSVShellCmdPing)
+    i._uSVShellCmdScan                       0x08002a1c   Section        0  usvshell.o(i._uSVShellCmdScan)
+    _uSVShellCmdScan                         0x08002a1d   Thumb Code    70  usvshell.o(i._uSVShellCmdScan)
+    i._uSVShellCmdUpdata                     0x08002ab0   Section        0  usvshell.o(i._uSVShellCmdUpdata)
+    _uSVShellCmdUpdata                       0x08002ab1   Thumb Code    86  usvshell.o(i._uSVShellCmdUpdata)
+    i._uSVShellLogInsert                     0x08002b1c   Section        0  usvshell.o(i._uSVShellLogInsert)
+    _uSVShellLogInsert                       0x08002b1d   Thumb Code    86  usvshell.o(i._uSVShellLogInsert)
+    i.dwt_configure                          0x08002bbc   Section        0  deca_device.o(i.dwt_configure)
+    i.dwt_entersleepaftertx                  0x08002dcc   Section        0  deca_device.o(i.dwt_entersleepaftertx)
+    i.dwt_forcetrxoff                        0x08002df0   Section        0  deca_device.o(i.dwt_forcetrxoff)
+    i.dwt_initialise                         0x08002e44   Section        0  deca_device.o(i.dwt_initialise)
+    i.dwt_readrxdata                         0x08002f90   Section        0  deca_device.o(i.dwt_readrxdata)
+    i.dwt_rxenable                           0x08002fa2   Section        0  deca_device.o(i.dwt_rxenable)
+    i.dwt_rxreset                            0x08002ff2   Section        0  deca_device.o(i.dwt_rxreset)
+    i.dwt_setrxtimeout                       0x0800301c   Section        0  deca_device.o(i.dwt_setrxtimeout)
+    i.dwt_starttx                            0x08003074   Section        0  deca_device.o(i.dwt_starttx)
+    i.dwt_syncrxbufptrs                      0x08003108   Section        0  deca_device.o(i.dwt_syncrxbufptrs)
+    i.dwt_writetxdata                        0x0800313c   Section        0  deca_device.o(i.dwt_writetxdata)
+    i.dwt_writetxfctrl                       0x08003160   Section        0  deca_device.o(i.dwt_writetxfctrl)
+    i.fputc                                  0x0800317c   Section        0  serial.o(i.fputc)
+    i.free                                   0x08003190   Section        0  malloc.o(i.free)
+    i.inet_aton                              0x080031e0   Section        0  conversion.o(i.inet_aton)
+    i.inet_ntoa                              0x08003228   Section        0  conversion.o(i.inet_ntoa)
+    i.list_delete_node                       0x08003250   Section        0  stdplus_linklist.o(i.list_delete_node)
+    i.list_free                              0x08003276   Section        0  stdplus_linklist.o(i.list_free)
+    i.list_new                               0x0800327a   Section        0  stdplus_linklist.o(i.list_new)
+    i.listnode_add                           0x08003282   Section        0  stdplus_linklist.o(i.listnode_add)
+    i.listnode_head                          0x080032a8   Section        0  stdplus_linklist.o(i.listnode_head)
+    i.listnode_new                           0x080032b2   Section        0  stdplus_linklist.o(i.listnode_new)
+    listnode_new                             0x080032b3   Thumb Code     8  stdplus_linklist.o(i.listnode_new)
+    i.main                                   0x080032bc   Section        0  main.o(i.main)
+    i.malloc                                 0x08003360   Section        0  malloc.o(i.malloc)
+    i.uLLFrameRecv                           0x080033cc   Section        0  ulldriver.o(i.uLLFrameRecv)
+    i.uLLFrameSend                           0x080034a4   Section        0  ulldriver.o(i.uLLFrameSend)
+    i.uLLFrameSendEx                         0x0800356c   Section        0  ullpacket.o(i.uLLFrameSendEx)
+    i.uLLFrameWaitEx                         0x08003596   Section        0  ullpacket.o(i.uLLFrameWaitEx)
+    i.uLLFrameWaitInAddr                     0x080035e4   Section        0  ullpacket.o(i.uLLFrameWaitInAddr)
+    i.uLLInit                                0x0800361c   Section        0  ulldriver.o(i.uLLInit)
+    i.uLLUserInterfaceRegister               0x0800367c   Section        0  ulldriver.o(i.uLLUserInterfaceRegister)
+    i.uPTPing                                0x080036f8   Section        0  ustatemaintenance.o(i.uPTPing)
+    i.uPTPingRespons                         0x080037c8   Section        0  ustatemaintenance.o(i.uPTPingRespons)
+    i.uPTReSignin                            0x080037e4   Section        0  uregister.o(i.uPTReSignin)
+    i.uPTRegisterCycle                       0x080038c4   Section        0  uregister.o(i.uPTRegisterCycle)
+    i.uPTRegisterRespons                     0x0800391c   Section        0  uregister.o(i.uPTRegisterRespons)
+    i.uPTSigninRespons                       0x080039c4   Section        0  uregister.o(i.uPTSigninRespons)
+    i.uSVIdle                                0x080039e0   Section        0  uidle.o(i.uSVIdle)
+    i.uSVManagerInit                         0x08003a9c   Section        0  usvmanager.o(i.uSVManagerInit)
+    i.uSVShellInit                           0x08003af8   Section        0  usvshell.o(i.uSVShellInit)
+    i.uSVShellPrase                          0x08003b4c   Section        0  usvshell.o(i.uSVShellPrase)
+    .constdata                               0x08003cd0   Section        8  deca_params.o(.constdata)
+    .constdata                               0x08003cd8   Section       24  deca_params.o(.constdata)
+    .constdata                               0x08003cf0   Section       30  deca_params.o(.constdata)
+    .constdata                               0x08003d0e   Section        2  deca_params.o(.constdata)
+    .constdata                               0x08003d10   Section        8  deca_params.o(.constdata)
+    .constdata                               0x08003d18   Section        3  deca_params.o(.constdata)
+    .constdata                               0x08003d1c   Section       12  deca_params.o(.constdata)
+    .constdata                               0x08003d28   Section        4  deca_params.o(.constdata)
+    .constdata                               0x08003d2c   Section       32  deca_params.o(.constdata)
+    .constdata                               0x08003d4c   Section       50  deca_params.o(.constdata)
+    .constdata                               0x08003d7e   Section       16  segger_rtt_printf.o(.constdata)
+    _aV2C                                    0x08003d7e   Data          16  segger_rtt_printf.o(.constdata)
+    .constdata                               0x08003d8e   Section      129  ctype_o.o(.constdata)
+    .constdata                               0x08003e10   Section        4  ctype_o.o(.constdata)
+    table                                    0x08003e10   Data           4  ctype_o.o(.constdata)
+    .conststring                             0x08003e14   Section      614  usvshell.o(.conststring)
     .data                                    0x20000000   Section       11  ranging.o(.data)
     config                                   0x20000000   Data          11  ranging.o(.data)
     .data                                    0x2000000c   Section        4  usvmanager.o(.data)
@@ -1495,15 +1509,15 @@ Image Symbol Table
     .data                                    0x20000064   Section        4  errno.o(.data)
     _errno                                   0x20000064   Data           4  errno.o(.data)
     .bss                                     0x20000068   Section      816  uregister.o(.bss)
-    .bss                                     0x20000398   Section       16  usvmanager.o(.bss)
-    .bss                                     0x200003a8   Section     8192  usvshell.o(.bss)
-    .bss                                     0x200023a8   Section       60  deca_device.o(.bss)
-    KDW                                      0x200023a8   Data          60  deca_device.o(.bss)
-    .bss                                     0x200023e4   Section     1208  segger_rtt.o(.bss)
-    _acUpBuffer                              0x2000248c   Data        1024  segger_rtt.o(.bss)
-    _acDownBuffer                            0x2000288c   Data          16  segger_rtt.o(.bss)
-    HEAP                                     0x200028a0   Section    28672  startup_stm32f411xe.o(HEAP)
-    STACK                                    0x200098a0   Section    16384  startup_stm32f411xe.o(STACK)
+    .bss                                     0x20000398   Section       28  usvmanager.o(.bss)
+    .bss                                     0x200003b4   Section     8192  usvshell.o(.bss)
+    .bss                                     0x200023b4   Section       60  deca_device.o(.bss)
+    KDW                                      0x200023b4   Data          60  deca_device.o(.bss)
+    .bss                                     0x200023f0   Section     1208  segger_rtt.o(.bss)
+    _acUpBuffer                              0x20002498   Data        1024  segger_rtt.o(.bss)
+    _acDownBuffer                            0x20002898   Data          16  segger_rtt.o(.bss)
+    HEAP                                     0x200028a8   Section    28672  startup_stm32f411xe.o(HEAP)
+    STACK                                    0x200098a8   Section    16384  startup_stm32f411xe.o(STACK)
 
     Global Symbols
 
@@ -1744,76 +1758,78 @@ Image Symbol Table
     SysTick_Handler                          0x08001a95   Thumb Code     4  kdwm1000_it.o(i.SysTick_Handler)
     SystemInit                               0x08001a99   Thumb Code    74  system_stm32f4xx.o(i.SystemInit)
     UART_SendByte                            0x08001af5   Thumb Code    12  stm32f4_usart.o(i.UART_SendByte)
-    USART1_IRQHandler                        0x08001b01   Thumb Code   424  kdwm1000_it.o(i.USART1_IRQHandler)
-    USART_ClearFlag                          0x08001ce1   Thumb Code     6  stm32f4xx_usart.o(i.USART_ClearFlag)
-    USART_Cmd                                0x08001ce7   Thumb Code    20  stm32f4xx_usart.o(i.USART_Cmd)
-    USART_GetITStatus                        0x08001cfb   Thumb Code    62  stm32f4xx_usart.o(i.USART_GetITStatus)
-    USART_ITConfig                           0x08001d39   Thumb Code    48  stm32f4xx_usart.o(i.USART_ITConfig)
-    USART_Init                               0x08001d69   Thumb Code   164  stm32f4xx_usart.o(i.USART_Init)
-    UsageFault_Handler                       0x08001e15   Thumb Code     2  kdwm1000_it.o(i.UsageFault_Handler)
-    __0printf$8                              0x08002105   Thumb Code    22  printf8.o(i.__0printf$8)
-    __1printf$8                              0x08002105   Thumb Code     0  printf8.o(i.__0printf$8)
-    __2printf                                0x08002105   Thumb Code     0  printf8.o(i.__0printf$8)
-    __0sprintf$8                             0x08002125   Thumb Code    34  printf8.o(i.__0sprintf$8)
-    __1sprintf$8                             0x08002125   Thumb Code     0  printf8.o(i.__0sprintf$8)
-    __2sprintf                               0x08002125   Thumb Code     0  printf8.o(i.__0sprintf$8)
-    __aeabi_errno_addr                       0x0800214d   Thumb Code     4  errno.o(i.__aeabi_errno_addr)
-    __rt_errno_addr                          0x0800214d   Thumb Code     0  errno.o(i.__aeabi_errno_addr)
-    __scatterload_copy                       0x08002155   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x08002163   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x08002165   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    _dwt_configlde                           0x08002173   Thumb Code    48  deca_device.o(i._dwt_configlde)
-    dwt_configure                            0x08002b99   Thumb Code   482  deca_device.o(i.dwt_configure)
-    dwt_entersleepaftertx                    0x08002da9   Thumb Code    36  deca_device.o(i.dwt_entersleepaftertx)
-    dwt_forcetrxoff                          0x08002dcd   Thumb Code    74  deca_device.o(i.dwt_forcetrxoff)
-    dwt_initialise                           0x08002e21   Thumb Code   324  deca_device.o(i.dwt_initialise)
-    dwt_readrxdata                           0x08002f6d   Thumb Code    18  deca_device.o(i.dwt_readrxdata)
-    dwt_rxenable                             0x08002f7f   Thumb Code    80  deca_device.o(i.dwt_rxenable)
-    dwt_rxreset                              0x08002fcf   Thumb Code    40  deca_device.o(i.dwt_rxreset)
-    dwt_setrxtimeout                         0x08002ff9   Thumb Code    84  deca_device.o(i.dwt_setrxtimeout)
-    dwt_starttx                              0x08003051   Thumb Code   142  deca_device.o(i.dwt_starttx)
-    dwt_syncrxbufptrs                        0x080030e5   Thumb Code    52  deca_device.o(i.dwt_syncrxbufptrs)
-    dwt_writetxdata                          0x08003119   Thumb Code    34  deca_device.o(i.dwt_writetxdata)
-    dwt_writetxfctrl                         0x0800313d   Thumb Code    24  deca_device.o(i.dwt_writetxfctrl)
-    fputc                                    0x08003159   Thumb Code    14  serial.o(i.fputc)
-    free                                     0x0800316d   Thumb Code    76  malloc.o(i.free)
-    inet_aton                                0x080031bd   Thumb Code    58  conversion.o(i.inet_aton)
-    inet_ntoa                                0x08003205   Thumb Code    26  conversion.o(i.inet_ntoa)
-    list_free                                0x0800322d   Thumb Code     4  stdplus_linklist.o(i.list_free)
-    list_new                                 0x08003231   Thumb Code     8  stdplus_linklist.o(i.list_new)
-    listnode_add                             0x08003239   Thumb Code    38  stdplus_linklist.o(i.listnode_add)
-    listnode_head                            0x0800325f   Thumb Code    10  stdplus_linklist.o(i.listnode_head)
-    main                                     0x08003271   Thumb Code    92  main.o(i.main)
-    malloc                                   0x08003315   Thumb Code    92  malloc.o(i.malloc)
-    uLLFrameRecv                             0x08003381   Thumb Code   140  ulldriver.o(i.uLLFrameRecv)
-    uLLFrameSend                             0x08003459   Thumb Code   124  ulldriver.o(i.uLLFrameSend)
-    uLLFrameSendEx                           0x08003521   Thumb Code    42  ullpacket.o(i.uLLFrameSendEx)
-    uLLFrameWaitEx                           0x0800354b   Thumb Code    78  ullpacket.o(i.uLLFrameWaitEx)
-    uLLFrameWaitInAddr                       0x08003599   Thumb Code    54  ullpacket.o(i.uLLFrameWaitInAddr)
-    uLLInit                                  0x080035d1   Thumb Code    84  ulldriver.o(i.uLLInit)
-    uLLUserInterfaceRegister                 0x08003631   Thumb Code    48  ulldriver.o(i.uLLUserInterfaceRegister)
-    uPTPing                                  0x080036ad   Thumb Code   144  ustatemaintenance.o(i.uPTPing)
-    uPTPingRespons                           0x080037a1   Thumb Code    26  ustatemaintenance.o(i.uPTPingRespons)
-    uPTRegisterCycle                         0x080037bb   Thumb Code    86  uregister.o(i.uPTRegisterCycle)
-    uPTRegisterRespons                       0x08003811   Thumb Code   148  uregister.o(i.uPTRegisterRespons)
-    uPTSigninRespons                         0x080038b9   Thumb Code    26  uregister.o(i.uPTSigninRespons)
-    uSVIdle                                  0x080038d5   Thumb Code   138  uidle.o(i.uSVIdle)
-    uSVManagerInit                           0x08003969   Thumb Code    70  usvmanager.o(i.uSVManagerInit)
-    uSVShellInit                             0x080039c9   Thumb Code    38  usvshell.o(i.uSVShellInit)
-    uSVShellPrase                            0x08003a1d   Thumb Code   274  usvshell.o(i.uSVShellPrase)
-    chan_idx                                 0x08003bb0   Data           8  deca_params.o(.constdata)
-    tx_config                                0x08003bb8   Data          24  deca_params.o(.constdata)
-    pll2_config                              0x08003bd0   Data          30  deca_params.o(.constdata)
-    rx_config                                0x08003bee   Data           2  deca_params.o(.constdata)
-    agc_config                               0x08003bf0   Data           8  deca_params.o(.constdata)
-    dwnsSFDlen                               0x08003bf8   Data           3  deca_params.o(.constdata)
-    sftsh                                    0x08003bfc   Data          12  deca_params.o(.constdata)
-    dtune1                                   0x08003c08   Data           4  deca_params.o(.constdata)
-    digital_bb_config                        0x08003c0c   Data          32  deca_params.o(.constdata)
-    lde_replicaCoeff                         0x08003c2c   Data          50  deca_params.o(.constdata)
-    __ctype_table                            0x08003c6e   Data         129  ctype_o.o(.constdata)
-    Region$$Table$$Base                      0x08003f5c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08003f7c   Number         0  anon$$obj.o(Region$$Table)
+    USART1_IRQHandler                        0x08001b01   Thumb Code   406  kdwm1000_it.o(i.USART1_IRQHandler)
+    USART_ClearFlag                          0x08001cd1   Thumb Code     6  stm32f4xx_usart.o(i.USART_ClearFlag)
+    USART_Cmd                                0x08001cd7   Thumb Code    20  stm32f4xx_usart.o(i.USART_Cmd)
+    USART_GetITStatus                        0x08001ceb   Thumb Code    62  stm32f4xx_usart.o(i.USART_GetITStatus)
+    USART_ITConfig                           0x08001d29   Thumb Code    48  stm32f4xx_usart.o(i.USART_ITConfig)
+    USART_Init                               0x08001d59   Thumb Code   164  stm32f4xx_usart.o(i.USART_Init)
+    UsageFault_Handler                       0x08001e05   Thumb Code     2  kdwm1000_it.o(i.UsageFault_Handler)
+    __0printf$8                              0x080020f5   Thumb Code    22  printf8.o(i.__0printf$8)
+    __1printf$8                              0x080020f5   Thumb Code     0  printf8.o(i.__0printf$8)
+    __2printf                                0x080020f5   Thumb Code     0  printf8.o(i.__0printf$8)
+    __0sprintf$8                             0x08002115   Thumb Code    34  printf8.o(i.__0sprintf$8)
+    __1sprintf$8                             0x08002115   Thumb Code     0  printf8.o(i.__0sprintf$8)
+    __2sprintf                               0x08002115   Thumb Code     0  printf8.o(i.__0sprintf$8)
+    __aeabi_errno_addr                       0x0800213d   Thumb Code     4  errno.o(i.__aeabi_errno_addr)
+    __rt_errno_addr                          0x0800213d   Thumb Code     0  errno.o(i.__aeabi_errno_addr)
+    __scatterload_copy                       0x08002145   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x08002153   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x08002155   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    _dwt_configlde                           0x08002163   Thumb Code    48  deca_device.o(i._dwt_configlde)
+    dwt_configure                            0x08002bbd   Thumb Code   482  deca_device.o(i.dwt_configure)
+    dwt_entersleepaftertx                    0x08002dcd   Thumb Code    36  deca_device.o(i.dwt_entersleepaftertx)
+    dwt_forcetrxoff                          0x08002df1   Thumb Code    74  deca_device.o(i.dwt_forcetrxoff)
+    dwt_initialise                           0x08002e45   Thumb Code   324  deca_device.o(i.dwt_initialise)
+    dwt_readrxdata                           0x08002f91   Thumb Code    18  deca_device.o(i.dwt_readrxdata)
+    dwt_rxenable                             0x08002fa3   Thumb Code    80  deca_device.o(i.dwt_rxenable)
+    dwt_rxreset                              0x08002ff3   Thumb Code    40  deca_device.o(i.dwt_rxreset)
+    dwt_setrxtimeout                         0x0800301d   Thumb Code    84  deca_device.o(i.dwt_setrxtimeout)
+    dwt_starttx                              0x08003075   Thumb Code   142  deca_device.o(i.dwt_starttx)
+    dwt_syncrxbufptrs                        0x08003109   Thumb Code    52  deca_device.o(i.dwt_syncrxbufptrs)
+    dwt_writetxdata                          0x0800313d   Thumb Code    34  deca_device.o(i.dwt_writetxdata)
+    dwt_writetxfctrl                         0x08003161   Thumb Code    24  deca_device.o(i.dwt_writetxfctrl)
+    fputc                                    0x0800317d   Thumb Code    14  serial.o(i.fputc)
+    free                                     0x08003191   Thumb Code    76  malloc.o(i.free)
+    inet_aton                                0x080031e1   Thumb Code    58  conversion.o(i.inet_aton)
+    inet_ntoa                                0x08003229   Thumb Code    26  conversion.o(i.inet_ntoa)
+    list_delete_node                         0x08003251   Thumb Code    38  stdplus_linklist.o(i.list_delete_node)
+    list_free                                0x08003277   Thumb Code     4  stdplus_linklist.o(i.list_free)
+    list_new                                 0x0800327b   Thumb Code     8  stdplus_linklist.o(i.list_new)
+    listnode_add                             0x08003283   Thumb Code    38  stdplus_linklist.o(i.listnode_add)
+    listnode_head                            0x080032a9   Thumb Code    10  stdplus_linklist.o(i.listnode_head)
+    main                                     0x080032bd   Thumb Code    92  main.o(i.main)
+    malloc                                   0x08003361   Thumb Code    92  malloc.o(i.malloc)
+    uLLFrameRecv                             0x080033cd   Thumb Code   140  ulldriver.o(i.uLLFrameRecv)
+    uLLFrameSend                             0x080034a5   Thumb Code   124  ulldriver.o(i.uLLFrameSend)
+    uLLFrameSendEx                           0x0800356d   Thumb Code    42  ullpacket.o(i.uLLFrameSendEx)
+    uLLFrameWaitEx                           0x08003597   Thumb Code    78  ullpacket.o(i.uLLFrameWaitEx)
+    uLLFrameWaitInAddr                       0x080035e5   Thumb Code    54  ullpacket.o(i.uLLFrameWaitInAddr)
+    uLLInit                                  0x0800361d   Thumb Code    84  ulldriver.o(i.uLLInit)
+    uLLUserInterfaceRegister                 0x0800367d   Thumb Code    48  ulldriver.o(i.uLLUserInterfaceRegister)
+    uPTPing                                  0x080036f9   Thumb Code   106  ustatemaintenance.o(i.uPTPing)
+    uPTPingRespons                           0x080037c9   Thumb Code    26  ustatemaintenance.o(i.uPTPingRespons)
+    uPTReSignin                              0x080037e5   Thumb Code   152  uregister.o(i.uPTReSignin)
+    uPTRegisterCycle                         0x080038c5   Thumb Code    86  uregister.o(i.uPTRegisterCycle)
+    uPTRegisterRespons                       0x0800391d   Thumb Code   148  uregister.o(i.uPTRegisterRespons)
+    uPTSigninRespons                         0x080039c5   Thumb Code    26  uregister.o(i.uPTSigninRespons)
+    uSVIdle                                  0x080039e1   Thumb Code   178  uidle.o(i.uSVIdle)
+    uSVManagerInit                           0x08003a9d   Thumb Code    68  usvmanager.o(i.uSVManagerInit)
+    uSVShellInit                             0x08003af9   Thumb Code    38  usvshell.o(i.uSVShellInit)
+    uSVShellPrase                            0x08003b4d   Thumb Code   268  usvshell.o(i.uSVShellPrase)
+    chan_idx                                 0x08003cd0   Data           8  deca_params.o(.constdata)
+    tx_config                                0x08003cd8   Data          24  deca_params.o(.constdata)
+    pll2_config                              0x08003cf0   Data          30  deca_params.o(.constdata)
+    rx_config                                0x08003d0e   Data           2  deca_params.o(.constdata)
+    agc_config                               0x08003d10   Data           8  deca_params.o(.constdata)
+    dwnsSFDlen                               0x08003d18   Data           3  deca_params.o(.constdata)
+    sftsh                                    0x08003d1c   Data          12  deca_params.o(.constdata)
+    dtune1                                   0x08003d28   Data           4  deca_params.o(.constdata)
+    digital_bb_config                        0x08003d2c   Data          32  deca_params.o(.constdata)
+    lde_replicaCoeff                         0x08003d4c   Data          50  deca_params.o(.constdata)
+    __ctype_table                            0x08003d8e   Data         129  ctype_o.o(.constdata)
+    Region$$Table$$Base                      0x0800407c   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0800409c   Number         0  anon$$obj.o(Region$$Table)
     guSVManagerDevice                        0x2000000c   Data           4  usvmanager.o(.data)
     gUartQueue                               0x20000010   Data           4  usvshell.o(.data)
     SystemCoreClock                          0x20000020   Data           4  system_stm32f4xx.o(.data)
@@ -1826,12 +1842,12 @@ Image Symbol Table
     __microlib_freelist_initialised          0x20000060   Data           4  mvars.o(.data)
     gAddrPool                                0x20000068   Data         800  uregister.o(.bss)
     fra_wt                                   0x20000388   Data          16  uregister.o(.bss)
-    guSVManagerCtl                           0x20000398   Data          16  usvmanager.o(.bss)
-    cmd_history                              0x200003a8   Data        8192  usvshell.o(.bss)
-    _SEGGER_RTT                              0x200023e4   Data         168  segger_rtt.o(.bss)
-    __heap_base                              0x200028a0   Data           0  startup_stm32f411xe.o(HEAP)
-    __heap_limit                             0x200098a0   Data           0  startup_stm32f411xe.o(HEAP)
-    __initial_sp                             0x2000d8a0   Data           0  startup_stm32f411xe.o(STACK)
+    guSVManagerCtl                           0x20000398   Data          28  usvmanager.o(.bss)
+    cmd_history                              0x200003b4   Data        8192  usvshell.o(.bss)
+    _SEGGER_RTT                              0x200023f0   Data         168  segger_rtt.o(.bss)
+    __heap_base                              0x200028a8   Data           0  startup_stm32f411xe.o(HEAP)
+    __heap_limit                             0x200098a8   Data           0  startup_stm32f411xe.o(HEAP)
+    __initial_sp                             0x2000d8a8   Data           0  startup_stm32f411xe.o(STACK)
 
 
 
@@ -1841,252 +1857,257 @@ Memory Map of the image
 
   Image Entry point : 0x08000199
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00003fe4, Max: 0x00080000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00004104, Max: 0x00080000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00003f7c, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x0000409c, Max: 0x00080000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x08000000   0x08000000   0x00000198   Data   RO          799    RESET               startup_stm32f411xe.o
-    0x08000198   0x08000198   0x00000000   Code   RO         2848  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x08000198   0x08000198   0x00000004   Code   RO         3176    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x0800019c   0x0800019c   0x00000004   Code   RO         3179    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x080001a0   0x080001a0   0x00000000   Code   RO         3181    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x080001a0   0x080001a0   0x00000000   Code   RO         3183    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x080001a0   0x080001a0   0x00000008   Code   RO         3184    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x080001a8   0x080001a8   0x00000000   Code   RO         3186    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x080001a8   0x080001a8   0x00000000   Code   RO         3188    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x080001a8   0x080001a8   0x00000004   Code   RO         3177    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
-    0x080001ac   0x080001ac   0x00000024   Code   RO          800    .text               startup_stm32f411xe.o
-    0x080001d0   0x080001d0   0x00000024   Code   RO         2854    .text               mc_w.l(rand.o)
-    0x080001f4   0x080001f4   0x00000024   Code   RO         2857    .text               mc_w.l(memcpya.o)
-    0x08000218   0x08000218   0x00000024   Code   RO         2859    .text               mc_w.l(memseta.o)
-    0x0800023c   0x0800023c   0x00000018   Code   RO         2861    .text               mc_w.l(strcat.o)
-    0x08000254   0x08000254   0x0000000e   Code   RO         2863    .text               mc_w.l(strlen.o)
-    0x08000262   0x08000262   0x0000001c   Code   RO         2865    .text               mc_w.l(strcmp.o)
-    0x0800027e   0x0800027e   0x00000012   Code   RO         2867    .text               mc_w.l(strcpy.o)
-    0x08000290   0x08000290   0x0000001e   Code   RO         2869    .text               mc_w.l(strncmp.o)
-    0x080002ae   0x080002ae   0x0000001c   Code   RO         3162    .text               mc_w.l(calloc.o)
+    0x08000000   0x08000000   0x00000198   Data   RO          810    RESET               startup_stm32f411xe.o
+    0x08000198   0x08000198   0x00000000   Code   RO         2859  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x08000198   0x08000198   0x00000004   Code   RO         3187    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x0800019c   0x0800019c   0x00000004   Code   RO         3190    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x080001a0   0x080001a0   0x00000000   Code   RO         3192    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x080001a0   0x080001a0   0x00000000   Code   RO         3194    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x080001a0   0x080001a0   0x00000008   Code   RO         3195    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x080001a8   0x080001a8   0x00000000   Code   RO         3197    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x080001a8   0x080001a8   0x00000000   Code   RO         3199    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x080001a8   0x080001a8   0x00000004   Code   RO         3188    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x080001ac   0x080001ac   0x00000024   Code   RO          811    .text               startup_stm32f411xe.o
+    0x080001d0   0x080001d0   0x00000024   Code   RO         2865    .text               mc_w.l(rand.o)
+    0x080001f4   0x080001f4   0x00000024   Code   RO         2868    .text               mc_w.l(memcpya.o)
+    0x08000218   0x08000218   0x00000024   Code   RO         2870    .text               mc_w.l(memseta.o)
+    0x0800023c   0x0800023c   0x00000018   Code   RO         2872    .text               mc_w.l(strcat.o)
+    0x08000254   0x08000254   0x0000000e   Code   RO         2874    .text               mc_w.l(strlen.o)
+    0x08000262   0x08000262   0x0000001c   Code   RO         2876    .text               mc_w.l(strcmp.o)
+    0x0800027e   0x0800027e   0x00000012   Code   RO         2878    .text               mc_w.l(strcpy.o)
+    0x08000290   0x08000290   0x0000001e   Code   RO         2880    .text               mc_w.l(strncmp.o)
+    0x080002ae   0x080002ae   0x0000001c   Code   RO         3173    .text               mc_w.l(calloc.o)
     0x080002ca   0x080002ca   0x00000002   PAD
-    0x080002cc   0x080002cc   0x00000038   Code   RO         3164    .text               mc_w.l(__0sscanf.o)
-    0x08000304   0x08000304   0x0000014c   Code   RO         3166    .text               mc_w.l(_scanf_int.o)
-    0x08000450   0x08000450   0x0000001a   Code   RO         3168    .text               mc_w.l(atoi.o)
-    0x0800046a   0x0800046a   0x000000e4   Code   RO         3170    .text               mf_w.l(dmul.o)
-    0x0800054e   0x0800054e   0x0000003e   Code   RO         3172    .text               mf_w.l(dfixi.o)
-    0x0800058c   0x0800058c   0x00000026   Code   RO         3174    .text               mf_w.l(f2d.o)
-    0x080005b2   0x080005b2   0x00000062   Code   RO         3192    .text               mc_w.l(uldiv.o)
-    0x08000614   0x08000614   0x00000020   Code   RO         3194    .text               mc_w.l(llushr.o)
-    0x08000634   0x08000634   0x0000001c   Code   RO         3205    .text               mc_w.l(_chval.o)
-    0x08000650   0x08000650   0x00000028   Code   RO         3207    .text               mc_w.l(scanf_char.o)
-    0x08000678   0x08000678   0x00000040   Code   RO         3209    .text               mc_w.l(_sgetc.o)
-    0x080006b8   0x080006b8   0x00000070   Code   RO         3211    .text               mc_w.l(strtol.o)
-    0x08000728   0x08000728   0x00000000   Code   RO         3213    .text               mc_w.l(iusefp.o)
-    0x08000728   0x08000728   0x000000ba   Code   RO         3214    .text               mf_w.l(depilogue.o)
+    0x080002cc   0x080002cc   0x00000038   Code   RO         3175    .text               mc_w.l(__0sscanf.o)
+    0x08000304   0x08000304   0x0000014c   Code   RO         3177    .text               mc_w.l(_scanf_int.o)
+    0x08000450   0x08000450   0x0000001a   Code   RO         3179    .text               mc_w.l(atoi.o)
+    0x0800046a   0x0800046a   0x000000e4   Code   RO         3181    .text               mf_w.l(dmul.o)
+    0x0800054e   0x0800054e   0x0000003e   Code   RO         3183    .text               mf_w.l(dfixi.o)
+    0x0800058c   0x0800058c   0x00000026   Code   RO         3185    .text               mf_w.l(f2d.o)
+    0x080005b2   0x080005b2   0x00000062   Code   RO         3203    .text               mc_w.l(uldiv.o)
+    0x08000614   0x08000614   0x00000020   Code   RO         3205    .text               mc_w.l(llushr.o)
+    0x08000634   0x08000634   0x0000001c   Code   RO         3216    .text               mc_w.l(_chval.o)
+    0x08000650   0x08000650   0x00000028   Code   RO         3218    .text               mc_w.l(scanf_char.o)
+    0x08000678   0x08000678   0x00000040   Code   RO         3220    .text               mc_w.l(_sgetc.o)
+    0x080006b8   0x080006b8   0x00000070   Code   RO         3222    .text               mc_w.l(strtol.o)
+    0x08000728   0x08000728   0x00000000   Code   RO         3224    .text               mc_w.l(iusefp.o)
+    0x08000728   0x08000728   0x000000ba   Code   RO         3225    .text               mf_w.l(depilogue.o)
     0x080007e2   0x080007e2   0x00000002   PAD
-    0x080007e4   0x080007e4   0x00000024   Code   RO         3224    .text               mc_w.l(init.o)
-    0x08000808   0x08000808   0x0000001e   Code   RO         3226    .text               mc_w.l(llshl.o)
+    0x080007e4   0x080007e4   0x00000024   Code   RO         3235    .text               mc_w.l(init.o)
+    0x08000808   0x08000808   0x0000001e   Code   RO         3237    .text               mc_w.l(llshl.o)
     0x08000826   0x08000826   0x00000002   PAD
-    0x08000828   0x08000828   0x00000008   Code   RO         3232    .text               mc_w.l(ctype_o.o)
-    0x08000830   0x08000830   0x00000012   Code   RO         3254    .text               mc_w.l(isspace_o.o)
+    0x08000828   0x08000828   0x00000008   Code   RO         3243    .text               mc_w.l(ctype_o.o)
+    0x08000830   0x08000830   0x00000012   Code   RO         3265    .text               mc_w.l(isspace_o.o)
     0x08000842   0x08000842   0x00000002   PAD
-    0x08000844   0x08000844   0x0000032c   Code   RO         3260    .text               mc_w.l(_scanf.o)
-    0x08000b70   0x08000b70   0x0000009e   Code   RO         3262    .text               mc_w.l(_strtoul.o)
-    0x08000c0e   0x08000c0e   0x00000002   Code   RO         2448    i.BusFault_Handler  kdwm1000_it.o
-    0x08000c10   0x08000c10   0x00000100   Code   RO         2025    i.DW1000_Config     dw1000.o
-    0x08000d10   0x08000d10   0x00000008   Code   RO         2026    i.DW1000_GetDeviceID  dw1000.o
-    0x08000d18   0x08000d18   0x00000050   Code   RO         2028    i.DW1000_ReadOPT    dw1000.o
-    0x08000d68   0x08000d68   0x00000058   Code   RO         2029    i.DW1000_Reset      dw1000.o
-    0x08000dc0   0x08000dc0   0x0000000c   Code   RO         2030    i.DW1000_SetAntennaDelayRX  dw1000.o
-    0x08000dcc   0x08000dcc   0x0000000a   Code   RO         2031    i.DW1000_SetAntennaDelayTX  dw1000.o
-    0x08000dd6   0x08000dd6   0x000000b0   Code   RO         2032    i.DW1000_SetClock   dw1000.o
-    0x08000e86   0x08000e86   0x00000030   Code   RO         2033    i.DW1000_SetCrystalTrim  dw1000.o
+    0x08000844   0x08000844   0x0000032c   Code   RO         3271    .text               mc_w.l(_scanf.o)
+    0x08000b70   0x08000b70   0x0000009e   Code   RO         3273    .text               mc_w.l(_strtoul.o)
+    0x08000c0e   0x08000c0e   0x00000002   Code   RO         2459    i.BusFault_Handler  kdwm1000_it.o
+    0x08000c10   0x08000c10   0x00000100   Code   RO         2036    i.DW1000_Config     dw1000.o
+    0x08000d10   0x08000d10   0x00000008   Code   RO         2037    i.DW1000_GetDeviceID  dw1000.o
+    0x08000d18   0x08000d18   0x00000050   Code   RO         2039    i.DW1000_ReadOPT    dw1000.o
+    0x08000d68   0x08000d68   0x00000058   Code   RO         2040    i.DW1000_Reset      dw1000.o
+    0x08000dc0   0x08000dc0   0x0000000c   Code   RO         2041    i.DW1000_SetAntennaDelayRX  dw1000.o
+    0x08000dcc   0x08000dcc   0x0000000a   Code   RO         2042    i.DW1000_SetAntennaDelayTX  dw1000.o
+    0x08000dd6   0x08000dd6   0x000000b0   Code   RO         2043    i.DW1000_SetClock   dw1000.o
+    0x08000e86   0x08000e86   0x00000030   Code   RO         2044    i.DW1000_SetCrystalTrim  dw1000.o
     0x08000eb6   0x08000eb6   0x00000002   PAD
-    0x08000eb8   0x08000eb8   0x00000054   Code   RO         2034    i.DW1000_SetSpeed   dw1000.o
-    0x08000f0c   0x08000f0c   0x00000094   Code   RO         2035    i.DW1000_readData   dw1000.o
-    0x08000fa0   0x08000fa0   0x00000016   Code   RO         2036    i.DW1000_readData16  dw1000.o
-    0x08000fb6   0x08000fb6   0x00000014   Code   RO         2037    i.DW1000_readData32  dw1000.o
+    0x08000eb8   0x08000eb8   0x00000054   Code   RO         2045    i.DW1000_SetSpeed   dw1000.o
+    0x08000f0c   0x08000f0c   0x00000094   Code   RO         2046    i.DW1000_readData   dw1000.o
+    0x08000fa0   0x08000fa0   0x00000016   Code   RO         2047    i.DW1000_readData16  dw1000.o
+    0x08000fb6   0x08000fb6   0x00000014   Code   RO         2048    i.DW1000_readData32  dw1000.o
     0x08000fca   0x08000fca   0x00000002   PAD
-    0x08000fcc   0x08000fcc   0x00000094   Code   RO         2038    i.DW1000_writeData  dw1000.o
-    0x08001060   0x08001060   0x0000000e   Code   RO         2039    i.DW1000_writeData16  dw1000.o
-    0x0800106e   0x0800106e   0x0000000e   Code   RO         2040    i.DW1000_writeData32  dw1000.o
-    0x0800107c   0x0800107c   0x00000002   Code   RO         2449    i.DebugMon_Handler  kdwm1000_it.o
+    0x08000fcc   0x08000fcc   0x00000094   Code   RO         2049    i.DW1000_writeData  dw1000.o
+    0x08001060   0x08001060   0x0000000e   Code   RO         2050    i.DW1000_writeData16  dw1000.o
+    0x0800106e   0x0800106e   0x0000000e   Code   RO         2051    i.DW1000_writeData32  dw1000.o
+    0x0800107c   0x0800107c   0x00000002   Code   RO         2460    i.DebugMon_Handler  kdwm1000_it.o
     0x0800107e   0x0800107e   0x00000004   Code   RO            4    i.DeviceDelayMs     main.o
     0x08001082   0x08001082   0x00000004   Code   RO            5    i.DeviceInit        main.o
     0x08001086   0x08001086   0x00000002   PAD
     0x08001088   0x08001088   0x0000006c   Code   RO            6    i.DeviceRecv        main.o
     0x080010f4   0x080010f4   0x00000064   Code   RO            7    i.DeviceSend        main.o
-    0x08001158   0x08001158   0x00000078   Code   RO         1331    i.GPIO_Init         stm32f4xx_gpio.o
-    0x080011d0   0x080011d0   0x00000020   Code   RO         1332    i.GPIO_PinAFConfig  stm32f4xx_gpio.o
-    0x080011f0   0x080011f0   0x00000018   Code   RO         1792    i.HAL_Delay         stm32f4_delay.o
-    0x08001208   0x08001208   0x00000010   Code   RO         1794    i.HAL_IncTick       stm32f4_delay.o
-    0x08001218   0x08001218   0x0000005c   Code   RO         1795    i.HAL_InitTick      stm32f4_delay.o
-    0x08001274   0x08001274   0x00000002   Code   RO         2450    i.HardFault_Handler  kdwm1000_it.o
-    0x08001276   0x08001276   0x00000010   Code   RO         2406    i.KDWM_DW1000_Config  kdwm1000_bsp.o
+    0x08001158   0x08001158   0x00000078   Code   RO         1342    i.GPIO_Init         stm32f4xx_gpio.o
+    0x080011d0   0x080011d0   0x00000020   Code   RO         1343    i.GPIO_PinAFConfig  stm32f4xx_gpio.o
+    0x080011f0   0x080011f0   0x00000018   Code   RO         1803    i.HAL_Delay         stm32f4_delay.o
+    0x08001208   0x08001208   0x00000010   Code   RO         1805    i.HAL_IncTick       stm32f4_delay.o
+    0x08001218   0x08001218   0x0000005c   Code   RO         1806    i.HAL_InitTick      stm32f4_delay.o
+    0x08001274   0x08001274   0x00000002   Code   RO         2461    i.HardFault_Handler  kdwm1000_it.o
+    0x08001276   0x08001276   0x00000010   Code   RO         2417    i.KDWM_DW1000_Config  kdwm1000_bsp.o
     0x08001286   0x08001286   0x00000002   PAD
-    0x08001288   0x08001288   0x000000f0   Code   RO         2407    i.KDWM_GPIO_Config  kdwm1000_bsp.o
-    0x08001378   0x08001378   0x0000000c   Code   RO         2408    i.KDWM_UART_Config  kdwm1000_bsp.o
-    0x08001384   0x08001384   0x00000002   Code   RO         2451    i.MemManage_Handler  kdwm1000_it.o
-    0x08001386   0x08001386   0x00000002   Code   RO         2452    i.NMI_Handler       kdwm1000_it.o
-    0x08001388   0x08001388   0x00000064   Code   RO          848    i.NVIC_Init         misc.o
-    0x080013ec   0x080013ec   0x00000014   Code   RO          849    i.NVIC_PriorityGroupConfig  misc.o
-    0x08001400   0x08001400   0x00000002   Code   RO         2453    i.PendSV_Handler    kdwm1000_it.o
-    0x08001402   0x08001402   0x0000000a   Code   RO          466    i.QueueClear        stdplus_queue.o
-    0x0800140c   0x0800140c   0x0000002c   Code   RO          467    i.QueueCreate       stdplus_queue.o
-    0x08001438   0x08001438   0x00000014   Code   RO          468    i.QueueGetItemCount  stdplus_queue.o
-    0x0800144c   0x0800144c   0x00000010   Code   RO          469    i.QueueIsEmpty      stdplus_queue.o
-    0x0800145c   0x0800145c   0x0000001c   Code   RO          470    i.QueueIsFull       stdplus_queue.o
-    0x08001478   0x08001478   0x0000002e   Code   RO          471    i.QueuePop          stdplus_queue.o
-    0x080014a6   0x080014a6   0x00000034   Code   RO          472    i.QueuePopBack      stdplus_queue.o
-    0x080014da   0x080014da   0x0000002c   Code   RO          473    i.QueuePush         stdplus_queue.o
+    0x08001288   0x08001288   0x000000f0   Code   RO         2418    i.KDWM_GPIO_Config  kdwm1000_bsp.o
+    0x08001378   0x08001378   0x0000000c   Code   RO         2419    i.KDWM_UART_Config  kdwm1000_bsp.o
+    0x08001384   0x08001384   0x00000002   Code   RO         2462    i.MemManage_Handler  kdwm1000_it.o
+    0x08001386   0x08001386   0x00000002   Code   RO         2463    i.NMI_Handler       kdwm1000_it.o
+    0x08001388   0x08001388   0x00000064   Code   RO          859    i.NVIC_Init         misc.o
+    0x080013ec   0x080013ec   0x00000014   Code   RO          860    i.NVIC_PriorityGroupConfig  misc.o
+    0x08001400   0x08001400   0x00000002   Code   RO         2464    i.PendSV_Handler    kdwm1000_it.o
+    0x08001402   0x08001402   0x0000000a   Code   RO          477    i.QueueClear        stdplus_queue.o
+    0x0800140c   0x0800140c   0x0000002c   Code   RO          478    i.QueueCreate       stdplus_queue.o
+    0x08001438   0x08001438   0x00000014   Code   RO          479    i.QueueGetItemCount  stdplus_queue.o
+    0x0800144c   0x0800144c   0x00000010   Code   RO          480    i.QueueIsEmpty      stdplus_queue.o
+    0x0800145c   0x0800145c   0x0000001c   Code   RO          481    i.QueueIsFull       stdplus_queue.o
+    0x08001478   0x08001478   0x0000002e   Code   RO          482    i.QueuePop          stdplus_queue.o
+    0x080014a6   0x080014a6   0x00000034   Code   RO          483    i.QueuePopBack      stdplus_queue.o
+    0x080014da   0x080014da   0x0000002c   Code   RO          484    i.QueuePush         stdplus_queue.o
     0x08001506   0x08001506   0x00000002   PAD
-    0x08001508   0x08001508   0x00000018   Code   RO          896    i.RCC_AHB1PeriphClockCmd  stm32f4xx_rcc.o
-    0x08001520   0x08001520   0x00000018   Code   RO          902    i.RCC_APB1PeriphClockCmd  stm32f4xx_rcc.o
-    0x08001538   0x08001538   0x00000018   Code   RO          904    i.RCC_APB1PeriphResetCmd  stm32f4xx_rcc.o
-    0x08001550   0x08001550   0x00000018   Code   RO          905    i.RCC_APB2PeriphClockCmd  stm32f4xx_rcc.o
-    0x08001568   0x08001568   0x00000018   Code   RO          907    i.RCC_APB2PeriphResetCmd  stm32f4xx_rcc.o
-    0x08001580   0x08001580   0x00000094   Code   RO          914    i.RCC_GetClocksFreq  stm32f4xx_rcc.o
+    0x08001508   0x08001508   0x00000018   Code   RO          907    i.RCC_AHB1PeriphClockCmd  stm32f4xx_rcc.o
+    0x08001520   0x08001520   0x00000018   Code   RO          913    i.RCC_APB1PeriphClockCmd  stm32f4xx_rcc.o
+    0x08001538   0x08001538   0x00000018   Code   RO          915    i.RCC_APB1PeriphResetCmd  stm32f4xx_rcc.o
+    0x08001550   0x08001550   0x00000018   Code   RO          916    i.RCC_APB2PeriphClockCmd  stm32f4xx_rcc.o
+    0x08001568   0x08001568   0x00000018   Code   RO          918    i.RCC_APB2PeriphResetCmd  stm32f4xx_rcc.o
+    0x08001580   0x08001580   0x00000094   Code   RO          925    i.RCC_GetClocksFreq  stm32f4xx_rcc.o
     0x08001614   0x08001614   0x00000038   Code   RO          190    i.RangingInit       ranging.o
-    0x0800164c   0x0800164c   0x00000004   Code   RO         2540    i.SEGGER_RTT_Init   segger_rtt.o
-    0x08001650   0x08001650   0x00000038   Code   RO         2553    i.SEGGER_RTT_Write  segger_rtt.o
-    0x08001688   0x08001688   0x0000005c   Code   RO         2554    i.SEGGER_RTT_WriteNoLock  segger_rtt.o
-    0x080016e4   0x080016e4   0x00000016   Code   RO         2720    i.SEGGER_RTT_printf  segger_rtt_printf.o
-    0x080016fa   0x080016fa   0x0000017e   Code   RO         2721    i.SEGGER_RTT_vprintf  segger_rtt_printf.o
-    0x08001878   0x08001878   0x00000014   Code   RO         1630    i.SPI_Cmd           stm32f4xx_spi.o
-    0x0800188c   0x0800188c   0x00000084   Code   RO         1637    i.SPI_I2S_DeInit    stm32f4xx_spi.o
-    0x08001910   0x08001910   0x00000038   Code   RO         1643    i.SPI_Init          stm32f4xx_spi.o
-    0x08001948   0x08001948   0x00000012   Code   RO         1908    i.SPI_RW            stm32f4_spi.o
-    0x0800195a   0x0800195a   0x00000002   Code   RO         2454    i.SVC_Handler       kdwm1000_it.o
-    0x0800195c   0x0800195c   0x000000c4   Code   RO         1935    i.Serial_Config     serial.o
-    0x08001a20   0x08001a20   0x00000074   Code   RO          807    i.SetSysClock       system_stm32f4xx.o
-    0x08001a94   0x08001a94   0x00000004   Code   RO         2455    i.SysTick_Handler   kdwm1000_it.o
-    0x08001a98   0x08001a98   0x0000005c   Code   RO          809    i.SystemInit        system_stm32f4xx.o
-    0x08001af4   0x08001af4   0x0000000c   Code   RO         1857    i.UART_SendByte     stm32f4_usart.o
-    0x08001b00   0x08001b00   0x000001e0   Code   RO         2456    i.USART1_IRQHandler  kdwm1000_it.o
-    0x08001ce0   0x08001ce0   0x00000006   Code   RO         1432    i.USART_ClearFlag   stm32f4xx_usart.o
-    0x08001ce6   0x08001ce6   0x00000014   Code   RO         1436    i.USART_Cmd         stm32f4xx_usart.o
-    0x08001cfa   0x08001cfa   0x0000003e   Code   RO         1440    i.USART_GetITStatus  stm32f4xx_usart.o
-    0x08001d38   0x08001d38   0x00000030   Code   RO         1442    i.USART_ITConfig    stm32f4xx_usart.o
-    0x08001d68   0x08001d68   0x000000ac   Code   RO         1443    i.USART_Init        stm32f4xx_usart.o
-    0x08001e14   0x08001e14   0x00000002   Code   RO         2457    i.UsageFault_Handler  kdwm1000_it.o
-    0x08001e16   0x08001e16   0x00000002   PAD
-    0x08001e18   0x08001e18   0x00000068   Code   RO         2558    i._DoInit           segger_rtt.o
-    0x08001e80   0x08001e80   0x00000016   Code   RO         2559    i._GetAvailWriteSpace  segger_rtt.o
-    0x08001e96   0x08001e96   0x000000c4   Code   RO         2722    i._PrintInt         segger_rtt_printf.o
-    0x08001f5a   0x08001f5a   0x00000002   PAD
-    0x08001f5c   0x08001f5c   0x000000cc   Code   RO         2723    i._PrintUnsigned    segger_rtt_printf.o
-    0x08002028   0x08002028   0x0000003e   Code   RO         2724    i._StoreChar        segger_rtt_printf.o
-    0x08002066   0x08002066   0x0000005a   Code   RO         2561    i._WriteBlocking    segger_rtt.o
-    0x080020c0   0x080020c0   0x00000042   Code   RO         2562    i._WriteNoCheck     segger_rtt.o
-    0x08002102   0x08002102   0x00000002   PAD
-    0x08002104   0x08002104   0x00000020   Code   RO         3080    i.__0printf$8       mc_w.l(printf8.o)
-    0x08002124   0x08002124   0x00000028   Code   RO         3082    i.__0sprintf$8      mc_w.l(printf8.o)
-    0x0800214c   0x0800214c   0x00000008   Code   RO         3198    i.__aeabi_errno_addr  mc_w.l(errno.o)
-    0x08002154   0x08002154   0x0000000e   Code   RO         3269    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x08002162   0x08002162   0x00000002   Code   RO         3270    i.__scatterload_null  mc_w.l(handlers.o)
-    0x08002164   0x08002164   0x0000000e   Code   RO         3271    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x08002172   0x08002172   0x00000030   Code   RO         2171    i._dwt_configlde    deca_device.o
-    0x080021a2   0x080021a2   0x00000002   PAD
-    0x080021a4   0x080021a4   0x00000410   Code   RO         3087    i._printf_core      mc_w.l(printf8.o)
-    0x080025b4   0x080025b4   0x00000024   Code   RO         3088    i._printf_post_padding  mc_w.l(printf8.o)
-    0x080025d8   0x080025d8   0x0000002e   Code   RO         3089    i._printf_pre_padding  mc_w.l(printf8.o)
-    0x08002606   0x08002606   0x0000000a   Code   RO         3091    i._sputc            mc_w.l(printf8.o)
-    0x08002610   0x08002610   0x00000088   Code   RO          238    i._uPTAllocRespons  uregister.o
-    0x08002698   0x08002698   0x0000012c   Code   RO          239    i._uPTDeviceSignin  uregister.o
-    0x080027c4   0x080027c4   0x00000144   Code   RO          240    i._uPTWaitDeviceRegister  uregister.o
-    0x08002908   0x08002908   0x000000d8   Code   RO          413    i._uSVShellCmdLs    usvshell.o
-    0x080029e0   0x080029e0   0x0000006c   Code   RO          414    i._uSVShellCmdPing  usvshell.o
-    0x08002a4c   0x08002a4c   0x00000094   Code   RO          415    i._uSVShellCmdScan  usvshell.o
-    0x08002ae0   0x08002ae0   0x000000b8   Code   RO          416    i._uSVShellLogInsert  usvshell.o
-    0x08002b98   0x08002b98   0x00000210   Code   RO         2177    i.dwt_configure     deca_device.o
-    0x08002da8   0x08002da8   0x00000024   Code   RO         2178    i.dwt_entersleepaftertx  deca_device.o
-    0x08002dcc   0x08002dcc   0x00000054   Code   RO         2179    i.dwt_forcetrxoff   deca_device.o
-    0x08002e20   0x08002e20   0x0000014c   Code   RO         2180    i.dwt_initialise    deca_device.o
-    0x08002f6c   0x08002f6c   0x00000012   Code   RO         2181    i.dwt_readrxdata    deca_device.o
-    0x08002f7e   0x08002f7e   0x00000050   Code   RO         2186    i.dwt_rxenable      deca_device.o
-    0x08002fce   0x08002fce   0x00000028   Code   RO         2187    i.dwt_rxreset       deca_device.o
-    0x08002ff6   0x08002ff6   0x00000002   PAD
-    0x08002ff8   0x08002ff8   0x00000058   Code   RO         2191    i.dwt_setrxtimeout  deca_device.o
-    0x08003050   0x08003050   0x00000094   Code   RO         2193    i.dwt_starttx       deca_device.o
-    0x080030e4   0x080030e4   0x00000034   Code   RO         2194    i.dwt_syncrxbufptrs  deca_device.o
-    0x08003118   0x08003118   0x00000022   Code   RO         2195    i.dwt_writetxdata   deca_device.o
-    0x0800313a   0x0800313a   0x00000002   PAD
-    0x0800313c   0x0800313c   0x0000001c   Code   RO         2196    i.dwt_writetxfctrl  deca_device.o
-    0x08003158   0x08003158   0x00000014   Code   RO         1946    i.fputc             serial.o
-    0x0800316c   0x0800316c   0x00000050   Code   RO         3134    i.free              mc_w.l(malloc.o)
-    0x080031bc   0x080031bc   0x00000048   Code   RO          538    i.inet_aton         conversion.o
-    0x08003204   0x08003204   0x00000028   Code   RO          539    i.inet_ntoa         conversion.o
-    0x0800322c   0x0800322c   0x00000004   Code   RO          571    i.list_free         stdplus_linklist.o
-    0x08003230   0x08003230   0x00000008   Code   RO          572    i.list_new          stdplus_linklist.o
-    0x08003238   0x08003238   0x00000026   Code   RO          573    i.listnode_add      stdplus_linklist.o
-    0x0800325e   0x0800325e   0x0000000a   Code   RO          577    i.listnode_head     stdplus_linklist.o
-    0x08003268   0x08003268   0x00000008   Code   RO          579    i.listnode_new      stdplus_linklist.o
-    0x08003270   0x08003270   0x000000a4   Code   RO            8    i.main              main.o
-    0x08003314   0x08003314   0x0000006c   Code   RO         3135    i.malloc            mc_w.l(malloc.o)
-    0x08003380   0x08003380   0x000000d8   Code   RO          694    i.uLLFrameRecv      ulldriver.o
-    0x08003458   0x08003458   0x000000c8   Code   RO          695    i.uLLFrameSend      ulldriver.o
-    0x08003520   0x08003520   0x0000002a   Code   RO          758    i.uLLFrameSendEx    ullpacket.o
-    0x0800354a   0x0800354a   0x0000004e   Code   RO          760    i.uLLFrameWaitEx    ullpacket.o
-    0x08003598   0x08003598   0x00000036   Code   RO          761    i.uLLFrameWaitInAddr  ullpacket.o
-    0x080035ce   0x080035ce   0x00000002   PAD
-    0x080035d0   0x080035d0   0x00000060   Code   RO          696    i.uLLInit           ulldriver.o
-    0x08003630   0x08003630   0x0000007c   Code   RO          698    i.uLLUserInterfaceRegister  ulldriver.o
-    0x080036ac   0x080036ac   0x000000f4   Code   RO          662    i.uPTPing           ustatemaintenance.o
-    0x080037a0   0x080037a0   0x0000001a   Code   RO          663    i.uPTPingRespons    ustatemaintenance.o
-    0x080037ba   0x080037ba   0x00000056   Code   RO          241    i.uPTRegisterCycle  uregister.o
-    0x08003810   0x08003810   0x000000a8   Code   RO          242    i.uPTRegisterRespons  uregister.o
-    0x080038b8   0x080038b8   0x0000001a   Code   RO          243    i.uPTSigninRespons  uregister.o
-    0x080038d2   0x080038d2   0x00000002   PAD
-    0x080038d4   0x080038d4   0x00000094   Code   RO          314    i.uSVIdle           uidle.o
-    0x08003968   0x08003968   0x00000060   Code   RO          355    i.uSVManagerInit    usvmanager.o
-    0x080039c8   0x080039c8   0x00000054   Code   RO          417    i.uSVShellInit      usvshell.o
-    0x08003a1c   0x08003a1c   0x00000194   Code   RO          418    i.uSVShellPrase     usvshell.o
-    0x08003bb0   0x08003bb0   0x00000008   Data   RO         2364    .constdata          deca_params.o
-    0x08003bb8   0x08003bb8   0x00000018   Data   RO         2365    .constdata          deca_params.o
-    0x08003bd0   0x08003bd0   0x0000001e   Data   RO         2366    .constdata          deca_params.o
-    0x08003bee   0x08003bee   0x00000002   Data   RO         2367    .constdata          deca_params.o
-    0x08003bf0   0x08003bf0   0x00000008   Data   RO         2368    .constdata          deca_params.o
-    0x08003bf8   0x08003bf8   0x00000003   Data   RO         2369    .constdata          deca_params.o
-    0x08003bfb   0x08003bfb   0x00000001   PAD
-    0x08003bfc   0x08003bfc   0x0000000c   Data   RO         2370    .constdata          deca_params.o
-    0x08003c08   0x08003c08   0x00000004   Data   RO         2371    .constdata          deca_params.o
-    0x08003c0c   0x08003c0c   0x00000020   Data   RO         2372    .constdata          deca_params.o
-    0x08003c2c   0x08003c2c   0x00000032   Data   RO         2373    .constdata          deca_params.o
-    0x08003c5e   0x08003c5e   0x00000010   Data   RO         2725    .constdata          segger_rtt_printf.o
-    0x08003c6e   0x08003c6e   0x00000081   Data   RO         3233    .constdata          mc_w.l(ctype_o.o)
-    0x08003cef   0x08003cef   0x00000001   PAD
-    0x08003cf0   0x08003cf0   0x00000004   Data   RO         3234    .constdata          mc_w.l(ctype_o.o)
-    0x08003cf4   0x08003cf4   0x00000266   Data   RO          420    .conststring        usvshell.o
-    0x08003f5a   0x08003f5a   0x00000002   PAD
-    0x08003f5c   0x08003f5c   0x00000020   Data   RO         3267    Region$$Table       anon$$obj.o
+    0x0800164c   0x0800164c   0x00000004   Code   RO         2551    i.SEGGER_RTT_Init   segger_rtt.o
+    0x08001650   0x08001650   0x00000038   Code   RO         2564    i.SEGGER_RTT_Write  segger_rtt.o
+    0x08001688   0x08001688   0x0000005c   Code   RO         2565    i.SEGGER_RTT_WriteNoLock  segger_rtt.o
+    0x080016e4   0x080016e4   0x00000016   Code   RO         2731    i.SEGGER_RTT_printf  segger_rtt_printf.o
+    0x080016fa   0x080016fa   0x0000017e   Code   RO         2732    i.SEGGER_RTT_vprintf  segger_rtt_printf.o
+    0x08001878   0x08001878   0x00000014   Code   RO         1641    i.SPI_Cmd           stm32f4xx_spi.o
+    0x0800188c   0x0800188c   0x00000084   Code   RO         1648    i.SPI_I2S_DeInit    stm32f4xx_spi.o
+    0x08001910   0x08001910   0x00000038   Code   RO         1654    i.SPI_Init          stm32f4xx_spi.o
+    0x08001948   0x08001948   0x00000012   Code   RO         1919    i.SPI_RW            stm32f4_spi.o
+    0x0800195a   0x0800195a   0x00000002   Code   RO         2465    i.SVC_Handler       kdwm1000_it.o
+    0x0800195c   0x0800195c   0x000000c4   Code   RO         1946    i.Serial_Config     serial.o
+    0x08001a20   0x08001a20   0x00000074   Code   RO          818    i.SetSysClock       system_stm32f4xx.o
+    0x08001a94   0x08001a94   0x00000004   Code   RO         2466    i.SysTick_Handler   kdwm1000_it.o
+    0x08001a98   0x08001a98   0x0000005c   Code   RO          820    i.SystemInit        system_stm32f4xx.o
+    0x08001af4   0x08001af4   0x0000000c   Code   RO         1868    i.UART_SendByte     stm32f4_usart.o
+    0x08001b00   0x08001b00   0x000001d0   Code   RO         2467    i.USART1_IRQHandler  kdwm1000_it.o
+    0x08001cd0   0x08001cd0   0x00000006   Code   RO         1443    i.USART_ClearFlag   stm32f4xx_usart.o
+    0x08001cd6   0x08001cd6   0x00000014   Code   RO         1447    i.USART_Cmd         stm32f4xx_usart.o
+    0x08001cea   0x08001cea   0x0000003e   Code   RO         1451    i.USART_GetITStatus  stm32f4xx_usart.o
+    0x08001d28   0x08001d28   0x00000030   Code   RO         1453    i.USART_ITConfig    stm32f4xx_usart.o
+    0x08001d58   0x08001d58   0x000000ac   Code   RO         1454    i.USART_Init        stm32f4xx_usart.o
+    0x08001e04   0x08001e04   0x00000002   Code   RO         2468    i.UsageFault_Handler  kdwm1000_it.o
+    0x08001e06   0x08001e06   0x00000002   PAD
+    0x08001e08   0x08001e08   0x00000068   Code   RO         2569    i._DoInit           segger_rtt.o
+    0x08001e70   0x08001e70   0x00000016   Code   RO         2570    i._GetAvailWriteSpace  segger_rtt.o
+    0x08001e86   0x08001e86   0x000000c4   Code   RO         2733    i._PrintInt         segger_rtt_printf.o
+    0x08001f4a   0x08001f4a   0x00000002   PAD
+    0x08001f4c   0x08001f4c   0x000000cc   Code   RO         2734    i._PrintUnsigned    segger_rtt_printf.o
+    0x08002018   0x08002018   0x0000003e   Code   RO         2735    i._StoreChar        segger_rtt_printf.o
+    0x08002056   0x08002056   0x0000005a   Code   RO         2572    i._WriteBlocking    segger_rtt.o
+    0x080020b0   0x080020b0   0x00000042   Code   RO         2573    i._WriteNoCheck     segger_rtt.o
+    0x080020f2   0x080020f2   0x00000002   PAD
+    0x080020f4   0x080020f4   0x00000020   Code   RO         3091    i.__0printf$8       mc_w.l(printf8.o)
+    0x08002114   0x08002114   0x00000028   Code   RO         3093    i.__0sprintf$8      mc_w.l(printf8.o)
+    0x0800213c   0x0800213c   0x00000008   Code   RO         3209    i.__aeabi_errno_addr  mc_w.l(errno.o)
+    0x08002144   0x08002144   0x0000000e   Code   RO         3280    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x08002152   0x08002152   0x00000002   Code   RO         3281    i.__scatterload_null  mc_w.l(handlers.o)
+    0x08002154   0x08002154   0x0000000e   Code   RO         3282    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x08002162   0x08002162   0x00000030   Code   RO         2182    i._dwt_configlde    deca_device.o
+    0x08002192   0x08002192   0x00000002   PAD
+    0x08002194   0x08002194   0x00000410   Code   RO         3098    i._printf_core      mc_w.l(printf8.o)
+    0x080025a4   0x080025a4   0x00000024   Code   RO         3099    i._printf_post_padding  mc_w.l(printf8.o)
+    0x080025c8   0x080025c8   0x0000002e   Code   RO         3100    i._printf_pre_padding  mc_w.l(printf8.o)
+    0x080025f6   0x080025f6   0x0000000a   Code   RO         3102    i._sputc            mc_w.l(printf8.o)
+    0x08002600   0x08002600   0x00000088   Code   RO          238    i._uPTAllocRespons  uregister.o
+    0x08002688   0x08002688   0x0000012c   Code   RO          239    i._uPTDeviceSignin  uregister.o
+    0x080027b4   0x080027b4   0x00000144   Code   RO          240    i._uPTWaitDeviceRegister  uregister.o
+    0x080028f8   0x080028f8   0x000000d8   Code   RO          419    i._uSVShellCmdLs    usvshell.o
+    0x080029d0   0x080029d0   0x0000004c   Code   RO          420    i._uSVShellCmdPing  usvshell.o
+    0x08002a1c   0x08002a1c   0x00000094   Code   RO          421    i._uSVShellCmdScan  usvshell.o
+    0x08002ab0   0x08002ab0   0x0000006c   Code   RO          422    i._uSVShellCmdUpdata  usvshell.o
+    0x08002b1c   0x08002b1c   0x000000a0   Code   RO          423    i._uSVShellLogInsert  usvshell.o
+    0x08002bbc   0x08002bbc   0x00000210   Code   RO         2188    i.dwt_configure     deca_device.o
+    0x08002dcc   0x08002dcc   0x00000024   Code   RO         2189    i.dwt_entersleepaftertx  deca_device.o
+    0x08002df0   0x08002df0   0x00000054   Code   RO         2190    i.dwt_forcetrxoff   deca_device.o
+    0x08002e44   0x08002e44   0x0000014c   Code   RO         2191    i.dwt_initialise    deca_device.o
+    0x08002f90   0x08002f90   0x00000012   Code   RO         2192    i.dwt_readrxdata    deca_device.o
+    0x08002fa2   0x08002fa2   0x00000050   Code   RO         2197    i.dwt_rxenable      deca_device.o
+    0x08002ff2   0x08002ff2   0x00000028   Code   RO         2198    i.dwt_rxreset       deca_device.o
+    0x0800301a   0x0800301a   0x00000002   PAD
+    0x0800301c   0x0800301c   0x00000058   Code   RO         2202    i.dwt_setrxtimeout  deca_device.o
+    0x08003074   0x08003074   0x00000094   Code   RO         2204    i.dwt_starttx       deca_device.o
+    0x08003108   0x08003108   0x00000034   Code   RO         2205    i.dwt_syncrxbufptrs  deca_device.o
+    0x0800313c   0x0800313c   0x00000022   Code   RO         2206    i.dwt_writetxdata   deca_device.o
+    0x0800315e   0x0800315e   0x00000002   PAD
+    0x08003160   0x08003160   0x0000001c   Code   RO         2207    i.dwt_writetxfctrl  deca_device.o
+    0x0800317c   0x0800317c   0x00000014   Code   RO         1957    i.fputc             serial.o
+    0x08003190   0x08003190   0x00000050   Code   RO         3145    i.free              mc_w.l(malloc.o)
+    0x080031e0   0x080031e0   0x00000048   Code   RO          549    i.inet_aton         conversion.o
+    0x08003228   0x08003228   0x00000028   Code   RO          550    i.inet_ntoa         conversion.o
+    0x08003250   0x08003250   0x00000026   Code   RO          581    i.list_delete_node  stdplus_linklist.o
+    0x08003276   0x08003276   0x00000004   Code   RO          582    i.list_free         stdplus_linklist.o
+    0x0800327a   0x0800327a   0x00000008   Code   RO          583    i.list_new          stdplus_linklist.o
+    0x08003282   0x08003282   0x00000026   Code   RO          584    i.listnode_add      stdplus_linklist.o
+    0x080032a8   0x080032a8   0x0000000a   Code   RO          588    i.listnode_head     stdplus_linklist.o
+    0x080032b2   0x080032b2   0x00000008   Code   RO          590    i.listnode_new      stdplus_linklist.o
+    0x080032ba   0x080032ba   0x00000002   PAD
+    0x080032bc   0x080032bc   0x000000a4   Code   RO            8    i.main              main.o
+    0x08003360   0x08003360   0x0000006c   Code   RO         3146    i.malloc            mc_w.l(malloc.o)
+    0x080033cc   0x080033cc   0x000000d8   Code   RO          705    i.uLLFrameRecv      ulldriver.o
+    0x080034a4   0x080034a4   0x000000c8   Code   RO          706    i.uLLFrameSend      ulldriver.o
+    0x0800356c   0x0800356c   0x0000002a   Code   RO          769    i.uLLFrameSendEx    ullpacket.o
+    0x08003596   0x08003596   0x0000004e   Code   RO          771    i.uLLFrameWaitEx    ullpacket.o
+    0x080035e4   0x080035e4   0x00000036   Code   RO          772    i.uLLFrameWaitInAddr  ullpacket.o
+    0x0800361a   0x0800361a   0x00000002   PAD
+    0x0800361c   0x0800361c   0x00000060   Code   RO          707    i.uLLInit           ulldriver.o
+    0x0800367c   0x0800367c   0x0000007c   Code   RO          709    i.uLLUserInterfaceRegister  ulldriver.o
+    0x080036f8   0x080036f8   0x000000d0   Code   RO          673    i.uPTPing           ustatemaintenance.o
+    0x080037c8   0x080037c8   0x0000001a   Code   RO          674    i.uPTPingRespons    ustatemaintenance.o
+    0x080037e2   0x080037e2   0x00000002   PAD
+    0x080037e4   0x080037e4   0x000000e0   Code   RO          241    i.uPTReSignin       uregister.o
+    0x080038c4   0x080038c4   0x00000056   Code   RO          242    i.uPTRegisterCycle  uregister.o
+    0x0800391a   0x0800391a   0x00000002   PAD
+    0x0800391c   0x0800391c   0x000000a8   Code   RO          243    i.uPTRegisterRespons  uregister.o
+    0x080039c4   0x080039c4   0x0000001a   Code   RO          244    i.uPTSigninRespons  uregister.o
+    0x080039de   0x080039de   0x00000002   PAD
+    0x080039e0   0x080039e0   0x000000bc   Code   RO          320    i.uSVIdle           uidle.o
+    0x08003a9c   0x08003a9c   0x0000005c   Code   RO          361    i.uSVManagerInit    usvmanager.o
+    0x08003af8   0x08003af8   0x00000054   Code   RO          424    i.uSVShellInit      usvshell.o
+    0x08003b4c   0x08003b4c   0x00000184   Code   RO          425    i.uSVShellPrase     usvshell.o
+    0x08003cd0   0x08003cd0   0x00000008   Data   RO         2375    .constdata          deca_params.o
+    0x08003cd8   0x08003cd8   0x00000018   Data   RO         2376    .constdata          deca_params.o
+    0x08003cf0   0x08003cf0   0x0000001e   Data   RO         2377    .constdata          deca_params.o
+    0x08003d0e   0x08003d0e   0x00000002   Data   RO         2378    .constdata          deca_params.o
+    0x08003d10   0x08003d10   0x00000008   Data   RO         2379    .constdata          deca_params.o
+    0x08003d18   0x08003d18   0x00000003   Data   RO         2380    .constdata          deca_params.o
+    0x08003d1b   0x08003d1b   0x00000001   PAD
+    0x08003d1c   0x08003d1c   0x0000000c   Data   RO         2381    .constdata          deca_params.o
+    0x08003d28   0x08003d28   0x00000004   Data   RO         2382    .constdata          deca_params.o
+    0x08003d2c   0x08003d2c   0x00000020   Data   RO         2383    .constdata          deca_params.o
+    0x08003d4c   0x08003d4c   0x00000032   Data   RO         2384    .constdata          deca_params.o
+    0x08003d7e   0x08003d7e   0x00000010   Data   RO         2736    .constdata          segger_rtt_printf.o
+    0x08003d8e   0x08003d8e   0x00000081   Data   RO         3244    .constdata          mc_w.l(ctype_o.o)
+    0x08003e0f   0x08003e0f   0x00000001   PAD
+    0x08003e10   0x08003e10   0x00000004   Data   RO         3245    .constdata          mc_w.l(ctype_o.o)
+    0x08003e14   0x08003e14   0x00000266   Data   RO          427    .conststring        usvshell.o
+    0x0800407a   0x0800407a   0x00000002   PAD
+    0x0800407c   0x0800407c   0x00000020   Data   RO         3278    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08003f7c, Size: 0x0000d8a0, Max: 0x00020000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0800409c, Size: 0x0000d8a8, Max: 0x00020000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08003f7c   0x0000000b   Data   RW          191    .data               ranging.o
-    0x2000000b   0x08003f87   0x00000001   PAD
-    0x2000000c   0x08003f88   0x00000004   Data   RW          359    .data               usvmanager.o
-    0x20000010   0x08003f8c   0x00000004   Data   RW          421    .data               usvshell.o
-    0x20000014   0x08003f90   0x0000000c   Data   RW          699    .data               ulldriver.o
-    0x20000020   0x08003f9c   0x00000014   Data   RW          810    .data               system_stm32f4xx.o
-    0x20000034   0x08003fb0   0x00000010   Data   RW          944    .data               stm32f4xx_rcc.o
-    0x20000044   0x08003fc0   0x00000004   Data   RW         1797    .data               stm32f4_delay.o
-    0x20000048   0x08003fc4   0x00000004   Data   RW         2409    .data               kdwm1000_bsp.o
-    0x2000004c   0x08003fc8   0x00000008   Data   RW         2458    .data               kdwm1000_it.o
-    0x20000054   0x08003fd0   0x00000004   Data   RW         2853    .data               mc_w.l(stdout.o)
-    0x20000058   0x08003fd4   0x00000004   Data   RW         2855    .data               mc_w.l(rand.o)
-    0x2000005c   0x08003fd8   0x00000004   Data   RW         3196    .data               mc_w.l(mvars.o)
-    0x20000060   0x08003fdc   0x00000004   Data   RW         3197    .data               mc_w.l(mvars.o)
-    0x20000064   0x08003fe0   0x00000004   Data   RW         3201    .data               mc_w.l(errno.o)
-    0x20000068        -       0x00000330   Zero   RW          244    .bss                uregister.o
-    0x20000398        -       0x00000010   Zero   RW          358    .bss                usvmanager.o
-    0x200003a8        -       0x00002000   Zero   RW          419    .bss                usvshell.o
-    0x200023a8        -       0x0000003c   Zero   RW         2197    .bss                deca_device.o
-    0x200023e4        -       0x000004b8   Zero   RW         2563    .bss                segger_rtt.o
-    0x2000289c   0x08003fe4   0x00000004   PAD
-    0x200028a0        -       0x00007000   Zero   RW          798    HEAP                startup_stm32f411xe.o
-    0x200098a0        -       0x00004000   Zero   RW          797    STACK               startup_stm32f411xe.o
+    0x20000000   0x0800409c   0x0000000b   Data   RW          191    .data               ranging.o
+    0x2000000b   0x080040a7   0x00000001   PAD
+    0x2000000c   0x080040a8   0x00000004   Data   RW          365    .data               usvmanager.o
+    0x20000010   0x080040ac   0x00000004   Data   RW          428    .data               usvshell.o
+    0x20000014   0x080040b0   0x0000000c   Data   RW          710    .data               ulldriver.o
+    0x20000020   0x080040bc   0x00000014   Data   RW          821    .data               system_stm32f4xx.o
+    0x20000034   0x080040d0   0x00000010   Data   RW          955    .data               stm32f4xx_rcc.o
+    0x20000044   0x080040e0   0x00000004   Data   RW         1808    .data               stm32f4_delay.o
+    0x20000048   0x080040e4   0x00000004   Data   RW         2420    .data               kdwm1000_bsp.o
+    0x2000004c   0x080040e8   0x00000008   Data   RW         2469    .data               kdwm1000_it.o
+    0x20000054   0x080040f0   0x00000004   Data   RW         2864    .data               mc_w.l(stdout.o)
+    0x20000058   0x080040f4   0x00000004   Data   RW         2866    .data               mc_w.l(rand.o)
+    0x2000005c   0x080040f8   0x00000004   Data   RW         3207    .data               mc_w.l(mvars.o)
+    0x20000060   0x080040fc   0x00000004   Data   RW         3208    .data               mc_w.l(mvars.o)
+    0x20000064   0x08004100   0x00000004   Data   RW         3212    .data               mc_w.l(errno.o)
+    0x20000068        -       0x00000330   Zero   RW          245    .bss                uregister.o
+    0x20000398        -       0x0000001c   Zero   RW          364    .bss                usvmanager.o
+    0x200003b4        -       0x00002000   Zero   RW          426    .bss                usvshell.o
+    0x200023b4        -       0x0000003c   Zero   RW         2208    .bss                deca_device.o
+    0x200023f0        -       0x000004b8   Zero   RW         2574    .bss                segger_rtt.o
+    0x200028a8        -       0x00007000   Zero   RW          809    HEAP                startup_stm32f411xe.o
+    0x200098a8        -       0x00004000   Zero   RW          808    STACK               startup_stm32f411xe.o
 
 
 ==============================================================================
@@ -2101,7 +2122,7 @@ Image component sizes
          0          0        173          0          0      16847   deca_params.o
       1128         50          0          0          0      11234   dw1000.o
        268         18          0          4          0       1915   kdwm1000_bsp.o
-       500         56          0          8          0       5380   kdwm1000_it.o
+       484         58          0          8          0       5376   kdwm1000_it.o
        380         98          0          0          0     251498   main.o
        120         14          0          0          0       1675   misc.o
         56          4          0         11          0       1878   ranging.o
@@ -2109,7 +2130,7 @@ Image component sizes
        866          4         16          0          0       6373   segger_rtt_printf.o
        216         16          0          0          0       1232   serial.o
         36          8        408          0      45056        836   startup_stm32f411xe.o
-        68          0          0          0          0       3092   stdplus_linklist.o
+       106          0          0          0          0       3719   stdplus_linklist.o
        260          0          0          0          0       7400   stdplus_queue.o
        132         20          0          4          0      28711   stm32f4_delay.o
         18          0          0          0          0        857   stm32f4_spi.o
@@ -2119,18 +2140,18 @@ Image component sizes
        208         24          0          0          0       2614   stm32f4xx_spi.o
        308          8          0          0          0       4684   stm32f4xx_usart.o
        208         36          0         20          0       1741   system_stm32f4xx.o
-       148         10          0          0          0       1515   uidle.o
+       188         10          0          0          0       1539   uidle.o
        636        240          0         12          0       5491   ulldriver.o
        174          0          0          0          0       3035   ullpacket.o
-      1040        190          0          0        816      10994   uregister.o
-       270        100          0          0          0       2087   ustatemaintenance.o
-        96         26          0          4         16       1608   usvmanager.o
-      1144        452        614          4       8192       5307   usvshell.o
+      1264        262          0          0        816      11944   uregister.o
+       234        102          0          0          0       1795   ustatemaintenance.o
+        92         24          0          4         28       1604   usvmanager.o
+      1180        456        614          4       8192       5839   usvshell.o
 
     ----------------------------------------------------------------------
-     10800       1566       1246         84      55352     410102   Object Totals
+     11088       1644       1246         84      55360     411935   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        26          0          3          1          4          0   (incl. Padding)
+        32          0          3          1          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -2201,15 +2222,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     14872       1700       1380        104      55352     400018   Grand Totals
-     14872       1700       1380        104      55352     400018   ELF Image Totals
-     14872       1700       1380        104          0          0   ROM Totals
+     15160       1778       1380        104      55360     401551   Grand Totals
+     15160       1778       1380        104      55360     401551   ELF Image Totals
+     15160       1778       1380        104          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                16252 (  15.87kB)
-    Total RW  Size (RW Data + ZI Data)             55456 (  54.16kB)
-    Total ROM Size (Code + RO Data + RW Data)      16356 (  15.97kB)
+    Total RO  Size (Code + RO Data)                16540 (  16.15kB)
+    Total RW  Size (RW Data + ZI Data)             55464 (  54.16kB)
+    Total ROM Size (Code + RO Data + RW Data)      16644 (  16.25kB)
 
 ==============================================================================
 

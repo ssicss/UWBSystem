@@ -33,19 +33,21 @@ RES_Typedef uSVIdle(void)
 
 		//发送包
 		if(guSVManagerCtl.flag & (1<<1)){
-			//uLLFrameSend(&guSVManagerCtl.readly_to_send);
+			uLLFrameSend(&guSVManagerCtl.readly_to_send);
+			guSVManagerCtl.flag &= (~(1<<1));
 		}
 
 		//ping
 		if(guSVManagerCtl.flag & (1<<2)){
-			uPTPing(guSVManagerCtl.readly_to_send);
-
+			uPTPing(&guSVManagerCtl.readly_to_send);
 			guSVManagerCtl.flag &= (~(1<<2));
-			if(guSVManagerCtl.readly_to_send){
-				free(guSVManagerCtl.readly_to_send);
-			}
 		}
 
+		//flush
+		if(guSVManagerCtl.flag & (1<<3)){
+			uPTReSignin();
+			guSVManagerCtl.flag &= (~(1<<3));
+		}
 		
 		//解析SHELL
 		uSVShellPrase();
@@ -59,6 +61,9 @@ RES_Typedef uSVIdle(void)
 							uPTSigninRespons();
 							break;
 				case SUBTYPE_PING_REQUEST:
+							uPTPingRespons();
+							break;
+				case SUBTYPE_GET_CONFIG_REQUEST:
 							uPTPingRespons();
 							break;
 				default:break;

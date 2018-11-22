@@ -22,6 +22,7 @@ extern struct list *guSVManagerDevice;
 RES_Typedef uPTRegisterCycle(void);
 RES_Typedef uPTRegisterRespons(void);
 RES_Typedef uPTSigninRespons(void);
+RES_Typedef uPTReSignin(void);
 
 
 #endif

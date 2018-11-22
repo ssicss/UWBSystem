@@ -108,7 +108,6 @@ void USART1_IRQHandler( void )
 			}
 			printf("\r#");
 			
-			SEGGER_RTT_printf(0, "i=%d, size = %d\n\r", cmd_history_index,QueueGetItemCount(gUartQueue));
 			printf("%s", &cmd_history[cmd_history_index][0]);
 
 			QueueClear(gUartQueue);

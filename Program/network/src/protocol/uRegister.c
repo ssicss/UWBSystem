@@ -243,6 +243,52 @@ RES_Typedef uPTRegisterCycle(void)
 }
 
 
+RES_Typedef uPTReSignin(void)
+{
+	struct listnode *node = NULL;
+	struct listnode *node_save = NULL;
+	unsigned int i=0;
+	struct MANAGER_DEV_INFO *dev;
+	struct list *catch_dev_list = NULL;
+	unsigned int node_count = 0;
+
+	
+	catch_dev_list = list_new();
+	if(!catch_dev_list)
+		return RES_PT_MEMORY_FAILED;
+
+	node_count = guSVManagerDevice->count;
+
+	node = guSVManagerDevice->head;
+	for(i=0; i<node_count; i++)
+	{
+		if(i!=0){
+			dev = (struct MANAGER_DEV_INFO *)node->data;
+			SEGGER_RTT_printf(0,"add<%d> %x, sum:%d\n\r", i, dev->ip, node_count);
+			listnode_add(catch_dev_list, &dev->ip);	
+		}
+		node = node->next;
+	}
+
+
+
+	node = guSVManagerDevice->tail;
+	for(i=0; i<node_count-1; i++)
+	{
+		node_save = node;
+		node = node->prev;
+		SEGGER_RTT_printf(0,"delet %d, sum:%d\n\r", i, node_count);
+		list_delete_node(guSVManagerDevice, node_save);
+	}
+
+
+	SEGGER_RTT_printf(0,"ready to signin %d\n\r", catch_dev_list->count);
+	_PCK(_uPTDeviceSignin(catch_dev_list));
+
+	list_free(catch_dev_list);
+	
+	return RES_OK;
+}
 
 
 RES_Typedef uPTRegisterRespons(void)
