@@ -37,4 +37,5 @@
 .\obj\ustatemaintenance.o: ..\Program\segger\RTT\SEGGER_RTT_Conf.h
 .\obj\ustatemaintenance.o: ..\Program\network\inc\conversion.h
 .\obj\ustatemaintenance.o: ..\Program\network\inc\uCommon.h
-.\obj\ustatemaintenance.o: ..\Program\network\inc\uLLdriver.h
+.\obj\ustatemaintenance.o: ..\Program\network\inc\uLLDriver.h
+.\obj\ustatemaintenance.o: ..\Program\network\inc\uLLPacket.h

@@ -37,3 +37,7 @@
 .\obj\kdwm1000_it.o: ..\Program\network\inc\conversion.h
 .\obj\kdwm1000_it.o: ..\Program\network\inc\uCommon.h
 .\obj\kdwm1000_it.o: ..\Program\drivers\stm32f4_usart.h
+.\obj\kdwm1000_it.o: ..\Program\network\inc\uSVShell.h
+.\obj\kdwm1000_it.o: ..\Program\network\inc\uLLDriver.h
+.\obj\kdwm1000_it.o: ..\Program\network\inc\uSVManager.h
+.\obj\kdwm1000_it.o: ..\Program\network\inc\uLLPacket.h

@@ -39,3 +39,4 @@
 .\obj\usvshell.o: ..\Program\network\inc\uCommon.h
 .\obj\usvshell.o: ..\Program\network\inc\uLLDriver.h
 .\obj\usvshell.o: ..\Program\network\inc\uSVManager.h
+.\obj\usvshell.o: ..\Program\network\inc\uLLPacket.h

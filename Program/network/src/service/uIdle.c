@@ -8,7 +8,7 @@ extern struct list *guSVManagerDevice;
 RES_Typedef uSVIdle(void)
 {
 	struct MANAGER_DEV_INFO *dev=NULL;
-	//struct FRAME_DAT *dat;
+	SUBTYPE_Typedef packet_subtype = SUBTYPE_UNDEFINED;
 
 
 	dev = (struct MANAGER_DEV_INFO *)listnode_head(guSVManagerDevice);
@@ -52,8 +52,17 @@ RES_Typedef uSVIdle(void)
 	}
 	else if(dev->nrole == DEV_NROLE_STA){
 		if(dev->ip){
-			uPTSigninRespons();	
-			uPTPingRespons();
+			packet_subtype = uLLFrameWaitInAddr(dev->ip, 100);
+			switch(packet_subtype)
+			{
+				case SUBTYPE_SIGNIN_REQUEST: 
+							uPTSigninRespons();
+							break;
+				case SUBTYPE_PING_REQUEST:
+							uPTPingRespons();
+							break;
+				default:break;
+			}
 		}else{
 			uPTRegisterRespons();
 		}

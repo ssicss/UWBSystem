@@ -9,35 +9,22 @@ struct FRAME_DAT fra_wt;
 
 static RES_Typedef _uPTSigninRespons(const unsigned int addr)
 {
-	
-	RES_Typedef res;
 	struct MANAGER_DEV_INFO *dev=NULL;
-	unsigned int t = 0;
 
+	if(uLLFrameWaitEx(MTYPE_NT, SUBTYPE_SIGNIN_RESPONS, 0, 100) != RES_OK)
+		return RES_PT_TIMEOUT;
 
-	do{
-		t++;
-		res = uLLFrameRecv(&fra_wt, WAITDEV_REGISTER_TIMEOUT);
-	}
-	while((t<100)&&(res!=RES_OK));
-	if(t>=100){
-		return RES_TIMEOUT;
-	}
+	
+	dev = (struct MANAGER_DEV_INFO *)malloc(sizeof(struct MANAGER_DEV_INFO));
+	dev->ip = addr;
+	dev->role = DEV_ROLE_LABEL;
+	dev->nrole = DEV_NROLE_STA;
+	dev->sn = 0;
+	dev->priority = 0;
+	listnode_add(guSVManagerDevice, dev);
 
-	if((fra_wt.mtype == MTYPE_NT)&&(fra_wt.subtype == SUBTYPE_SIGNIN_RESPONS)){
+	return RES_OK;
 
-		dev = (struct MANAGER_DEV_INFO *)malloc(sizeof(struct MANAGER_DEV_INFO));
-		dev->ip = addr;
-		dev->role = DEV_ROLE_LABEL;
-		dev->nrole = DEV_NROLE_STA;
-		dev->sn = 0;
-		dev->priority = 0;
-		listnode_add(guSVManagerDevice, dev);
-
-		return RES_OK;
-	}
-
-	return RES_PACKET_ERROR;
 
 }
 
@@ -125,7 +112,6 @@ static RES_Typedef _uPTWaitDeviceRegister(unsigned int *addr_buf,
 	unsigned int i=0;
 	unsigned int j=0;
 	unsigned int t=0;
-	bool _is_catch = false;
 	
 	memset(&fra_wt, 0, sizeof(struct FRAME_DAT));
 	memset(addr_buf, 0, sizeof(addr_buf));
@@ -160,19 +146,8 @@ static RES_Typedef _uPTWaitDeviceRegister(unsigned int *addr_buf,
 			
 			uLLFrameSendEx(MTYPE_NT, SUBTYPE_ADDR_ALLOC_REQUEST, addr_buf[j], true, 4, ( char *)&alloc_addr_buf[j]);
 			//得到分配地址请求响应
-			t=0;
-			_is_catch = false;
-			do{
-				t++;
-				res = uLLFrameRecv(&fra_wt, WAITDEV_REGISTER_TIMEOUT);
-				if((res == RES_OK)&&
-					((fra_wt.mtype == MTYPE_NT)&&(fra_wt.subtype == SUBTYPE_ADDR_ALLOC_RESPONS)))
-				{
-					_is_catch = true;
-				}
-			}
-			while((t<100)&&(_is_catch==false));
-			if(t>=100){
+			if(uLLFrameWaitEx(MTYPE_NT, SUBTYPE_ADDR_ALLOC_RESPONS, 0, 100) != RES_OK)
+			{
 				SEGGER_RTT_printf(0,"x");
 			}else{
 				SEGGER_RTT_printf(0,"v");
@@ -193,25 +168,6 @@ static RES_Typedef _uPTWaitDeviceRegister(unsigned int *addr_buf,
 	return RES_OK;
 }
 
-static RES_Typedef _uPTWaitApRequest(SUBTYPE_Typedef request)
-{
-	RES_Typedef res;
-	
-	res = uLLFrameRecv(&fra_wt, WAITDEV_REGISTER_TIMEOUT);
-	if(res == RES_OK){
-		if((fra_wt.mtype == MTYPE_NT)&&
-				(fra_wt.subtype == request))
-		{
-			return RES_OK;
-		}else{
-			return RES_RARSE_FAILED;
-		}
-	}
-	else{
-		return res;
-	}
-
-}
 
 
 //等待接收超时退出，用来延时，但是延时时不能收到其它UWB数据，会造成提前退出
@@ -295,9 +251,7 @@ RES_Typedef uPTRegisterRespons(void)
 	float random_max = 0.0f;
 
 	
-	if(_uPTWaitApRequest(SUBTYPE_REGISTER_REQUEST) == RES_OK){
-		
-
+	if(uLLFrameWaitEx(MTYPE_NT, SUBTYPE_REGISTER_REQUEST, 0, 100) == RES_OK){
 		//产生随机数
 		srand(uwTick);
 		random_max = WAITDEV_REGISTER_RETRY;
@@ -307,9 +261,6 @@ RES_Typedef uPTRegisterRespons(void)
 
 		_PCK(uLLFrameSendEx(MTYPE_NT, SUBTYPE_REGISTER_RESPONS, 0, true, 4, ( char *)&random));
 		_PCK(_uPTAllocRespons(random));
-
-		
-	
 	}
 
 	return RES_OK;
@@ -318,12 +269,7 @@ RES_Typedef uPTRegisterRespons(void)
 
 RES_Typedef uPTSigninRespons(void)
 {
-	if(_uPTWaitApRequest(SUBTYPE_SIGNIN_REQUEST) == RES_OK){
-		_PCK(uLLFrameSendEx(MTYPE_NT, SUBTYPE_SIGNIN_RESPONS, 0, false, 0, NULL));
-	}else{
-
-	}
-
+	_PCK(uLLFrameSendEx(MTYPE_NT, SUBTYPE_SIGNIN_RESPONS, 0, false, 0, NULL));
 	return RES_OK;
 }
 

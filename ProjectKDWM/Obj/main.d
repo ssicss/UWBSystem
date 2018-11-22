@@ -42,4 +42,5 @@
 .\obj\main.o: ..\Program\network\inc\uLLPacket.h
 .\obj\main.o: ..\Program\network\inc\uIdle.h
 .\obj\main.o: ..\Program\network\inc\uSVManager.h
+.\obj\main.o: ..\Program\network\inc\uStateMaintenance.h
 .\obj\main.o: ..\Program\network\inc\uSVShell.h

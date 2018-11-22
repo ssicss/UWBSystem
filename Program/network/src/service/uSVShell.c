@@ -11,11 +11,36 @@ extern bool _is_uart_handle;
 extern struct list *guSVManagerDevice;
 
 
+char cmd_history[SHELL_CMD_COUNT_MAX][SHELL_CMD_LEN_MAX];
+
+static void _uSVShellLogInsert(char *cmd)
+{
+	unsigned int i=0;
+	uassert(cmd);
+
+	for(i=SHELL_CMD_COUNT_MAX-2; i>0; i--)
+	{
+		memcpy(&cmd_history[i+1][0], &cmd_history[i][0], SHELL_CMD_LEN_MAX);
+	}
+	memcpy(&cmd_history[1][0], &cmd_history[0][0], SHELL_CMD_LEN_MAX);
+
+	memset(&cmd_history[0][0], 0, SHELL_CMD_LEN_MAX);
+	memcpy(&cmd_history[0][0], cmd, strlen(cmd));
+
+	for(i=0; i<SHELL_CMD_COUNT_MAX; i++)
+	{
+		if(cmd_history[i][0])
+			SEGGER_RTT_printf(0, "%s\n\r",  &cmd_history[i][0]);
+	}
+}
+
 RES_Typedef uSVShellInit(void)
 {
-	gUartQueue = QueueCreate(56);
+	gUartQueue = QueueCreate(SHELL_CMD_LEN_MAX);
 	if(!gUartQueue)
 		return RES_CREATE_QUEUE_ERROR;
+
+	memset(cmd_history, 0, sizeof(cmd_history));
 
 	printf( "\n\r"
 			"Welcome to Uwb Cloud Service\n\r"
@@ -173,6 +198,8 @@ RES_Typedef uSVShellPrase(void)
 	if(_is_uart_handle == true)
 	{
 		_is_uart_handle = false;
+		
+		
 		memset(str_cmd, 0, sizeof(str_cmd));
 
 		while(QueuePop(gUartQueue, &data))
@@ -181,10 +208,10 @@ RES_Typedef uSVShellPrase(void)
 			str_tmp[1] = '\0';
 			strcat(str_cmd, str_tmp);
 		}
-		
-		printf("#");
-		
-		
+
+		_uSVShellLogInsert(str_cmd);
+
+		printf("#");	
 		if((strcmp(str_cmd, "?") == 0) || (strcmp(str_cmd, "help") ==0)){
 			_uSVShellCmdHelp();
 		}

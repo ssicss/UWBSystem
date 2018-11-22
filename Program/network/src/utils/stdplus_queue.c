@@ -24,7 +24,21 @@ struct QUEUE *QueueCreate(const size_t size)
     return q;  
 }  
 
+void QueueClear(struct QUEUE *q)
+{
+	 q->indentification.front = q->indentification.rear;
+	 q->indentification.size = 0;
+}
 
+size_t QueueGetItemCount(struct QUEUE *q)
+{
+	if(q->indentification.rear > q->indentification.front){
+		return q->indentification.rear - q->indentification.front;
+	}else{
+		return q->indentification.rear + q->indentification.size - q->indentification.front;
+	}
+	
+}
 
 bool QueuePush(struct QUEUE *q, const size_t it)  
 {  

@@ -3,7 +3,8 @@
 #define _USTATEMAINTENANCE_H
 
 #include "uCommon.h"
-#include "uLLdriver.h"
+#include "uLLDriver.h"
+#include "uLLPacket.h"
 
 RES_Typedef uPTPing(struct FRAME_DAT *frame);
 RES_Typedef uPTPingRespons(void);

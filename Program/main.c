@@ -127,7 +127,7 @@ int main( void )
 	uSVManagerInit();
 	
 	SEGGER_RTT_Init();
-	SEGGER_RTT_printf(0, "aaaaaaaaaaaaaaaaaaa\n\r");
+	SEGGER_RTT_printf(0, "bbbb\n\r");
 
 	
 	for(;;)

@@ -37,3 +37,5 @@
 .\obj\usvmanager.o: ..\Program\segger\RTT\SEGGER_RTT_Conf.h
 .\obj\usvmanager.o: ..\Program\network\inc\conversion.h
 .\obj\usvmanager.o: ..\Program\network\inc\uCommon.h
+.\obj\usvmanager.o: ..\Program\network\inc\uLLPacket.h
+.\obj\usvmanager.o: ..\Program\network\inc\uLLDriver.h

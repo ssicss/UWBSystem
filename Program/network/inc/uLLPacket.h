@@ -15,5 +15,16 @@ RES_Typedef uLLFrameSendEx(const MTYPE_Typedef mtype,
 										const unsigned int len,
 									 	char *data);
 
+SUBTYPE_Typedef uLLFrameWait(const unsigned int retry);
+
+RES_Typedef uLLFrameWaitEx(const MTYPE_Typedef mtype,
+							const SUBTYPE_Typedef subtype,
+							const unsigned int addr,
+							const unsigned int retry);
+
+SUBTYPE_Typedef uLLFrameWaitInAddr(const unsigned int addr,
+										const unsigned int retry);
+
+
 #endif
 

@@ -34,6 +34,7 @@ RES_Typedef uPTPing(struct FRAME_DAT *frame)
 {
 	unsigned int i=0;
 	char ip_addr[16];
+	unsigned int j=0;
 
 	if(!frame)
 		return RES_PRAMAS_INVALD;
@@ -47,12 +48,12 @@ RES_Typedef uPTPing(struct FRAME_DAT *frame)
        if(_uPTWaitRespons(SUBTYPE_PING_RESPONS) == RES_OK)
        {
 			printf("<%d>catch respons from host\n\r", i);
-	   
+			j++;
 	   }else{
 			printf("<%d>lost\n\r", i);
 	   }
-
 	}
+	printf("Send 5 Packets, Recv %d , lost %d\n\r", j, 5-j);
 
 	printf("#");
 	
@@ -62,22 +63,7 @@ RES_Typedef uPTPing(struct FRAME_DAT *frame)
 
 RES_Typedef uPTPingRespons(void)
 {
-
-	struct FRAME_DAT ping_respons;
-
-
-	if(_uPTWaitRespons(SUBTYPE_PING_REQUEST) != RES_OK){
-		return RES_TIMEOUT;
-	}
-
-	ping_respons.addr=0;
-	ping_respons.hd=false;
-	ping_respons.len=0;
-	ping_respons.data=NULL;
-	ping_respons.mtype = MTYPE_NT;
-	ping_respons.subtype = SUBTYPE_PING_RESPONS;
-	_PCK(uLLFrameSend(&ping_respons));
-
+	_PCK(uLLFrameSendEx(MTYPE_NT, SUBTYPE_PING_RESPONS, 0, false, 0, NULL));
 	return RES_OK;
 }
 

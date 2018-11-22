@@ -38,3 +38,8 @@
 .\obj\uidle.o: ..\Program\network\inc\conversion.h
 .\obj\uidle.o: ..\Program\network\inc\uCommon.h
 .\obj\uidle.o: ..\Program\network\inc\uSVManager.h
+.\obj\uidle.o: ..\Program\network\inc\uLLPacket.h
+.\obj\uidle.o: ..\Program\network\inc\uLLDriver.h
+.\obj\uidle.o: ..\Program\network\inc\uRegister.h
+.\obj\uidle.o: ..\Program\network\inc\uStateMaintenance.h
+.\obj\uidle.o: ..\Program\network\inc\uSVShell.h
