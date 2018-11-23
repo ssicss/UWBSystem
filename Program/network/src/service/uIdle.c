@@ -9,6 +9,7 @@ RES_Typedef uSVIdle(void)
 {
 	struct MANAGER_DEV_INFO *dev=NULL;
 	SUBTYPE_Typedef packet_subtype = SUBTYPE_UNDEFINED;
+	char *parase_buf = NULL;
 
 
 	dev = (struct MANAGER_DEV_INFO *)listnode_head(guSVManagerDevice);
@@ -31,9 +32,9 @@ RES_Typedef uSVIdle(void)
 			}
 		}
 
-		//发送包
+		//updata
 		if(guSVManagerCtl.flag & (1<<1)){
-			uLLFrameSend(&guSVManagerCtl.readly_to_send);
+			uPTGetConfigure();
 			guSVManagerCtl.flag &= (~(1<<1));
 		}
 
@@ -48,13 +49,24 @@ RES_Typedef uSVIdle(void)
 			uPTReSignin();
 			guSVManagerCtl.flag &= (~(1<<3));
 		}
+
+		//set
+		if(guSVManagerCtl.flag & (1<<4)){
+			uPTSetConfigure(&guSVManagerCtl.readly_to_send);
+			guSVManagerCtl.flag &= (~(1<<4));
+		}
 		
 		//解析SHELL
 		uSVShellPrase();
 	}
 	else if(dev->nrole == DEV_NROLE_STA){
 		if(dev->ip){
-			packet_subtype = uLLFrameWaitInAddr(dev->ip, 100);
+
+			parase_buf = malloc(sizeof(struct MANAGER_DEV_INFO));
+			if(!parase_buf)
+				return RES_SVNANAGER_SERVER_CANCEL;
+			
+			packet_subtype = uLLFrameWaitInAddrEx(dev->ip, 100, parase_buf);
 			switch(packet_subtype)
 			{
 				case SUBTYPE_SIGNIN_REQUEST: 
@@ -64,10 +76,19 @@ RES_Typedef uSVIdle(void)
 							uPTPingRespons();
 							break;
 				case SUBTYPE_GET_CONFIG_REQUEST:
-							uPTPingRespons();
+							uPTGetConfigureRespons();
 							break;
-				default:break;
+				case SUBTYPE_SET_CONFIG_REQUEST:
+							uPTSetConfigureRespons(parase_buf);
+							break;
+
+							
+				default:break;	
 			}
+
+			if(parase_buf)
+				free(parase_buf);
+			
 		}else{
 			uPTRegisterRespons();
 		}

@@ -3,8 +3,7 @@
 #include "uLLPacket.h"
 
 
-
-
+struct FRAME_DAT gFrameWaitBuf; 
 
 RES_Typedef uLLFrameSendEx(const MTYPE_Typedef mtype,
 										const SUBTYPE_Typedef subtype,
@@ -71,6 +70,62 @@ SUBTYPE_Typedef uLLFrameWaitInAddr(const unsigned int addr,
 	return SUBTYPE_UNDEFINED;
 }
 
+SUBTYPE_Typedef uLLFrameWaitInAddrEx(const unsigned int addr,
+											const unsigned int retry,
+											char *data)
+{
+	unsigned int t=0;
+	struct FRAME_DAT fra_wt;
+
+	if(!retry)
+		return SUBTYPE_UNDEFINED;
+	
+	do{
+		if(uLLFrameRecv(&fra_wt, WAITDEV_REGISTER_TIMEOUT) == RES_OK)
+		{
+			if(fra_wt.addr == addr){
+				memcpy(data, fra_wt.data, sizeof(struct MANAGER_DEV_INFO));
+				return fra_wt.subtype;
+			}
+				
+		}
+	
+		t++;
+	}
+	while(t<retry);
+
+	return SUBTYPE_UNDEFINED;
+}
+
+
+
+struct FRAME_DAT *uLLFrameWaitData(const MTYPE_Typedef mtype,
+							const SUBTYPE_Typedef subtype,
+							const unsigned int addr,
+							const unsigned int retry)
+{
+	unsigned int t=0;
+	RES_Typedef res;
+
+	if(!retry)
+		return NULL;
+	do{
+		
+		res = uLLFrameRecv(&gFrameWaitBuf, WAITDEV_REGISTER_TIMEOUT);
+		if((res == RES_OK)&&
+			(gFrameWaitBuf.mtype == mtype)&&
+				(gFrameWaitBuf.subtype == subtype)&&
+					(gFrameWaitBuf.addr == addr))
+		{
+			return &gFrameWaitBuf;
+		}
+	
+		t++;
+	}
+	while(t<retry);
+
+	return NULL;
+}
 
 
 

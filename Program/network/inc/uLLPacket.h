@@ -25,6 +25,15 @@ RES_Typedef uLLFrameWaitEx(const MTYPE_Typedef mtype,
 SUBTYPE_Typedef uLLFrameWaitInAddr(const unsigned int addr,
 										const unsigned int retry);
 
+struct FRAME_DAT *uLLFrameWaitData(const MTYPE_Typedef mtype,
+							const SUBTYPE_Typedef subtype,
+							const unsigned int addr,
+							const unsigned int retry);
+
+SUBTYPE_Typedef uLLFrameWaitInAddrEx(const unsigned int addr,
+											const unsigned int retry,
+											char *data);
+
 
 #endif
 

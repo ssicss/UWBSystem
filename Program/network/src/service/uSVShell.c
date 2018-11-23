@@ -142,43 +142,55 @@ static void _uSVShellCmdLs(void){
 
 static void _uSVShellCmdUpdata(const char *parames)
 {
-	struct listnode *node = NULL;
-	unsigned int i=0;
-	struct MANAGER_DEV_INFO *dev;
-	
-	
-	node = guSVManagerDevice->head;
-	for(i=0; i<guSVManagerDevice->count; i++)
-	{
-		if(i>0){
-			dev = (struct MANAGER_DEV_INFO *)node->data;
-			printf("addr=%x\n\r", dev->ip);
-			guSVManagerCtl.readly_to_send.addr = dev->ip;
-			guSVManagerCtl.readly_to_send.mtype = MTYPE_NT;
-			guSVManagerCtl.readly_to_send.subtype = SUBTYPE_GET_CONFIG_REQUEST;
-			guSVManagerCtl.readly_to_send.hd = false;
-			guSVManagerCtl.readly_to_send.data = NULL;
-			guSVManagerCtl.readly_to_send.len = 0;
-			
-			guSVManagerCtl.flag |= (1<<1);
-
-		
-		}
-		node = node->next;
-	}
-
-
-	
-
-
-	//guSVManagerCtl.flag |= (1<<1);
-	
-	
-	
+	guSVManagerCtl.flag |= (1<<1);	
 }
 static void _uSVShellCmdFlush(void)
 {
 	guSVManagerCtl.flag |= (1<<3);
+}
+
+struct MANAGER_DEV_INFO gDevInfo;
+
+static void _uSVShellCmdSet(const char *parames)
+{
+	unsigned int index, ip_part0,ip_part1,ip_part2,ip_part3, sn, role, nrole, priority;
+	unsigned int intip = 0;
+	struct listnode *node;
+	unsigned int i=0;
+	struct MANAGER_DEV_INFO *dev;
+
+	printf("\n\r");
+	if(sscanf(parames, "%u %u.%u.%u.%u %u %d %d %u", &index, &ip_part0, &ip_part1, &ip_part2, &ip_part3,&sn, &role, &nrole, &priority) == 9)
+	{
+		intip = (ip_part0 << 24) + (ip_part1 << 16) + (ip_part2 << 8) + ip_part3;
+		
+		node = guSVManagerDevice->head;
+		for(i=0; i< index; i++){
+			node = node->next;
+		}
+		
+		dev = (struct MANAGER_DEV_INFO *)node->data;
+
+		guSVManagerCtl.readly_to_send.addr = dev->ip;
+		guSVManagerCtl.readly_to_send.mtype = MTYPE_NT;
+		guSVManagerCtl.readly_to_send.subtype = SUBTYPE_SET_CONFIG_REQUEST;
+		guSVManagerCtl.readly_to_send.hd = true;
+		guSVManagerCtl.readly_to_send.len = sizeof(struct MANAGER_DEV_INFO);
+
+
+		gDevInfo.ip = intip;
+		gDevInfo.nrole = (DEV_NROLE_Typedef)nrole;
+		gDevInfo.role = (DEV_ROLE_Typedef)role;
+		gDevInfo.sn = sn;
+		gDevInfo.priority = priority;
+		guSVManagerCtl.readly_to_send.data = (char *)&gDevInfo;
+
+		guSVManagerCtl.flag |= (1<<4);
+		
+		printf("parames ok\n\r");
+	}else{
+		printf("parames illegr\n\r");
+	}
 }
 
 static void _uSVShellCmdPing(const char *parames)
@@ -239,6 +251,9 @@ RES_Typedef uSVShellPrase(void)
 		}
 		else if((strncmp(str_cmd, "flush", strlen("flush")) == 0)){
 			_uSVShellCmdFlush();
+		}
+		else if((strncmp(str_cmd, "set", strlen("set")) == 0)){
+			_uSVShellCmdSet(&str_cmd[strlen("set")]);
 		}
 
 		
