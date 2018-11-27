@@ -35,5 +35,11 @@ SUBTYPE_Typedef uLLFrameWaitInAddrEx(const unsigned int addr,
 											char *data);
 
 
+
+RES_Typedef uLLFrameWaitExNoPre(const MTYPE_Typedef mtype,
+					const SUBTYPE_Typedef subtype,
+					const unsigned int addr,
+					const unsigned int retry);
+
 #endif
 

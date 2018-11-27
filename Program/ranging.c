@@ -1,14 +1,15 @@
 
 
 #include "ranging.h"
-#include "kdwm1000_bsp.h"
+
 #include "modules\serial.h"
-#include "modules\dw1000.h"
-#include "stdplus.h"
+
+
+#include "uCommon.h"
+
 
 /* Default antenna delay values for 64 MHz PRF. See NOTE 2 below. */
-#define TX_ANT_DLY 16436
-#define RX_ANT_DLY 16436
+
 
 
 static dwt_config_t config = {
@@ -29,7 +30,7 @@ void RangingInit(void)
 	KDWM_GPIO_Config();
 	KDWM_UART_Config(NULL);
 	KDWM_DW1000_Config();
-
+                              
 	DW1000_Reset();
 	dwt_initialise(DWT_LOADUCODE);
 	dwt_configure(&config);
@@ -37,6 +38,10 @@ void RangingInit(void)
 	/* Apply default antenna delay value. See NOTE 2 below. */
 	DW1000_SetAntennaDelayRX(RX_ANT_DLY);
 	DW1000_SetAntennaDelayTX(TX_ANT_DLY);
+
+
+	dwt_setrxaftertxdelay(100);
+	dwt_setrxtimeout(65000); // Maximum value timeout with DW1000 is 65ms  
 
 }
 

@@ -6,6 +6,7 @@
 .\obj\ullpacket.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\ullpacket.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\ullpacket.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\ullpacket.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\obj\ullpacket.o: ..\Program\lowlayer\kdwm1000_bsp.h
 .\obj\ullpacket.o: ..\Program\drivers\stm32f4_system.h
 .\obj\ullpacket.o: ..\Libraries\CMSIS\Device\stm32f4xx.h
@@ -30,7 +31,6 @@
 .\obj\ullpacket.o: ..\Program\algorithms\mathUnit.h
 .\obj\ullpacket.o: ..\Libraries\CMSIS\Include\arm_math.h
 .\obj\ullpacket.o: ..\Libraries\CMSIS\Include\core_cm4.h
-.\obj\ullpacket.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\obj\ullpacket.o: ..\Program\decadriver\deca_params.h
 .\obj\ullpacket.o: ..\Program\network\inc\stdplus.h
 .\obj\ullpacket.o: ..\Program\segger\RTT\SEGGER_RTT.h

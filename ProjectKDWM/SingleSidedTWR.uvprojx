@@ -446,6 +446,11 @@
               <FileType>1</FileType>
               <FilePath>..\Program\network\src\linklayer\uLLPacket.c</FilePath>
             </File>
+            <File>
+              <FileName>uPTRanging.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\network\src\protocol\uPTRanging.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1044,6 +1049,11 @@
               <FileName>uLLPacket.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Program\network\src\linklayer\uLLPacket.c</FilePath>
+            </File>
+            <File>
+              <FileName>uPTRanging.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Program\network\src\protocol\uPTRanging.c</FilePath>
             </File>
           </Files>
         </Group>

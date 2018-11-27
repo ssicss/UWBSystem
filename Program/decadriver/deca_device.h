@@ -207,6 +207,7 @@ int dwt_starttx(uint8_t mode) ;
 void dwt_setdelayedtrxtime(uint32_t starttime) ;
 uint32_t dwt_readtxtimestamplo32(void);
 void dwt_readrxtimestamp(uint8_t * timestamp);
+void dwt_readtxtimestamp(uint8_t * timestamp);
 uint32_t dwt_readrxtimestamplo32(void);
 //void dwt_forcetrxoff(void);
 void dwt_syncrxbufptrs(void);

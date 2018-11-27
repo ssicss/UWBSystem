@@ -6,6 +6,7 @@
 .\obj\usvmanager.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\usvmanager.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\usvmanager.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\usvmanager.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\obj\usvmanager.o: ..\Program\lowlayer\kdwm1000_bsp.h
 .\obj\usvmanager.o: ..\Program\drivers\stm32f4_system.h
 .\obj\usvmanager.o: ..\Libraries\CMSIS\Device\stm32f4xx.h
@@ -30,7 +31,6 @@
 .\obj\usvmanager.o: ..\Program\algorithms\mathUnit.h
 .\obj\usvmanager.o: ..\Libraries\CMSIS\Include\arm_math.h
 .\obj\usvmanager.o: ..\Libraries\CMSIS\Include\core_cm4.h
-.\obj\usvmanager.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\obj\usvmanager.o: ..\Program\decadriver\deca_params.h
 .\obj\usvmanager.o: ..\Program\network\inc\stdplus.h
 .\obj\usvmanager.o: ..\Program\segger\RTT\SEGGER_RTT.h

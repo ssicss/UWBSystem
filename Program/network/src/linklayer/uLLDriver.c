@@ -181,6 +181,75 @@ RES_Typedef uLLFrameRecv(struct FRAME_DAT *frame,
 	return RES_OK;
 }
 
+RES_Typedef uLLFrameRecvNoPre(struct FRAME_DAT *frame, 
+								unsigned short timeout )
+{
+	size_t data_len = 0;
+	RES_Typedef res;
+	
+	uassert(uUserInterface);
+	uassert(uUserInterface->uLLDeviceRecvNoPre);
+
+	data_len = uUserInterface->uLLDeviceRecvNoPre(uLLRecvBuf, timeout);
+	if(!data_len)
+		return RES_LL_USER_DEFINED_FAILED;
+
+	res = _uLLFrameParse( frame, uLLRecvBuf, data_len - 2);
+	if((!frame)||(res != RES_OK))
+		return RES_LL_PRASE_FAILED;
+	
+	return RES_OK;
+}
+
+RES_Typedef uLLFrameSendExpResp(const struct FRAME_DAT *frame)
+{
+	uassert(uUserInterface);
+	uassert(uUserInterface->uLLDeviceSendExpResp);
+
+	memset(uLLSendBuf,0,sizeof(uLLSendBuf));
+	if(_uLLFramePacket(frame, uLLSendBuf) != RES_OK)
+		return RES_LL_PRAMAS_INVALD;
+
+	if(!uUserInterface->uLLDeviceSendExpResp(uLLSendBuf, frame->len + 8))
+		return RES_LL_USER_DEFINED_FAILED;
+
+	return RES_OK;
+}
 
 
+RES_Typedef uLLFrameSendDelayed(const struct FRAME_DAT *frame, unsigned int delay)
+{
+	uassert(uUserInterface);
+	uassert(uUserInterface->uLLDeviceSendDelayed);
+
+	memset(uLLSendBuf,0,sizeof(uLLSendBuf));
+	if(_uLLFramePacket(frame, uLLSendBuf) != RES_OK)
+		return RES_LL_PRAMAS_INVALD;
+
+	if(!uUserInterface->uLLDeviceSendDelayed(uLLSendBuf, frame->len + 8, delay))
+		return RES_LL_USER_DEFINED_FAILED;
+
+	return RES_OK;
+}
+
+
+
+
+
+unsigned long long uLLGetRxTimeStamp(void)
+{
+	uassert(uUserInterface);
+	uassert(uUserInterface->uLLDeviceGetRxTimestamp);
+	
+	return uUserInterface->uLLDeviceGetRxTimestamp();
+}
+
+
+unsigned long long uLLGetTxTimeStamp(void)
+{
+	uassert(uUserInterface);
+	uassert(uUserInterface->uLLDeviceGetTxTimestamp);
+	
+	return uUserInterface->uLLDeviceGetTxTimestamp();
+}
 

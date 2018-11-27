@@ -11,6 +11,7 @@
 ".\obj\ustatemaintenance.o"
 ".\obj\ulldriver.o"
 ".\obj\ullpacket.o"
+".\obj\uptranging.o"
 ".\obj\startup_stm32f411xe.o"
 ".\obj\system_stm32f4xx.o"
 ".\obj\misc.o"

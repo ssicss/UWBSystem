@@ -6,6 +6,7 @@
 .\obj\ustatemaintenance.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\ustatemaintenance.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\ustatemaintenance.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\ustatemaintenance.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\obj\ustatemaintenance.o: ..\Program\lowlayer\kdwm1000_bsp.h
 .\obj\ustatemaintenance.o: ..\Program\drivers\stm32f4_system.h
 .\obj\ustatemaintenance.o: ..\Libraries\CMSIS\Device\stm32f4xx.h
@@ -30,7 +31,6 @@
 .\obj\ustatemaintenance.o: ..\Program\algorithms\mathUnit.h
 .\obj\ustatemaintenance.o: ..\Libraries\CMSIS\Include\arm_math.h
 .\obj\ustatemaintenance.o: ..\Libraries\CMSIS\Include\core_cm4.h
-.\obj\ustatemaintenance.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\obj\ustatemaintenance.o: ..\Program\decadriver\deca_params.h
 .\obj\ustatemaintenance.o: ..\Program\network\inc\stdplus.h
 .\obj\ustatemaintenance.o: ..\Program\segger\RTT\SEGGER_RTT.h

@@ -32,7 +32,7 @@ typedef enum{
 	SUBTYPE_PING_RESPONS = 14,
 	SUBTYPE_SET_CONFIG_REQUEST = 15,
 	SUBTYPE_SET_CONFIG_RESPONS = 16,
-
+	SUBTYPE_RANGING_DATRETURN = 17,
 	
 	SUBTYPE_POLL = 1,
 	SUBTYPE_RESPONS = 2,
@@ -42,8 +42,13 @@ typedef enum{
 struct uLLUserInterface{
 	bool (*uLLDeviceInit)(void);
 	bool (*uLLDeviceSend)(const char *, size_t len);
+	bool (*uLLDeviceSendExpResp)(const char *, size_t len);
 	size_t (*uLLDeviceRecv)(char *, size_t);
+	size_t (*uLLDeviceRecvNoPre)(char *, size_t);
 	void (*uLLDeviceDelayMs)(size_t);
+	unsigned long long (*uLLDeviceGetRxTimestamp)(void);
+	unsigned long long (*uLLDeviceGetTxTimestamp)(void);
+	bool (*uLLDeviceSendDelayed)(const char *, size_t, unsigned int);
 };
 
 struct FRAME_DAT{
@@ -66,6 +71,12 @@ void uLLDelayMs(size_t t);
 
 RES_Typedef uLLUserInterfaceRegister(struct uLLUserInterface *interface);
 void uLLUserInterfaceDistory(void);
+RES_Typedef uLLFrameSendExpResp(const struct FRAME_DAT *frame);
+unsigned long long uLLGetRxTimeStamp(void);
+RES_Typedef uLLFrameRecvNoPre(struct FRAME_DAT *frame, unsigned short timeout );
+unsigned long long uLLGetTxTimeStamp(void);
+RES_Typedef uLLFrameSendDelayed(const struct FRAME_DAT *frame, unsigned int delay);
+
 
 #endif
 

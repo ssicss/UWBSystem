@@ -6,6 +6,7 @@
 .\obj\conversion.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\conversion.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\conversion.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\conversion.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\obj\conversion.o: ..\Program\lowlayer\kdwm1000_bsp.h
 .\obj\conversion.o: ..\Program\drivers\stm32f4_system.h
 .\obj\conversion.o: ..\Libraries\CMSIS\Device\stm32f4xx.h
@@ -30,7 +31,6 @@
 .\obj\conversion.o: ..\Program\algorithms\mathUnit.h
 .\obj\conversion.o: ..\Libraries\CMSIS\Include\arm_math.h
 .\obj\conversion.o: ..\Libraries\CMSIS\Include\core_cm4.h
-.\obj\conversion.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\obj\conversion.o: ..\Program\decadriver\deca_params.h
 .\obj\conversion.o: ..\Program\network\inc\stdplus.h
 .\obj\conversion.o: ..\Program\segger\RTT\SEGGER_RTT.h

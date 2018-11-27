@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <math.h>
 
 #include "kdwm1000_bsp.h"
 #include "modules\dw1000.h"
@@ -17,7 +18,16 @@
 #include "SEGGER_RTT_Conf.h"
 
 
-#include "conversion.h"
+#include "conversion.h"	
+
+#define TX_ANT_DLY 16436
+#define RX_ANT_DLY 16436
+
+
+#define POLL_RX_TO_RESP_TX_DLY_UUS  1100
+#define UUS_TO_DWT_TIME 65536
+
+
 
 #define _PCK(x) if(x){return RES_PACKET_ERROR;}
 

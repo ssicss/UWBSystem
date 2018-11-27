@@ -55,7 +55,11 @@ RES_Typedef uSVIdle(void)
 			uPTSetConfigure(&guSVManagerCtl.readly_to_send);
 			guSVManagerCtl.flag &= (~(1<<4));
 		}
-		
+		//start
+		if(guSVManagerCtl.flag & (1<<5)){
+			uPTRangingCyle(&guSVManagerCtl.readly_to_send);
+			guSVManagerCtl.flag &= (~(1<<5));
+		}
 		//解析SHELL
 		uSVShellPrase();
 	}
@@ -81,6 +85,13 @@ RES_Typedef uSVIdle(void)
 				case SUBTYPE_SET_CONFIG_REQUEST:
 							uPTSetConfigureRespons(parase_buf);
 							break;
+				case SUBTYPE_RANGING_REQUEST:
+							uPTRangingRespons();
+							break;	
+				
+				case SUBTYPE_RESPONS:
+							uPTRangingRespinsHandle(parase_buf);
+							break;	
 
 							
 				default:break;	

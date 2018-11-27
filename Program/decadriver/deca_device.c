@@ -388,6 +388,12 @@ uint32_t dwt_readtxtimestamplo32(void)
   return DW1000_readData32(DW1000_TX_TIME, 0);
 }
 
+
+void dwt_readtxtimestamp(uint8_t * timestamp)
+{
+  DW1000_readData(DW1000_TX_TIME, 0, timestamp, 5) ; // Get the adjusted time of arrival
+}
+
 /*! ------------------------------------------------------------------------------------------------------------------
  * @fn dwt_readrxtimestamp()
  *
