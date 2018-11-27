@@ -1,7 +1,7 @@
 
 #include "uPTRanging.h"
 
-
+extern struct list *guSVManagerDevice;
 
 RES_Typedef _uPTRangingSendPoll(void)
 {
@@ -18,13 +18,13 @@ RES_Typedef _uPTRangingSendPoll(void)
 
 	return RES_OK;
 }
-RES_Typedef _uPTRangingSendResp(void)
+RES_Typedef _uPTRangingSendResp(unsigned int addr)
 {
 	struct FRAME_DAT	resp;
 
 	resp.mtype = MTYPE_RANGING;
 	resp.subtype = SUBTYPE_RESPONS;
-	resp.addr = 0;
+	resp.addr = addr;
 	resp.hd = false;
 	resp.len = 0;
 	resp.data = NULL;
@@ -46,7 +46,7 @@ RES_Typedef _uPTRangingWaitBSResp(void)
 
 RES_Typedef _uPTRangingWaitRespons(void)
 {
-	if(uLLFrameWaitEx(MTYPE_RANGING,SUBTYPE_POLL,0, 100) == RES_OK)
+	if(uLLFrameWaitEx(MTYPE_RANGING,SUBTYPE_POLL,0, 20) == RES_OK)
 	{
 
 		
@@ -59,31 +59,43 @@ RES_Typedef _uPTRangingWaitRespons(void)
 	}	
 }
 
-RES_Typedef uPTRangingRespons(void)
+
+unsigned long long t_poll;
+unsigned long long t_resp;
+
+RES_Typedef uPTRangingRespons(unsigned int addr)
 {
+	for(;;){
 
-	if(_uPTRangingSendPoll() == RES_OK)
-	{
-		return RES_OK;
 
-		/*
-		if(_uPTRangingWaitBSResp == RES_OK)
-		{
-			printf("time :%llu\n\r", uLLGetRxTimeStamp() - uLLGetTxTimeStamp());
-			return RES_OK;
+
+		_uPTRangingSendPoll();
+		
+		if(uLLFrameWaitEx(MTYPE_RANGING, SUBTYPE_RESPONS, addr, 100) != RES_OK){
+			goto end;
 		}
 
-		*/
+		uPTRangingRespinsHandle(NULL);
+		
+
+		end:
+
+		if(uLLFrameWaitEx(MTYPE_NT, SUBTYPE_RANGING_REQUEST, addr, 400) != RES_OK){
+			goto end;
+		}
 	}
-	return RES_PT_TIMEOUT;
+
 }
 
 RES_Typedef uPTRangingRespinsHandle(char *buf)
 {
 	unsigned long long t;
+	t_poll = uLLGetTxTimeStamp();
 
-	t = uLLGetRxTimeStamp() - uLLGetTxTimeStamp();
-	
+	t_resp = uLLGetRxTimeStamp(); 
+
+	t = t_resp - t_poll;
+	//printf("t:%llu, tpoll:%llu,tresp:%llu\n\r", t,t_poll, t_resp );
 	uLLFrameSendEx(MTYPE_NT, SUBTYPE_RANGING_DATRETURN, 0, true, sizeof(t), (char *)&t );
 	return RES_OK;
 }
@@ -105,63 +117,79 @@ RES_Typedef uPTRangingCyle(struct FRAME_DAT *frame)
 	double distanc;
 
 	unsigned int resp_tx_time;
+	char buf[16];
 
 
-	for(;;)
+	struct listnode *node = NULL;
+	unsigned int i=0;
+	struct MANAGER_DEV_INFO *dev;
+for(;;)
+{
+
+	node = guSVManagerDevice->head;
+	for(i=0; i<guSVManagerDevice->count; i++)
 	{
 
+		if(i>0){
+			dev = (struct MANAGER_DEV_INFO *)node->data;
 
-
-		if(uLLFrameSend(frame) == RES_OK){
-		
-			
+		if(uLLFrameSendEx(MTYPE_NT, SUBTYPE_RANGING_REQUEST, dev->ip, false, 0, NULL) == RES_OK){
 			if(_uPTRangingWaitRespons()== RES_OK){
 				t1 = uLLGetRxTimeStamp();
-				//printf("catch poll \n\r");
 			
-
-
-
-
-				_uPTRangingSendResp();
-
+				inet_ntoa(buf, dev->ip);
+				SEGGER_RTT_printf(0, "<%s>catch poll \n\r", buf);
+	
+				_uPTRangingSendResp(dev->ip);
 				resp_tx_time = (t1 + (POLL_RX_TO_RESP_TX_DLY_UUS * UUS_TO_DWT_TIME)) >> 8;
 				t2 = (((unsigned long long)(resp_tx_time & 0xFFFFFFFEUL)) << 8) + TX_ANT_DLY;
 
 
-
-
-				
 				//t2 = uLLGetTxTimeStamp();
 
-				dat = uLLFrameWaitData(MTYPE_NT, SUBTYPE_RANGING_DATRETURN, 0, 100);
+				dat = uLLFrameWaitData(MTYPE_NT, SUBTYPE_RANGING_DATRETURN, 0, 20);
 				if(dat){
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 					t3 = (*((unsigned long long *)dat->data))& 0xffffffff;
-					//SEGGER_RTT_printf(0, "t1:%15llu , t2:%15llu, t3:%15llu\n\r",t1, t2, t3);
+					SEGGER_RTT_printf(0, "t3:%15llu\n\r",t3);
+					//printf( "t2-t1:%llu,t3:%llu\n\r",t2-t1, t3 );
 
 					
 
 				      tof = (((double)t3 - ((double)t2-(double)t1)) / 2.0f)*DWT_TIME_UNITS ; // Specifying 1.0f and 2.0f are floats to clear warning 
      				 distanc = tof * SPEED_OF_LIGHT;
 
+					 
+					 if(distanc<100){
+						 printf( "<%d>%10.3f	", i, distanc);
 
-					 printf( "dist:%f,  t3:%15llu,  t2-t1:%15llu,\n\r", distanc,  t3,  t2- t1);
+					 }
+					
 
 				}else{
-					printf("wait data timeout\n\r");
+					//printf("wait data timeout\n\r");
 				}
 				
 			}else{
-				printf("wait timeout\n\r");
+				//printf("wait timeout\n\r");
 			}
 		}
 
-		uLLDelayMs(200);
 
+
+		}
+
+		node = node->next;
+
+		uLLDelayMs(10);
 	}
 
+	printf("\n\r");
 
+	//uLLDelayMs(500);
+	
+
+}
 	return RES_OK;
 
 }

@@ -70,7 +70,7 @@ RES_Typedef uSVIdle(void)
 			if(!parase_buf)
 				return RES_SVNANAGER_SERVER_CANCEL;
 			
-			packet_subtype = uLLFrameWaitInAddrEx(dev->ip, 100, parase_buf);
+			packet_subtype = uLLFrameWaitInAddrEx(dev->ip, 300, parase_buf);
 			switch(packet_subtype)
 			{
 				case SUBTYPE_SIGNIN_REQUEST: 
@@ -86,7 +86,7 @@ RES_Typedef uSVIdle(void)
 							uPTSetConfigureRespons(parase_buf);
 							break;
 				case SUBTYPE_RANGING_REQUEST:
-							uPTRangingRespons();
+							uPTRangingRespons(dev->ip);
 							break;	
 				
 				case SUBTYPE_RESPONS:

@@ -150,30 +150,7 @@ static void _uSVShellCmdFlush(void)
 }
 static void _uSVShellCmdStart(void)
 {
-	struct listnode *node = NULL;
-	unsigned int i=0;
-	struct MANAGER_DEV_INFO *dev;
-
-
-	node = guSVManagerDevice->head;
-	for(i=0; i<guSVManagerDevice->count; i++)
-	{
-
-		if(i>0){
-			dev = (struct MANAGER_DEV_INFO *)node->data;
-		
-			guSVManagerCtl.readly_to_send.addr = dev->ip;
-			guSVManagerCtl.readly_to_send.mtype = MTYPE_NT;
-			guSVManagerCtl.readly_to_send.subtype = SUBTYPE_RANGING_REQUEST;
-			guSVManagerCtl.readly_to_send.hd = false;
-			guSVManagerCtl.readly_to_send.len = 0;
-			guSVManagerCtl.readly_to_send.data = NULL;
-
-			guSVManagerCtl.flag |= (1<<5);
-		}
-
-		node = node->next;
-	}
+	guSVManagerCtl.flag |= (1<<5);
 }
 
 struct MANAGER_DEV_INFO gDevInfo;

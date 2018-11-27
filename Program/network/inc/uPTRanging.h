@@ -9,7 +9,8 @@
 #include "uLLPacket.h"
 
 RES_Typedef uPTRangingCyle(struct FRAME_DAT *frame);
-RES_Typedef uPTRangingRespons(void);
+RES_Typedef uPTRangingRespons(unsigned int addr);
+
 RES_Typedef uPTRangingRespinsHandle(char *buf);
 
 
