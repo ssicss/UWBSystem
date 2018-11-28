@@ -85,14 +85,9 @@ RES_Typedef uSVIdle(void)
 				case SUBTYPE_SET_CONFIG_REQUEST:
 							uPTSetConfigureRespons(parase_buf);
 							break;
-				case SUBTYPE_RANGING_REQUEST:
-							uPTRangingRespons(dev->ip);
+				case SUBTYPE_RANGING_BEGIN_REQUEST:
+							uPTRangingRespons(dev->ip, parase_buf);
 							break;	
-				
-				case SUBTYPE_RESPONS:
-							uPTRangingRespinsHandle(parase_buf);
-							break;	
-
 							
 				default:break;	
 			}

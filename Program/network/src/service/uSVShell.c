@@ -167,7 +167,7 @@ static void _uSVShellCmdSet(const char *parames)
 	if(sscanf(parames, "%u %u.%u.%u.%u %u %d %d %u", &index, &ip_part0, &ip_part1, &ip_part2, &ip_part3,&sn, &role, &nrole, &priority) == 9)
 	{
 		intip = (ip_part0 << 24) + (ip_part1 << 16) + (ip_part2 << 8) + ip_part3;
-		
+	
 		node = guSVManagerDevice->head;
 		for(i=0; i< index; i++){
 			node = node->next;
@@ -181,7 +181,7 @@ static void _uSVShellCmdSet(const char *parames)
 		guSVManagerCtl.readly_to_send.hd = true;
 		guSVManagerCtl.readly_to_send.len = sizeof(struct MANAGER_DEV_INFO);
 
-
+		printf("set ip:%x\n\r", intip);
 		gDevInfo.ip = intip;
 		gDevInfo.nrole = (DEV_NROLE_Typedef)nrole;
 		gDevInfo.role = (DEV_ROLE_Typedef)role;

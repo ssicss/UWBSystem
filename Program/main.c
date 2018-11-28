@@ -187,7 +187,7 @@ bool DeviceSendDelayed(const char *buf, size_t len, unsigned int delay)
 	poll_rx_ts = DeviceGetRxTimestamp();
 	
 	/* Compute final message transmission time. See NOTE 7 below. */
-	resp_tx_time = (poll_rx_ts + (POLL_RX_TO_RESP_TX_DLY_UUS * UUS_TO_DWT_TIME)) >> 8;
+	resp_tx_time = (poll_rx_ts + (POLL_RX_TO_RESP_TX_DLY_UUS *(1 + delay)* UUS_TO_DWT_TIME)) >> 8;
 	dwt_setdelayedtrxtime(resp_tx_time);
 	
 	/* Response TX timestamp is the transmission time we programmed plus the antenna delay. */
